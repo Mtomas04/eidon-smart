@@ -42,14 +42,18 @@ dir apuntando a la raíz.
 
 - **`config.js`**: tiene dos TODO — actualizar el email a `contacto@eidonsmart.com`
   y la URL del sitio cuando el dominio propio esté activo.
-- **`portafolio.html`**: solo tiene un caso real documentado (el de
-  clasificación de leads, que también aparece en el home). Los otros dos
-  slots están marcados como placeholder a propósito — hay un comentario en
-  el HTML con instrucciones de qué completar. No agregué métricas ni
-  clientes inventados: eso hubiera sido peor que dejarlo vacío.
+- **`portafolio.html`**: tres casos reales documentados (prospección con IA,
+  clasificación de leads, monitoreo y facturas), más equipo, stack y precios.
+  Sumar casos nuevos a medida que se cierren proyectos — no inventar números.
 - La calculadora de ROI ya no cita estudios genéricos (Zapier 2021 /
   McKinsey) como si fueran investigación propia — ahora se presenta
   explícitamente como una estimación editable.
 - Las conversiones de moneda en la calculadora (ARS/COP) son aproximadas,
   no tipos de cambio en vivo — si hace falta precisión, conectar una API de
   cotización.
+- El formulario de contacto usa **Netlify Forms** (`data-netlify="true"` +
+  submit por fetch en `script.js`). Se activa solo en el próximo deploy —
+  las respuestas van a aparecer en el dashboard de Netlify, en Forms. Si
+  querés notificación por email de cada envío nuevo, se configura ahí
+  mismo (Site settings → Forms → Form notifications), no es algo que se
+  resuelva desde el código.
