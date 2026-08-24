@@ -297,7 +297,11 @@
         <p class="lede">Describí el proceso que te gustaría automatizar. Te respondemos en menos de 24 horas con un diagnóstico honesto.</p>
 
         <div class="contact-grid">
-          <form id="contact-form">
+          <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <p style="display:none">
+              <label>No completar si sos humano: <input name="bot-field" /></label>
+            </p>
             <div class="field">
               <label for="name">Nombre</label>
               <input type="text" id="name" name="name" required />
@@ -311,6 +315,7 @@
               <textarea id="process" name="process" required></textarea>
             </div>
             <button type="submit" class="btn-primary">Enviar consulta →</button>
+            <p id="form-status" class="calc-note" style="margin-top:0.75rem" aria-live="polite"></p>
           </form>
 
           <div class="direct-contact">
