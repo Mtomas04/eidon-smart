@@ -19,15 +19,35 @@ if (socialRow) {
 }
 
 const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
 if (contactForm) {
-  contactForm.addEventListener("submit", (event) => {
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const process = document.getElementById("process").value;
-    const subject = encodeURIComponent(`Consulta de ${name} — automatización`);
-    const body = encodeURIComponent(`${process}\n\nResponder a: ${email}`);
-    window.location.href = `mailto:${CONFIG.contactEmail}?subject=${subject}&body=${body}`;
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const encoded = new URLSearchParams(new FormData(contactForm)).toString();
+
+    submitBtn.disabled = true;
+    if (formStatus) formStatus.textContent = "Enviando…";
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encoded,
+      });
+      if (!response.ok) throw new Error(`Netlify Forms respondió ${response.status}`);
+
+      contactForm.reset();
+      contactForm.hidden = true;
+      if (formStatus) {
+        formStatus.textContent = "Listo — recibimos tu consulta. Te respondemos en menos de 24 horas.";
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      if (formStatus) {
+        formStatus.textContent = `No se pudo enviar. Escribinos directo a ${CONFIG.contactEmail}.`;
+      }
+    }
   });
 }
 
