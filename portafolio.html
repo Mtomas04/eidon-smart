@@ -3,13 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portafolio | Eidon Smart</title>
-  <meta name="description" content="Casos reales de automatización con n8n e IA construidos por Eidon Smart." />
-  <link rel="canonical" href="https://eidonsmart.com/portafolio" />
+  <title>Portafolio | Eidon Smart — Casos reales de automatización con n8n e IA</title>
+  <meta name="description" content="Tres automatizaciones reales construidas por Eidon Smart: prospección con IA, clasificación de leads y monitoreo de operación. Stack técnico y equipo." />
+  <!-- TODO: cambiar a https://eidonsmart.com/portafolio cuando el dominio propio esté activo -->
+  <link rel="canonical" href="https://eidon-smart.netlify.app/portafolio.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Eidon Smart", "item": "https://eidon-smart.netlify.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Portafolio", "item": "https://eidon-smart.netlify.app/portafolio.html" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -33,43 +44,114 @@
       <div class="node-content wide">
         <span class="eyebrow">05 · OUTPUT</span>
         <h1>Flujos que ya construimos.</h1>
-        <p class="lede">Casos reales, con el stack técnico completo. Vamos a sumar más a medida que cerramos y documentamos cada proyecto — nada de números inventados acá.</p>
+        <p class="lede">Tres automatizaciones reales, con el stack técnico completo. Vamos a sumar más a medida que cerramos y documentamos cada proyecto nuevo.</p>
+
+        <!-- quiénes somos -->
+        <h2 style="margin-top:3rem">Dos cofundadores, una misión técnica.</h2>
+        <div class="card-grid cols-2">
+          <div class="card">
+            <h3>Cofundador técnico</h3>
+            <p>Ingeniería en Inteligencia Artificial (UDESA). Python, C, matemáticas, n8n, automatización.</p>
+          </div>
+          <div class="card">
+            <h3>Cofundador de negocio</h3>
+            <p>Marketing digital y estrategia. Ventas, desarrollo de clientes, redes sociales.</p>
+          </div>
+        </div>
+        <p style="margin-top:1.25rem">
+          Construimos automatizaciones con n8n e IA que eliminan el trabajo repetitivo de las empresas,
+          para que operen mejor con los mismos recursos — sin consultoras lentas ni costos de agencia.
+          Trabajamos con pymes y emprendedores en Argentina y Colombia.
+        </p>
+
+        <!-- stack técnico -->
+        <h2 style="margin-top:3rem">Lo que usamos.</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>n8n</h3>
+            <p>El motor: conecta más de 300 aplicaciones entre sí. Si ya usás WhatsApp, Gmail, Excel o cualquier otra herramienta, la integramos.</p>
+          </div>
+          <div class="card">
+            <h3>IA aplicada</h3>
+            <p>Lee, clasifica y decide: responde mensajes, detecta oportunidades o genera reportes sin intervención manual.</p>
+          </div>
+          <div class="card">
+            <h3>Notificaciones y datos</h3>
+            <p>Avisos por WhatsApp, email o Telegram al canal que ya usás. Todo lo que genera la automatización queda guardado y ordenado.</p>
+          </div>
+        </div>
+
+        <!-- propuesta de valor -->
+        <h2 style="margin-top:3rem">Por qué elegirnos.</h2>
+        <div class="stats-row">
+          <div class="stat"><span class="stat-num">1–3</span><span class="stat-label">semanas de entrega (simples a medianas)</span></div>
+          <div class="stat"><span class="stat-num">$0</span><span class="stat-label">diagnóstico inicial</span></div>
+          <div class="stat"><span class="stat-num">300+</span><span class="stat-label">integraciones posibles vía n8n</span></div>
+          <div class="stat"><span class="stat-num">24h</span><span class="stat-label">respuesta máxima post-lanzamiento</span></div>
+        </div>
+
+        <!-- casos reales -->
+        <h2 style="margin-top:3rem">Casos reales.</h2>
 
         <!--
-          TODO (Tomás): para cada caso nuevo, copiá este bloque .case-card,
-          sacale la clase "is-placeholder" y completá con datos reales:
-          rubro del cliente (o nombre si te dan permiso), problema puntual,
-          stack usado, y un resultado medible (horas/semana, % de error, etc).
-          No inventes números — si todavía no los tenés medidos, dejalo
-          como placeholder hasta tenerlos.
+          TODO (Tomás): para cada caso nuevo, copiá este bloque .case-card
+          y completá con datos reales — rubro del cliente (o nombre si te
+          dan permiso), problema puntual, stack usado, y un resultado
+          medible. No inventes números.
         -->
 
         <div class="case-card">
           <span class="case-tag">Caso 1 — real</span>
+          <h3>Prospección de clientes con IA y Google Maps</h3>
+          <p>
+            Ingresás un rubro (por ejemplo "restaurantes" o "ferreterías") y el sistema busca
+            negocios, los analiza con IA y genera una propuesta de venta personalizada con un
+            gancho de contacto listo para usar — todo enviado a Telegram en segundos: nombre y
+            ubicación del negocio, si tiene web o no, la propuesta técnica y las preguntas de
+            calificación del cliente.
+          </p>
+          <div class="case-stack">Stack: n8n · Google Maps · IA · Telegram</div>
+        </div>
+
+        <div class="case-card">
+          <span class="case-tag">Caso 2 — real</span>
           <h3>Clasificación y routing de leads con IA</h3>
           <p>
-            Un formulario web dispara un flujo en n8n que envía el mensaje a Gemini Flash
-            para clasificarlo como lead de alta calidad, dudoso o nulo. Según el resultado,
-            el flujo registra el lead en Google Sheets, dispara un email automático y manda
-            una alerta por Telegram al equipo comercial — sin que nadie tenga que revisar
-            el formulario a mano.
+            Un formulario web dispara un flujo en n8n que envía el mensaje a Gemini para
+            clasificarlo como caliente, tibio o frío y extraer los datos clave. El lead se
+            registra en Google Sheets y el equipo de ventas recibe la alerta por Gmail y
+            Telegram con un resumen listo para actuar — todo en menos de 60 segundos desde que
+            se completa el formulario.
           </p>
-          <div class="case-stack">Stack: n8n · Gemini Flash · Google Sheets · Gmail · Telegram</div>
+          <div class="case-stack">Stack: n8n · Gemini · Google Sheets · Gmail · Telegram</div>
         </div>
 
-        <div class="case-card is-placeholder">
-          <span class="case-tag">Caso 2 — en documentación</span>
-          <h3>[Rubro del cliente] — [problema en una línea]</h3>
-          <p>[Reemplazar con la descripción real del flujo una vez que el proyecto esté cerrado y tengas el resultado medido.]</p>
-          <div class="case-stack">Stack: [completar]</div>
+        <div class="case-card">
+          <span class="case-tag">Caso 3 — real</span>
+          <h3>Monitoreo de operación y registro de facturas</h3>
+          <p>
+            Dos flujos de operación interna: si algo falla, el equipo recibe una alerta
+            instantánea por WhatsApp o Telegram con qué pasó y cómo solucionarlo. Y cada factura
+            que entra o sale queda registrada y ordenada sola, sin carga manual.
+          </p>
+          <div class="case-stack">Stack: n8n · WhatsApp · Telegram</div>
         </div>
 
-        <div class="case-card is-placeholder">
-          <span class="case-tag">Caso 3 — en documentación</span>
-          <h3>[Rubro del cliente] — [problema en una línea]</h3>
-          <p>[Reemplazar con la descripción real del flujo una vez que el proyecto esté cerrado y tengas el resultado medido.]</p>
-          <div class="case-stack">Stack: [completar]</div>
+        <!-- servicios y precios -->
+        <h2 style="margin-top:3rem">Servicios y precios.</h2>
+        <div class="card-grid cols-2">
+          <div class="card">
+            <h3>Automatización simple</h3>
+            <p>Un flujo único, conexión entre 2-3 herramientas, sin IA. Ideal para notificaciones, registros automáticos o sincronización de datos.</p>
+            <ul><li>Presupuesto a medida</li></ul>
+          </div>
+          <div class="card">
+            <h3>Automatización inteligente</h3>
+            <p>Flujos que analizan información, toman decisiones y actúan solos, conectando todas tus herramientas en un solo proceso.</p>
+            <ul><li>Presupuesto a medida</li></ul>
+          </div>
         </div>
+        <p class="calc-note" style="margin-top:1rem">Evaluamos tu caso sin costo antes de arrancar, y te acompañamos después de entregar.</p>
 
         <p class="calc-note" style="margin-top:2rem">
           ¿Tenés un proceso parecido? <a href="index.html#contacto">Contanos y lo vemos juntos →</a>
