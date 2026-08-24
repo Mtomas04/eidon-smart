@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eidon Smart | Automatización con n8n e IA para tu empresa</title>
+  <meta name="description" content="Construimos automatizaciones con n8n e inteligencia artificial que conectan tus herramientas y eliminan el trabajo manual. Diagnóstico, construcción y entrega en semanas." />
+  <link rel="canonical" href="https://eidonsmart.com" />
+  <meta property="og:title" content="Eidon Smart | Automatización con n8n e IA" />
+  <meta property="og:description" content="Construimos flujos de trabajo que eliminan tareas manuales y conectan tus herramientas." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="#top" class="logo"><span class="dot"></span>EIDON SMART</a>
+      <nav class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#calculadora">Calculadora</a>
+        <a href="portafolio.html">Portafolio</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#contacto" class="btn-primary">Hablar con nosotros →</a>
+    </div>
+  </header>
+
+  <main class="pipeline" id="top">
+
+    <!-- 01 · TRIGGER — hero -->
+    <section class="node" id="hero">
+      <span class="node-dot is-live" aria-hidden="true"></span>
+      <div class="node-content">
+        <span class="eyebrow">01 · TRIGGER</span>
+        <h1>Tu negocio ya manda señales todo el día.</h1>
+        <p class="lede">
+          Un formulario que se llena. Un mensaje de WhatsApp. Una factura que
+          entra por mail. Construimos lo que conecta esa señal con la acción
+          — sin que nadie de tu equipo tenga que hacerlo a mano.
+        </p>
+        <div class="cta-row">
+          <a href="#contacto" class="btn-primary">Contanos tu proceso →</a>
+          <a href="#flujo-real" class="btn-ghost">Ver el flujo en vivo</a>
+        </div>
+      </div>
+
+      <div class="node-content wide" id="flujo-real">
+        <div class="flow-diagram-wrap">
+          <svg viewBox="0 0 860 260" role="img" aria-labelledby="flow-title flow-desc">
+            <title id="flow-title">Flujo de clasificación de leads con IA</title>
+            <desc id="flow-desc">Un formulario dispara un análisis con Gemini Flash, un filtro clasifica el lead como alta, dudosa o nula, y el resultado se envía a Google Sheets, Gmail y Telegram.</desc>
+
+            <!-- conectores -->
+            <path class="flow-path animated" d="M150,130 H230" />
+            <path class="flow-path animated" d="M400,130 H480" />
+            <path class="flow-path" d="M600,130 C640,130 640,50 680,50" />
+            <path class="flow-path animated" d="M600,130 H680" />
+            <path class="flow-path" d="M600,130 C640,130 640,210 680,210" />
+
+            <!-- nodo: formulario -->
+            <rect class="flow-node-rect accent" x="20" y="105" width="130" height="50" rx="6" />
+            <text class="flow-label" x="35" y="134">Formulario web</text>
+
+            <!-- nodo: gemini -->
+            <rect class="flow-node-rect" x="230" y="100" width="170" height="60" rx="6" />
+            <text class="flow-label" x="245" y="126">Gemini Flash</text>
+            <text class="flow-label soft" x="245" y="144">analiza el mensaje</text>
+
+            <!-- nodo: filtro -->
+            <rect class="flow-node-rect" x="480" y="100" width="120" height="60" rx="6" />
+            <text class="flow-label" x="493" y="126">Smart Filter</text>
+            <text class="flow-label soft" x="493" y="144">alta / dudosa / nula</text>
+
+            <!-- salidas -->
+            <rect class="flow-node-rect" x="680" y="25" width="150" height="50" rx="6" />
+            <text class="flow-label" x="695" y="54">Google Sheets</text>
+
+            <rect class="flow-node-rect" x="680" y="105" width="150" height="50" rx="6" />
+            <text class="flow-label" x="695" y="134">Gmail automático</text>
+
+            <rect class="flow-node-rect" x="680" y="185" width="150" height="50" rx="6" />
+            <text class="flow-label" x="695" y="214">Alerta en Telegram</text>
+          </svg>
+          <p class="flow-caption">
+            Flujo real en producción — así clasificamos y ruteamos los leads de un cliente, hoy corriendo sin intervención manual.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 · ACTION — servicios -->
+    <section class="node" id="servicios">
+      <span class="node-dot" aria-hidden="true"></span>
+      <div class="node-content wide">
+        <span class="eyebrow">02 · ACTION</span>
+        <h2>Construimos tres tipos de soluciones.</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Flujos de trabajo con n8n</h3>
+            <p>Conectamos las herramientas que ya usás — WhatsApp, Gmail, Sheets, tu CRM — para que los procesos repetitivos pasen solos, sin código y sin errores de tipeo.</p>
+            <ul>
+              <li>Clasificación y routing de leads</li>
+              <li>Notificaciones y alertas automáticas</li>
+              <li>Sincronización entre plataformas</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Agentes e IA aplicada</h3>
+            <p>Gemini, Groq y modelos open-source para tareas que requieren entender texto o documentos: clasificar mensajes, leer facturas, responder con contexto de tu empresa.</p>
+            <ul>
+              <li>Análisis de facturas y documentos</li>
+              <li>Asistentes por WhatsApp o web</li>
+              <li>Prospección automatizada con IA</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Integraciones a medida</h3>
+            <p>Si tu software tiene API, la conectamos. Si no la tiene, evaluamos alternativas y te decimos la verdad antes de empezar a cobrarte.</p>
+            <ul>
+              <li>ERPs y sistemas propietarios</li>
+              <li>Portales gubernamentales</li>
+              <li>Plataformas e-commerce</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 · LOGIC — proceso -->
+    <section class="node" id="proceso">
+      <span class="node-dot" aria-hidden="true"></span>
+      <div class="node-content wide">
+        <span class="eyebrow">03 · LOGIC</span>
+        <h2>Cómo pensamos cada flujo.</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="step-tag">→ diagnóstico</span>
+            <h3>Entendemos tu operación</h3>
+            <p>Identificamos qué vale la pena automatizar y estimamos tiempo y costo antes de arrancar. Sin cargo.</p>
+          </div>
+          <div class="step">
+            <span class="step-tag">→ construcción</span>
+            <h3>Armamos y testeamos</h3>
+            <p>Construimos el flujo, lo probamos con datos reales y lo ajustamos hasta que funcione sin intervención manual. Generalmente entre 1 y 3 semanas.</p>
+          </div>
+          <div class="step">
+            <span class="step-tag">→ entrega</span>
+            <h3>Lo dejamos andando</h3>
+            <p>Lo implementamos en tu entorno, te mostramos cómo monitorearlo y quedamos disponibles para ajustes post-entrega.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 · FILTER — calculadora -->
+    <section class="node" id="calculadora">
+      <span class="node-dot" aria-hidden="true"></span>
+      <div class="node-content wide">
+        <span class="eyebrow">04 · FILTER</span>
+        <h2>¿Cuánto tiempo se te escapa?</h2>
+        <p class="lede">Una estimación simple, no un estudio — movés los números para que se parezcan a tu operación real.</p>
+
+        <div class="calc-box">
+          <div>
+            <div class="currency-toggle" role="group" aria-label="Moneda">
+              <button type="button" data-currency="USD" aria-pressed="true">USD</button>
+              <button type="button" data-currency="ARS" aria-pressed="false">ARS</button>
+              <button type="button" data-currency="COP" aria-pressed="false">COP</button>
+            </div>
+
+            <div class="calc-field">
+              <label for="calc-people">Personas en tareas manuales <output id="out-people">3</output></label>
+              <input type="range" id="calc-people" min="1" max="20" value="3" />
+            </div>
+            <div class="calc-field">
+              <label for="calc-hours">Horas manuales / semana / persona <output id="out-hours">15</output></label>
+              <input type="range" id="calc-hours" min="1" max="40" value="15" />
+            </div>
+            <div class="calc-field">
+              <label for="calc-rate">Tarifa por hora <output id="out-rate">20</output></label>
+              <input type="range" id="calc-rate" min="1" max="100" value="20" />
+            </div>
+            <div class="calc-field">
+              <label for="calc-recovery">% de esas tareas que asumimos automatizable <output id="out-recovery">70</output></label>
+              <input type="range" id="calc-recovery" min="10" max="95" value="70" />
+            </div>
+          </div>
+
+          <div class="calc-result">
+            <span class="eyebrow" style="margin-bottom:0.25rem">Recuperación potencial anual</span>
+            <div class="result-figure" id="calc-money">$0</div>
+            <div class="result-sub"><strong id="calc-hours-year">0</strong> horas/año que tu equipo podría dedicar a otra cosa.</div>
+            <p class="calc-note">Ajustá el % automatizable si tu caso es distinto — no todas las tareas manuales se prestan igual para automatizarse.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 · OUTPUT — portafolio teaser -->
+    <section class="node" id="portafolio-teaser">
+      <span class="node-dot" aria-hidden="true"></span>
+      <div class="node-content wide">
+        <span class="eyebrow">05 · OUTPUT</span>
+        <h2>Un flujo que ya está en producción.</h2>
+        <div class="case-card">
+          <span class="case-tag">Caso real</span>
+          <h3>Clasificación y routing de leads con IA</h3>
+          <p>El mismo flujo del diagrama de arriba: un formulario dispara un análisis con Gemini Flash, un filtro decide si el lead es de calidad, y el resultado llega solo a la planilla del equipo, por email y por Telegram.</p>
+          <div class="case-stack">Stack: n8n · Gemini Flash · Google Sheets · Gmail · Telegram</div>
+        </div>
+        <p class="calc-note" style="margin-top:1.5rem">
+          Estamos documentando más casos con números concretos.
+          <a href="portafolio.html">Ver el portafolio completo →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- 06 · DEBUG — faq -->
+    <section class="node" id="faq">
+      <span class="node-dot" aria-hidden="true"></span>
+      <div class="node-content wide">
+        <span class="eyebrow">06 · DEBUG</span>
+        <h2>Lo que nos preguntan.</h2>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              ¿Cuánto cuesta una automatización?
+              <span class="plus">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Depende de la complejidad. Un flujo sencillo (ej: formulario → email → Google Sheets) está en el rango de 2 a 5 horas de trabajo. Algo con IA, múltiples sistemas y lógica condicional puede tomar entre 15 y 30 horas. Siempre hacemos el diagnóstico antes de darte un número, y lo hacemos sin costo.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              ¿Necesito saber de tecnología para trabajar con ustedes?
+              <span class="plus">+</span>
+            </button>
+            <div class="faq-a">
+              <p>No. Solo necesitás saber qué problema querés resolver. Nosotros elegimos las herramientas, las configuramos y te explicamos el resultado en términos simples. Si algo falla después de la entrega, lo arreglamos.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              ¿Trabajan con empresas de cualquier tamaño?
+              <span class="plus">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Sí, pero donde más impacto generamos es en pymes y emprendimientos en crecimiento — son los que más sienten el costo del trabajo manual y los que más se benefician de liberar horas del equipo.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              ¿Son seguros los datos de mi empresa?
+              <span class="plus">+</span>
+            </button>
+            <div class="faq-a">
+              <p>Las automatizaciones corren en tu propia infraestructura o en la que vos elijas. Tus datos no pasan por nuestros servidores. Usamos conexiones cifradas y seguimos buenas prácticas de seguridad en cada integración.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 · DEPLOY — contacto -->
+    <section class="node" id="contacto">
+      <span class="node-dot" aria-hidden="true"></span>
+      <div class="node-content wide">
+        <span class="eyebrow">07 · DEPLOY</span>
+        <h2>Contanos tu proceso.</h2>
+        <p class="lede">Describí el proceso que te gustaría automatizar. Te respondemos en menos de 24 horas con un diagnóstico honesto.</p>
+
+        <div class="contact-grid">
+          <form id="contact-form">
+            <div class="field">
+              <label for="name">Nombre</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="field">
+              <label for="process">¿Qué proceso querés automatizar?</label>
+              <textarea id="process" name="process" required></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Enviar consulta →</button>
+          </form>
+
+          <div class="direct-contact">
+            <span class="eyebrow">O directo</span>
+            <p>Si preferís saltear el formulario, escribinos directamente.</p>
+            <a class="email-link" id="contact-email-link" href="#">cargando…</a>
+            <div class="social-row" id="social-links"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot-brand">
+        EIDON SMART<br />
+        Automatización con n8n e IA para empresas que quieren operar mejor.
+      </div>
+      <nav>
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#calculadora">Calculadora</a>
+        <a href="portafolio.html">Portafolio</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </footer>
+
+  <a href="#contacto" class="float-cta"><span class="dot"></span> ¿Tenés un proceso manual en mente?</a>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

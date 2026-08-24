@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio | Eidon Smart</title>
+  <meta name="description" content="Casos reales de automatización con n8n e IA construidos por Eidon Smart." />
+  <link rel="canonical" href="https://eidonsmart.com/portafolio" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo"><span class="dot"></span>EIDON SMART</a>
+      <nav class="nav-links">
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#proceso">Proceso</a>
+        <a href="index.html#calculadora">Calculadora</a>
+        <a href="portafolio.html">Portafolio</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <a href="index.html#contacto" class="btn-primary">Hablar con nosotros →</a>
+    </div>
+  </header>
+
+  <main class="pipeline">
+    <section class="node">
+      <span class="node-dot is-live" aria-hidden="true"></span>
+      <div class="node-content wide">
+        <span class="eyebrow">05 · OUTPUT</span>
+        <h1>Flujos que ya construimos.</h1>
+        <p class="lede">Casos reales, con el stack técnico completo. Vamos a sumar más a medida que cerramos y documentamos cada proyecto — nada de números inventados acá.</p>
+
+        <!--
+          TODO (Tomás): para cada caso nuevo, copiá este bloque .case-card,
+          sacale la clase "is-placeholder" y completá con datos reales:
+          rubro del cliente (o nombre si te dan permiso), problema puntual,
+          stack usado, y un resultado medible (horas/semana, % de error, etc).
+          No inventes números — si todavía no los tenés medidos, dejalo
+          como placeholder hasta tenerlos.
+        -->
+
+        <div class="case-card">
+          <span class="case-tag">Caso 1 — real</span>
+          <h3>Clasificación y routing de leads con IA</h3>
+          <p>
+            Un formulario web dispara un flujo en n8n que envía el mensaje a Gemini Flash
+            para clasificarlo como lead de alta calidad, dudoso o nulo. Según el resultado,
+            el flujo registra el lead en Google Sheets, dispara un email automático y manda
+            una alerta por Telegram al equipo comercial — sin que nadie tenga que revisar
+            el formulario a mano.
+          </p>
+          <div class="case-stack">Stack: n8n · Gemini Flash · Google Sheets · Gmail · Telegram</div>
+        </div>
+
+        <div class="case-card is-placeholder">
+          <span class="case-tag">Caso 2 — en documentación</span>
+          <h3>[Rubro del cliente] — [problema en una línea]</h3>
+          <p>[Reemplazar con la descripción real del flujo una vez que el proyecto esté cerrado y tengas el resultado medido.]</p>
+          <div class="case-stack">Stack: [completar]</div>
+        </div>
+
+        <div class="case-card is-placeholder">
+          <span class="case-tag">Caso 3 — en documentación</span>
+          <h3>[Rubro del cliente] — [problema en una línea]</h3>
+          <p>[Reemplazar con la descripción real del flujo una vez que el proyecto esté cerrado y tengas el resultado medido.]</p>
+          <div class="case-stack">Stack: [completar]</div>
+        </div>
+
+        <p class="calc-note" style="margin-top:2rem">
+          ¿Tenés un proceso parecido? <a href="index.html#contacto">Contanos y lo vemos juntos →</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot-brand">
+        EIDON SMART<br />
+        Automatización con n8n e IA para empresas que quieren operar mejor.
+      </div>
+      <nav>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#proceso">Proceso</a>
+        <a href="portafolio.html">Portafolio</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+    </div>
+  </footer>
+
+  <a href="index.html#contacto" class="float-cta"><span class="dot"></span> ¿Tenés un proceso manual en mente?</a>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
