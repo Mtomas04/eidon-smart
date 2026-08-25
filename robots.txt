@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://eidon-smart.netlify.app/sitemap.xml
+Sitemap: https://eidonsmart.com/sitemap.xml
