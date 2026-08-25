@@ -58,9 +58,11 @@ const RATES = {
   // Conversión aproximada solo para que la cifra se sienta local.
   // No son tipos de cambio en vivo — si hace falta precisión real,
   // conectar a una API de cotización más adelante.
-  USD: { symbol: "US$", factor: 1 },
-  ARS: { symbol: "AR$", factor: 1000 },
-  COP: { symbol: "COP$", factor: 4000 },
+  // El rango de la tarifa por hora también se reescala por moneda: un "20"
+  // tiene sentido en USD, pero en ARS o COP la tarifa real está en miles.
+  USD: { symbol: "US$", factor: 1, rateMin: 1, rateMax: 100, rateStep: 1 },
+  ARS: { symbol: "AR$", factor: 1000, rateMin: 1000, rateMax: 100000, rateStep: 1000 },
+  COP: { symbol: "COP$", factor: 4000, rateMin: 4000, rateMax: 400000, rateStep: 4000 },
 };
 
 let currentCurrency = "USD";
@@ -98,7 +100,7 @@ function updateCalc() {
 
   const weeklyHoursSaved = people * hours * recovery;
   const yearlyHoursSaved = Math.round(weeklyHoursSaved * 52);
-  const yearlyMoneySaved = weeklyHoursSaved * rate * 52 * RATES[currentCurrency].factor;
+  const yearlyMoneySaved = weeklyHoursSaved * rate * 52;
 
   calcHoursYear.textContent = yearlyHoursSaved.toLocaleString("es-AR");
   calcMoney.textContent = formatMoney(yearlyMoneySaved);
@@ -112,7 +114,21 @@ document.querySelectorAll(".currency-toggle button").forEach((btn) => {
   btn.addEventListener("click", () => {
     document.querySelectorAll(".currency-toggle button").forEach((b) => b.setAttribute("aria-pressed", "false"));
     btn.setAttribute("aria-pressed", "true");
-    currentCurrency = btn.dataset.currency;
+
+    const oldFactor = RATES[currentCurrency].factor;
+    const newCurrency = btn.dataset.currency;
+    const newRates = RATES[newCurrency];
+
+    // Reescalar la tarifa actual a la nueva moneda antes de tocar el min/max,
+    // para no perder la proporción que el usuario ya había puesto.
+    const scaledRate = Math.round((Number(rateInput.value) / oldFactor) * newRates.factor);
+
+    rateInput.min = newRates.rateMin;
+    rateInput.max = newRates.rateMax;
+    rateInput.step = newRates.rateStep;
+    rateInput.value = Math.min(Math.max(scaledRate, newRates.rateMin), newRates.rateMax);
+
+    currentCurrency = newCurrency;
     updateCalc();
   });
 });
