@@ -20,7 +20,11 @@ Abrí `index.html` desde ese servidor (Netlify Forms y los headers solo funciona
 index.html               página principal
 portafolio.html          casos de estudio
 calculadora-tarifa.html  calculadora de tarifa por hora (tarifa.css + tarifa.js)
-privacidad.html, terminos.html, 404.html
+privacidad.html          privacidad + cookies (actualizar si se suma un proveedor o una cookie)
+terminos.html            términos del servicio, devoluciones, baja, encargo de datos
+arrepentimiento.html     Botón de arrepentimiento y de baja (Disposición 954/2025) + tramite.js
+gracias.html, 404.html
+assets/fonts/            fuentes propias (sin Google Fonts: nada de IP a terceros)
 styles.css               todos los estilos
 script.js                flujo animado del hero, calculadora de ahorro, contacto (solo home)
 ```
@@ -39,3 +43,9 @@ Todas las cifras de la home salen de casos reales del portafolio (3 flujos en pr
 - La calculadora de ROI ya no cita estudios genéricos (Zapier 2021 / McKinsey) como si fueran investigación propia — ahora se presenta explícitamente como una estimación editable.
 - Las conversiones de moneda en la calculadora (ARS/COP) son aproximadas, no tipos de cambio en vivo — si hace falta precisión, conectar una API de cotización.
 - El formulario de contacto usa **Netlify Forms** (`data-netlify="true"` + submit por fetch en `script.js`). Se activa solo en el próximo deploy — las respuestas van a aparecer en el dashboard de Netlify, en Forms. Si querés notificación por email de cada envío nuevo, se configura ahí mismo (Site settings → Forms → Form notifications), no es algo que se resuelva desde el código.
+
+## Legales: qué no romper
+
+- Los links "Botón de arrepentimiento" y "Botón de baja de servicio" tienen que estar visibles en todas las páginas (franja superior + footer). Son obligatorios.
+- Cada solicitud del formulario `tramite` hay que responderla por email con su código dentro de las 24 h.
+- Si se agrega un servicio externo (script, IA, CRM, cookie), actualizar `privacidad.html` y la CSP de `netlify.toml` en el mismo PR.

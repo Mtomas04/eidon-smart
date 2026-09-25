@@ -1,3 +1,25 @@
+/* Fuentes alojadas en el propio sitio: los visitantes no le envían su IP a Google. */
+@font-face {
+  font-family: "Space Grotesk";
+  font-weight: 500 700;
+  font-display: swap;
+  src: url("/assets/fonts/space-grotesk.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Public Sans";
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/assets/fonts/public-sans.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("/assets/fonts/jetbrains-mono.woff2") format("woff2");
+}
+
 /* ==========================================================================
    Eidon Smart — design tokens
    Paleta pensada como un canvas de automatización, no como una agencia de IA
@@ -736,6 +758,7 @@ footer .container {
 @media (min-width: 720px) {
   footer .container {
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
 }
@@ -973,4 +996,78 @@ footer nav a {
   font-size: 0.95rem;
   background: var(--surface);
   color: var(--ink);
+}
+
+/* ------------------------------- legales -------------------------------- */
+
+.legal-notice {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  border-left: 3px solid var(--line);
+  padding-left: 1rem;
+}
+
+.legal-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.2rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.3rem 1.25rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.legal-strip a {
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.foot-legal {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  margin-top: 1rem;
+}
+
+.foot-legal a {
+  color: var(--ink-soft);
+}
+
+#tramite-form fieldset {
+  border: none;
+  padding: 0;
+}
+
+#tramite-form legend {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+}
+
+.field .radio {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.field .radio input {
+  width: auto;
+}
+
+/* el mensaje aparece al llegar a #recibido (con o sin JavaScript) */
+.tramite-ok {
+  display: none;
+}
+
+.tramite-ok:target {
+  display: block;
 }
