@@ -161,3 +161,8 @@ document.getElementById("calc-cta")?.addEventListener("click", () => {
     `Somos ${peopleInput.value} personas con unas ${hoursInput.value} h/semana de tareas manuales cada una. ` +
     `La calculadora estima ${calcMoney.textContent}/año (${calcHoursYear.textContent} h) recuperables. El proceso es: `;
 });
+
+// Los botones de cada plan dejan elegido ese plan en el formulario.
+document.querySelectorAll("[data-plan]").forEach((btn) =>
+  btn.addEventListener("click", () => (document.getElementById("plan").value = btn.dataset.plan))
+);
