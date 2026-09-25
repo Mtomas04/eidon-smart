@@ -149,13 +149,6 @@ button {
   gap: 0.5rem;
 }
 
-.logo .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
 .logo-mark {
   width: 22px;
   height: 22px;
@@ -323,7 +316,7 @@ button {
   stroke-width: 2;
 }
 
-.flow-path.animated {
+.flow-path.is-active {
   stroke: var(--flow);
   stroke-dasharray: 6 6;
   animation: dash-flow 1.6s linear infinite;
@@ -343,6 +336,33 @@ button {
 
 .flow-node-rect.accent {
   stroke: var(--accent);
+}
+
+.flow-node .flow-node-rect {
+  transition: fill 0.3s, stroke 0.3s;
+}
+
+.flow-node.is-active .flow-node-rect {
+  fill: var(--flow-soft);
+  stroke: var(--flow);
+}
+
+.flow-log {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink);
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.85rem;
+  margin-top: 1rem;
+}
+
+.flow-log strong {
+  color: var(--flow);
 }
 
 .flow-label {
@@ -375,15 +395,11 @@ button {
 
 .stats-row {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-@media (min-width: 720px) {
-  .stats-row {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  margin: 0 0 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--line);
 }
 
 .stat {
@@ -393,7 +409,7 @@ button {
 }
 
 .stat-num {
-  font-family: var(--font-display);
+  font-family: var(--font-mono);
   font-size: 2rem;
   font-weight: 600;
   color: var(--accent);
@@ -532,6 +548,10 @@ button {
   justify-content: center;
 }
 
+.calc-result .eyebrow {
+  margin-bottom: 0.25rem;
+}
+
 .calc-result .result-figure {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 2.8rem);
@@ -561,20 +581,11 @@ button {
   margin-top: 1.25rem;
 }
 
-.case-card.is-placeholder {
-  border-style: dashed;
-  color: var(--ink-faint);
-}
-
 .case-card .case-tag {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--flow);
   text-transform: uppercase;
-}
-
-.case-card.is-placeholder .case-tag {
-  color: var(--ink-faint);
 }
 
 .case-stack {
@@ -772,14 +783,18 @@ footer nav a {
   background: var(--flow);
 }
 
-/* ---------------------------- utilidades varias -------------------------- */
+/* ------------------------------ utilidades ------------------------------ */
 
-.page-header {
-  padding: 4.5rem 0 2rem;
+.spaced {
+  margin-top: 1.5rem;
 }
 
-.page-header .eyebrow {
-  margin-bottom: 1rem;
+.spaced-lg {
+  margin-top: 3rem;
+}
+
+#form-status {
+  margin-top: 0.75rem;
 }
 
 /* -------------------------------- legal ---------------------------------- */

@@ -51,6 +51,52 @@ if (contactForm) {
   });
 }
 
+const priceStat = document.getElementById("stat-price");
+if (priceStat && CONFIG.priceFromUSD) {
+  priceStat.querySelector(".stat-num").textContent = `USD ${CONFIG.priceFromUSD}`;
+  priceStat.querySelector(".stat-label").textContent = "precio desde, por flujo simple";
+  priceStat.hidden = false;
+}
+
+// ---------------------------------------------------------------------------
+// Flujo del hero — reproduce en loop el recorrido de un lead por el flujo real.
+// Con "reducir movimiento" activado queda el diagrama estático.
+// ---------------------------------------------------------------------------
+const flowSvg = document.querySelector("#flujo-real svg");
+const flowStatus = document.getElementById("flow-status");
+const flowCount = document.getElementById("flow-count");
+
+if (flowSvg && flowStatus && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const LEVELS = ["caliente", "tibio", "frío"];
+  const STEP_MS = 1100;
+  const steps = [
+    () => "▶ formulario recibido",
+    () => "◆ Gemini Flash analizando el mensaje…",
+    (level) => `◆ filtro: lead ${level}`,
+    (level) => `✓ lead ${level} → Sheets · Gmail · Telegram`,
+  ];
+  const parts = flowSvg.querySelectorAll("[data-step]");
+  let step = 0;
+  let level = LEVELS[0];
+  let processed = 0;
+
+  setInterval(() => {
+    if (step === 0) {
+      parts.forEach((el) => el.classList.remove("is-active"));
+      level = LEVELS[Math.floor(Math.random() * LEVELS.length)];
+    }
+    if (step < steps.length) {
+      parts.forEach((el) => {
+        if (Number(el.dataset.step) === step) el.classList.add("is-active");
+      });
+      flowStatus.textContent = steps[step](level);
+      if (step === steps.length - 1) flowCount.textContent = ++processed;
+    }
+    // un tick extra de pausa con todo encendido antes de reiniciar
+    step = (step + 1) % (steps.length + 1);
+  }, STEP_MS);
+}
+
 // ---------------------------------------------------------------------------
 // Calculadora — estimación simple y editable, sin pretender ser un estudio.
 // ---------------------------------------------------------------------------
