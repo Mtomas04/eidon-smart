@@ -869,3 +869,38 @@ footer nav a {
   letter-spacing: 0.08em;
   margin-bottom: 1rem;
 }
+
+/* ------------------------------ conversión ------------------------------ */
+
+.cta-note {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  margin: -1.75rem 0 2.5rem;
+}
+
+#contact-form .cta-note {
+  margin: 0.75rem 0 0;
+}
+
+.calc-cta {
+  align-self: flex-start;
+  margin-top: 1.25rem;
+}
+
+.field .optional {
+  font-weight: 400;
+  color: var(--ink-faint);
+}
+
+.case-quote {
+  margin: 1.25rem 0 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+}
+
+.case-quote footer {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  margin-top: 0.4rem;
+}

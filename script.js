@@ -20,11 +20,8 @@ if (contactForm) {
       });
       if (!response.ok) throw new Error(`Netlify Forms respondió ${response.status}`);
 
-      contactForm.reset();
-      contactForm.hidden = true;
-      if (formStatus) {
-        formStatus.textContent = "Listo — recibimos tu consulta. Te respondemos en menos de 24 horas.";
-      }
+      // página propia: Cloudflare Analytics cuenta cada visita a /gracias como conversión
+      location.href = "/gracias.html";
     } catch (err) {
       submitBtn.disabled = false;
       if (formStatus) {
@@ -156,3 +153,11 @@ document.querySelectorAll(".currency-toggle button").forEach((btn) => {
 
 updateCalc();
 
+// El botón del resultado lleva la estimación al formulario, para que no arranque en blanco.
+document.getElementById("calc-cta")?.addEventListener("click", () => {
+  const processField = document.getElementById("process");
+  if (processField.value.trim()) return;
+  processField.value =
+    `Somos ${peopleInput.value} personas con unas ${hoursInput.value} h/semana de tareas manuales cada una. ` +
+    `La calculadora estima ${calcMoney.textContent}/año (${calcHoursYear.textContent} h) recuperables. El proceso es: `;
+});
