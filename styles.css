@@ -831,8 +831,9 @@ footer nav a {
   margin-bottom: 1.25rem;
 }
 
-.consent-label {
+.field .consent-label {
   display: flex;
+  font-family: var(--font-body);
   align-items: flex-start;
   gap: 0.6rem;
   font-size: 0.85rem;
@@ -840,7 +841,10 @@ footer nav a {
   cursor: pointer;
 }
 
-.consent-label input {
+/* .field input pone width: 100%; el checkbox va a su tamaño */
+.field .consent-label input {
+  width: auto;
+  flex: none;
   margin-top: 0.2rem;
   accent-color: var(--accent);
 }
