@@ -1,0 +1,207 @@
+/* Calculadora de tarifa por hora — usa los tokens de styles.css */
+.tool-wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+.tool-header { margin-bottom: 2rem; }
+.tool-header h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  color: var(--ink);
+  margin: 0.5rem 0;
+}
+.tool-header p { color: var(--ink-soft); max-width: 60ch; line-height: 1.5; }
+.currency-group {
+  display: inline-flex;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 3px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+}
+.currency-group button {
+  border: none;
+  background: transparent;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-family: inherit;
+}
+.currency-group button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--surface);
+}
+.calc-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 860px) {
+  .calc-card { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+}
+.calc-inputs { padding: 2rem; }
+.calc-results { padding: 2rem; background: var(--paper); }
+@media (min-width: 860px) {
+  .calc-inputs { border-right: 1px solid var(--line); }
+}
+.field-group { margin-bottom: 1.75rem; }
+.field-group h2 {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin: 0 0 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.field-group h2 .subtotal {
+  background: var(--paper);
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.expense-row { display: flex; gap: 0.5rem; margin-bottom: 0.5rem; align-items: center; }
+.expense-row input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  font-family: "Public Sans", sans-serif;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+.expense-row input[type="number"] {
+  width: 8.5rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+.expense-row button {
+  border: none;
+  background: transparent;
+  color: var(--line);
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0.3rem;
+}
+.expense-row button:hover { color: var(--accent); }
+.add-expense {
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-family: "Public Sans", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.2rem 0;
+}
+.slider-block { margin-bottom: 1.5rem; }
+.slider-block label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+.slider-block .val { font-family: "JetBrains Mono", monospace; font-weight: 600; }
+.slider-block input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+.slider-block .range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  margin-top: 0.2rem;
+}
+.result-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+.result-value {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  color: var(--accent);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.result-sub { font-size: 0.8rem; color: var(--ink-soft); margin: 0.3rem 0 1.5rem; }
+.breakdown-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--line);
+  margin-bottom: 0.5rem;
+}
+.breakdown-bar span { height: 100%; }
+.breakdown-legend {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.5rem;
+}
+.breakdown-legend .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 0.3rem; }
+.metrics-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+}
+.metrics-card div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.5rem 0; }
+.metrics-card div:not(:last-child) { border-bottom: 1px solid var(--paper); }
+.metrics-card span:first-child { color: var(--ink-soft); }
+.metrics-card span:last-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
+.tool-actions { display: flex; gap: 0.6rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.tool-actions button {
+  font-family: "Public Sans", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border: 1px solid var(--line);
+}
+.tool-actions .primary { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.tool-actions .ghost { background: var(--surface); color: var(--ink-soft); }
+.privacy-note {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+.spaced-sm { margin-top: 1rem; }
+/* el ancho de cada segmento lo pone tarifa.js */
+.seg-costs { background: var(--ink-soft); }
+.seg-margin { background: var(--accent); }
+.seg-tax { background: var(--flow); }

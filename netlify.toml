@@ -4,5 +4,12 @@
 [[headers]]
   for = "/*"
   [headers.values]
+    # Solo cargamos lo propio + Google Fonts + Cloudflare Web Analytics.
+    # Si se suma otro script o servicio externo, hay que agregarlo acá o el navegador lo bloquea.
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    Cross-Origin-Opener-Policy = "same-origin"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"

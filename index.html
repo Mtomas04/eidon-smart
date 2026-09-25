@@ -269,42 +269,22 @@
         <h2>Lo que nos preguntan.</h2>
 
         <div class="faq-list">
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              ¿Cuánto cuesta una automatización?
-              <span class="plus">+</span>
-            </button>
-            <div class="faq-a">
-              <p>Depende de la complejidad. Un flujo sencillo (ej: formulario → email → Google Sheets) está en el rango de 2 a 5 horas de trabajo. Algo con IA, múltiples sistemas y lógica condicional puede tomar entre 15 y 30 horas. Siempre hacemos el diagnóstico antes de darte un número, y lo hacemos sin costo.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              ¿Necesito saber de tecnología para trabajar con ustedes?
-              <span class="plus">+</span>
-            </button>
-            <div class="faq-a">
-              <p>No. Solo necesitás saber qué problema querés resolver. Nosotros elegimos las herramientas, las configuramos y te explicamos el resultado en términos simples. Si algo falla después de la entrega, lo arreglamos.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              ¿Trabajan con empresas de cualquier tamaño?
-              <span class="plus">+</span>
-            </button>
-            <div class="faq-a">
-              <p>Sí, pero donde más impacto generamos es en pymes y emprendimientos en crecimiento — son los que más sienten el costo del trabajo manual y los que más se benefician de liberar horas del equipo.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              ¿Son seguros los datos de mi empresa?
-              <span class="plus">+</span>
-            </button>
-            <div class="faq-a">
-              <p>Las automatizaciones corren en tu propia infraestructura o en la que vos elijas. Tus datos no pasan por nuestros servidores. Usamos conexiones cifradas y seguimos buenas prácticas de seguridad en cada integración.</p>
-            </div>
-          </div>
+          <details class="faq-item" name="faq">
+            <summary class="faq-q">¿Cuánto cuesta una automatización?<span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-a"><p>Depende de la complejidad. Un flujo sencillo (ej: formulario → email → Google Sheets) está en el rango de 2 a 5 horas de trabajo. Algo con IA, múltiples sistemas y lógica condicional puede tomar entre 15 y 30 horas. Siempre hacemos el diagnóstico antes de darte un número, y lo hacemos sin costo.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-q">¿Necesito saber de tecnología para trabajar con ustedes?<span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-a"><p>No. Solo necesitás saber qué problema querés resolver. Nosotros elegimos las herramientas, las configuramos y te explicamos el resultado en términos simples. Si algo falla después de la entrega, lo arreglamos.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-q">¿Trabajan con empresas de cualquier tamaño?<span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-a"><p>Sí, pero donde más impacto generamos es en pymes y emprendimientos en crecimiento — son los que más sienten el costo del trabajo manual y los que más se benefician de liberar horas del equipo.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-q">¿Son seguros los datos de mi empresa?<span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-a"><p>Las automatizaciones corren en tu propia infraestructura o en la que vos elijas. Tus datos no pasan por nuestros servidores. Usamos conexiones cifradas y seguimos buenas prácticas de seguridad en cada integración.</p></div>
+          </details>
         </div>
       </div>
     </section>
@@ -338,7 +318,7 @@
             <div class="field consent-field">
               <label class="consent-label">
                 <input type="checkbox" id="consent" name="consent" required />
-                Acepto la <a href="privacidad.html" target="_blank">Política de Privacidad</a> y el uso de mis datos para responder esta consulta.
+                Acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a> y el uso de mis datos para responder esta consulta.
               </label>
             </div>
             <button type="submit" class="btn-primary">Enviar consulta →</button>
@@ -348,8 +328,11 @@
           <div class="direct-contact">
             <span class="eyebrow">O directo</span>
             <p>Si preferís saltear el formulario, escribinos directamente.</p>
-            <a class="email-link" id="contact-email-link" href="#">cargando…</a>
-            <div class="social-row" id="social-links"></div>
+            <a class="email-link" href="mailto:contacto@eidonsmart.com">contacto@eidonsmart.com ↗</a>
+            <div class="social-row">
+              <a href="https://www.linkedin.com/company/111421948" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://www.instagram.com/eidon.smart" target="_blank" rel="noopener">Instagram</a>
+            </div>
           </div>
         </div>
       </div>

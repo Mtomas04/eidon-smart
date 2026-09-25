@@ -1,23 +1,8 @@
 import { CONFIG } from "./config.js";
 
 // ---------------------------------------------------------------------------
-// Contacto — todo sale de config.js, así que no hay que buscar el email
-// a mano por el código cuando cambie el dominio.
+// Contacto — envío a Netlify Forms sin recargar la página.
 // ---------------------------------------------------------------------------
-const emailLink = document.getElementById("contact-email-link");
-if (emailLink) {
-  emailLink.href = `mailto:${CONFIG.contactEmail}`;
-  emailLink.textContent = `${CONFIG.contactEmail} ↗`;
-}
-
-const socialRow = document.getElementById("social-links");
-if (socialRow) {
-  socialRow.innerHTML = `
-    <a href="${CONFIG.social.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="${CONFIG.social.instagram}" target="_blank" rel="noopener">Instagram</a>
-  `;
-}
-
 const contactForm = document.getElementById("contact-form");
 const formStatus = document.getElementById("form-status");
 if (contactForm) {
@@ -181,20 +166,3 @@ document.querySelectorAll(".currency-toggle button").forEach((btn) => {
 
 updateCalc();
 
-// ---------------------------------------------------------------------------
-// FAQ — acordeón simple, accesible por teclado (son <button>).
-// ---------------------------------------------------------------------------
-document.querySelectorAll(".faq-item").forEach((item) => {
-  const question = item.querySelector(".faq-q");
-  question.addEventListener("click", () => {
-    const isOpen = item.classList.contains("is-open");
-    document.querySelectorAll(".faq-item").forEach((other) => {
-      other.classList.remove("is-open");
-      other.querySelector(".faq-q").setAttribute("aria-expanded", "false");
-    });
-    if (!isOpen) {
-      item.classList.add("is-open");
-      question.setAttribute("aria-expanded", "true");
-    }
-  });
-});
