@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Botón de arrepentimiento y baja | Eidon Smart</title>
+  <meta name="description" content="Cancelá una contratación dentro de los 10 días (Botón de arrepentimiento) o da de baja tu abono (Botón de baja de servicio), sin registrarte." />
+  <link rel="canonical" href="https://eidonsmart.com/arrepentimiento.html" />
+  <link rel="icon" type="image/png" href="/assets/isotipo.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Cloudflare Web Analytics -->
+  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "717e8ad203414ce296f9a0fb4ed58e16"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+  <div class="legal-strip">
+    <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
+    <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo"><img src="/assets/isotipo.png" alt="" class="logo-mark" />EIDON SMART</a>
+      <nav class="nav-links">
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#proceso">Proceso</a>
+        <a href="index.html#calculadora">Calculadora</a>
+        <a href="portafolio.html">Portafolio</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
+      <a href="index.html#contacto" class="btn-primary">Diagnóstico gratis →</a>
+    </div>
+  </header>
+
+  <main class="pipeline">
+    <section class="node">
+      <span class="node-dot" aria-hidden="true"></span>
+      <div class="node-content wide legal-content">
+        <span class="eyebrow">LEGAL</span>
+        <h1>Botón de arrepentimiento y botón de baja</h1>
+        <p class="lede">Sin registrarte y sin dar explicaciones. Al enviar el formulario te mostramos un código de trámite, y te lo confirmamos por email dentro de las 24 horas.</p>
+
+        <ul>
+          <li id="arrepentimiento"><strong>Arrepentimiento:</strong> cancelás una contratación hecha a distancia dentro de los 10 días corridos desde que la aceptaste. Te devolvemos el 100% de lo pagado.</li>
+          <li id="baja"><strong>Baja de servicio:</strong> das de baja tu abono mensual, sin penalidad. Es efectiva al terminar el mes ya pagado.</li>
+        </ul>
+        <p>Condiciones completas en los <a href="terminos.html#devoluciones">Términos y Condiciones</a>.</p>
+
+        <form id="tramite-form" name="tramite" method="POST" action="/arrepentimiento.html#recibido" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="tramite" />
+          <input type="hidden" name="codigo" id="tramite-codigo" />
+          <p hidden><label>No completar si sos humano: <input name="bot-field" /></label></p>
+          <fieldset class="field">
+            <legend>¿Qué querés hacer?</legend>
+            <label class="radio"><input type="radio" name="tipo" value="Arrepentimiento" id="tipo-arrepentimiento" required /> Arrepentirme de una contratación</label>
+            <label class="radio"><input type="radio" name="tipo" value="Baja de servicio" id="tipo-baja" /> Dar de baja mi abono</label>
+          </fieldset>
+          <div class="field">
+            <label for="t-nombre">Nombre y apellido o razón social</label>
+            <input type="text" id="t-nombre" name="nombre" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="t-email">Email con el que contrataste</label>
+            <input type="email" id="t-email" name="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="t-servicio">¿Qué servicio contrataste?</label>
+            <input type="text" id="t-servicio" name="servicio" placeholder="Ej: Flujo con IA para leads, agosto 2026" required />
+          </div>
+          <div class="field">
+            <label for="t-comentario">Comentario <span class="optional">(opcional)</span></label>
+            <textarea id="t-comentario" name="comentario"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Enviar solicitud</button>
+          <p id="tramite-status" class="calc-note" aria-live="polite"></p>
+        </form>
+
+        <div id="recibido" class="tramite-ok">
+          <h2>Recibimos tu solicitud.</h2>
+          <p>Tu código de trámite: <strong id="tramite-codigo-ok">te lo enviamos por email dentro de las 24 horas</strong>.</p>
+          <p>Guardalo: es el comprobante de que hiciste el pedido.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="foot-brand">
+        EIDON SMART<br />
+        Automatización con n8n e IA para empresas que quieren operar mejor.
+      </div>
+      <nav>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="portafolio.html">Portafolio</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+      <div class="foot-legal">
+        <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
+        <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
+        <a href="/privacidad.html">Privacidad</a>
+        <a href="/privacidad.html#cookies">Cookies</a>
+        <a href="/terminos.html">Términos y devoluciones</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="tramite.js"></script>
+
+  
+</body>
+</html>

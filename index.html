@@ -17,9 +17,6 @@
   <meta name="twitter:title" content="Eidon Smart | Automatización con n8n e IA" />
   <meta name="twitter:description" content="Construimos flujos de trabajo que eliminan tareas manuales y conectan tus herramientas." />
   <meta name="twitter:image" content="https://eidonsmart.com/assets/imagotipo.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "717e8ad203414ce296f9a0fb4ed58e16"}'></script>
@@ -41,6 +38,11 @@
   </script>
 </head>
 <body>
+
+  <div class="legal-strip">
+    <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
+    <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
+  </div>
 
   <header class="site-header">
     <div class="container">
@@ -316,7 +318,7 @@
             <a href="#contacto" class="btn-ghost" data-plan="Operación">Quiero este plan →</a>
           </div>
         </div>
-        <p class="calc-note spaced">Precios desde, en dólares; se pueden pagar en pesos al tipo de cambio del día. Ajuste chico = cambiar un destinatario, un campo o un mensaje; un flujo nuevo se cotiza aparte. El precio final se confirma en el diagnóstico gratis, antes de arrancar.</p>
+        <p class="calc-note spaced">Precios desde, en dólares; se pueden pagar en pesos al dólar oficial del Banco Nación. Tenés 10 días para arrepentirte con devolución total (<a href="terminos.html#devoluciones">política de devoluciones</a>). Ajuste chico = cambiar un destinatario, un campo o un mensaje; un flujo nuevo se cotiza aparte. El precio final se confirma en el diagnóstico gratis, antes de arrancar.</p>
       </div>
     </section>
 
@@ -342,7 +344,7 @@
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-q">¿Son seguros los datos de mi empresa?<span class="plus" aria-hidden="true">+</span></summary>
-            <div class="faq-a"><p>Las automatizaciones corren en tu propia infraestructura o en la que vos elijas. Tus datos no pasan por nuestros servidores. Usamos conexiones cifradas y seguimos buenas prácticas de seguridad en cada integración.</p></div>
+            <div class="faq-a"><p>Tus flujos corren en un servidor que administramos nosotros (o en el tuyo, si lo preferís). Procesamos solo los datos que el flujo necesita, no los usamos para nada más, la IA que usamos no entrena con ellos, y al terminar el servicio los borramos. Detalle en la <a href="privacidad.html">Política de Privacidad</a> y los <a href="terminos.html#datos">Términos</a>.</p></div>
           </details>
         </div>
       </div>
@@ -390,7 +392,7 @@
             <div class="field consent-field">
               <label class="consent-label">
                 <input type="checkbox" id="consent" name="consent" required />
-                <span>Acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a> y el uso de mis datos para responder esta consulta.</span>
+                <span>Acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>, incluido el análisis de mi consulta con IA de proveedores con servidores fuera de Argentina. Mi nombre, email y teléfono no se envían a la IA.</span>
               </label>
             </div>
             <button type="submit" class="btn-primary">Pedir diagnóstico gratis →</button>
@@ -426,10 +428,15 @@
         <a href="calculadora-tarifa.html">Calculadora de tarifa</a>
         <a href="portafolio.html">Portafolio</a>
         <a href="#faq">FAQ</a>
-        <a href="privacidad.html">Privacidad</a>
-        <a href="terminos.html">Términos</a>
         <a href="#contacto">Contacto</a>
       </nav>
+      <div class="foot-legal">
+        <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
+        <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
+        <a href="/privacidad.html">Privacidad</a>
+        <a href="/privacidad.html#cookies">Cookies</a>
+        <a href="/terminos.html">Términos y devoluciones</a>
+      </div>
     </div>
   </footer>
 
