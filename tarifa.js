@@ -1,47 +1,55 @@
+// Precio final por hora: margen sobre el costo y "gross-up" de impuestos
+// (el impuesto se calcula sobre el precio final, no sobre el costo).
+function precioPorHora(costo, margenPct, impuestosPct) {
+  const impuestos = Math.min(Math.max(impuestosPct, 0), 99); // evita dividir por cero
+  return (costo * (1 + Math.max(0, margenPct) / 100)) / (1 - impuestos / 100);
+}
+
+const sumAmounts = (list) => list.reduce((acc, e) => acc + (Number(e.amount) || 0), 0);
+
 const STORAGE_KEY = "eidonsmart-calculadora-tarifa-v1";
 
 const currencyPresets = {
   USD: {
     symbol: "US$",
     fixed: [
-      { id: "f1", label: "Retiro neto personal", amount: 2200 },
-      { id: "f2", label: "Infraestructura, VPS y n8n", amount: 90 },
-      { id: "f3", label: "Software y conectividad", amount: 200 },
+      { label: "Retiro neto personal", amount: 2200 },
+      { label: "Infraestructura, VPS y n8n", amount: 90 },
+      { label: "Software y conectividad", amount: 200 },
     ],
     variable: [
-      { id: "v1", label: "APIs de IA (tokens y modelos)", amount: 110 },
-      { id: "v2", label: "Hosting dinámico y proxies", amount: 45 },
+      { label: "APIs de IA (tokens y modelos)", amount: 110 },
+      { label: "Hosting dinámico y proxies", amount: 45 },
     ],
   },
   ARS: {
     symbol: "$",
     fixed: [
-      { id: "f1", label: "Retiro neto personal", amount: 2500000 },
-      { id: "f2", label: "Infraestructura y servidores", amount: 120000 },
-      { id: "f3", label: "Internet y herramientas", amount: 180000 },
+      { label: "Retiro neto personal", amount: 2500000 },
+      { label: "Infraestructura y servidores", amount: 120000 },
+      { label: "Internet y herramientas", amount: 180000 },
     ],
     variable: [
-      { id: "v1", label: "APIs y tokens de IA", amount: 140000 },
-      { id: "v2", label: "Comisiones de cobro", amount: 90000 },
+      { label: "APIs y tokens de IA", amount: 140000 },
+      { label: "Comisiones de cobro", amount: 90000 },
     ],
   },
   COP: {
     symbol: "$",
     fixed: [
-      { id: "f1", label: "Retiro neto personal", amount: 7500000 },
-      { id: "f2", label: "Servidores e instancias n8n", amount: 400000 },
-      { id: "f3", label: "Herramientas y oficina", amount: 650000 },
+      { label: "Retiro neto personal", amount: 7500000 },
+      { label: "Servidores e instancias n8n", amount: 400000 },
+      { label: "Herramientas y oficina", amount: 650000 },
     ],
     variable: [
-      { id: "v1", label: "Consumo de modelos de IA", amount: 450000 },
-      { id: "v2", label: "Gastos de transacción", amount: 300000 },
+      { label: "Consumo de modelos de IA", amount: 450000 },
+      { label: "Gastos de transacción", amount: 300000 },
     ],
   },
 };
 
 let state = {
   currency: "USD",
-  symbol: "US$",
   fixedExpenses: structuredClone(currencyPresets.USD.fixed),
   variableExpenses: structuredClone(currencyPresets.USD.variable),
   hours: 120,
@@ -92,6 +100,7 @@ function renderExpenseRows() {
 }
 
 function updateCalculation() {
+  const { symbol } = currencyPresets[state.currency];
   const hours = parseFloat(document.getElementById("hours-slider").value) || 1;
   const marginPct = parseFloat(document.getElementById("margin-slider").value) || 0;
   const taxPct = parseFloat(document.getElementById("tax-slider").value) || 0;
@@ -103,24 +112,23 @@ function updateCalculation() {
   document.getElementById("margin-val").textContent = marginPct;
   document.getElementById("tax-val").textContent = taxPct;
 
-  const totalFixed = Calc.sum(state.fixedExpenses.map((e) => ({ monto: e.amount })));
-  const totalVariable = Calc.sum(state.variableExpenses.map((e) => ({ monto: e.amount })));
+  const totalFixed = sumAmounts(state.fixedExpenses);
+  const totalVariable = sumAmounts(state.variableExpenses);
   const totalCosts = totalFixed + totalVariable;
 
-  document.getElementById("subtotal-fixed").textContent = `${state.symbol} ${formatNumber(totalFixed)}`;
-  document.getElementById("subtotal-variable").textContent = `${state.symbol} ${formatNumber(totalVariable)}`;
+  document.getElementById("subtotal-fixed").textContent = `${symbol} ${formatNumber(totalFixed)}`;
+  document.getElementById("subtotal-variable").textContent = `${symbol} ${formatNumber(totalVariable)}`;
 
-  const costoPorHora = Calc.costoPorHora({ fijos: totalFixed, variables: totalVariable, horasMes: hours });
-  const hourlyRate = Calc.precioPorHora({ costo: costoPorHora, margenPct: marginPct, impuestosPct: taxPct });
+  const hourlyRate = precioPorHora(totalCosts / hours, marginPct, taxPct);
 
   const requiredGrossBilling = hourlyRate * hours;
   const netProfit = totalCosts * (marginPct / 100);
   const breakevenHours = hourlyRate > 0 ? totalCosts / hourlyRate : 0;
 
-  document.getElementById("hourly-rate").textContent = `${state.symbol} ${formatNumber(hourlyRate)}`;
-  document.getElementById("monthly-gross").textContent = `${state.symbol} ${formatNumber(requiredGrossBilling)}`;
-  document.getElementById("monthly-costs").textContent = `${state.symbol} ${formatNumber(totalCosts)}`;
-  document.getElementById("monthly-profit").textContent = `+ ${state.symbol} ${formatNumber(netProfit)}`;
+  document.getElementById("hourly-rate").textContent = `${symbol} ${formatNumber(hourlyRate)}`;
+  document.getElementById("monthly-gross").textContent = `${symbol} ${formatNumber(requiredGrossBilling)}`;
+  document.getElementById("monthly-costs").textContent = `${symbol} ${formatNumber(totalCosts)}`;
+  document.getElementById("monthly-profit").textContent = `+ ${symbol} ${formatNumber(netProfit)}`;
   document.getElementById("breakeven-hours").textContent = `${breakevenHours.toFixed(1)} hs/mes`;
 
   if (requiredGrossBilling > 0) {
@@ -150,7 +158,6 @@ function setCurrency(currency) {
   const preset = currencyPresets[currency];
   if (!preset) return;
   state.currency = currency;
-  state.symbol = preset.symbol;
   state.fixedExpenses = structuredClone(preset.fixed);
   state.variableExpenses = structuredClone(preset.variable);
   syncCurrencyButtons(currency);
@@ -161,7 +168,7 @@ function setCurrency(currency) {
 document.addEventListener("input", (e) => {
   const { type, idx, field } = e.target.dataset;
   if (!type || !field) return;
-  const key = type === "fixed" ? "fixedExpenses" : "variableExpenses";
+  const key = type + "Expenses";
   if (field === "amount") state[key][idx].amount = parseFloat(e.target.value) || 0;
   if (field === "label") state[key][idx].label = e.target.value;
   guardarEstado();
@@ -170,16 +177,12 @@ document.addEventListener("input", (e) => {
 
 document.addEventListener("click", (e) => {
   if (e.target.dataset.remove) {
-    const type = e.target.dataset.remove;
-    const key = type === "fixed" ? "fixedExpenses" : "variableExpenses";
-    state[key].splice(Number(e.target.dataset.idx), 1);
+    state[e.target.dataset.remove + "Expenses"].splice(Number(e.target.dataset.idx), 1);
     guardarEstado();
     renderExpenseRows();
   }
   if (e.target.dataset.add) {
-    const type = e.target.dataset.add;
-    const key = type === "fixed" ? "fixedExpenses" : "variableExpenses";
-    state[key].push({ id: "item_" + Date.now(), label: "Nuevo concepto", amount: 0 });
+    state[e.target.dataset.add + "Expenses"].push({ label: "Nuevo concepto", amount: 0 });
     guardarEstado();
     renderExpenseRows();
   }

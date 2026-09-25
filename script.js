@@ -1,5 +1,3 @@
-import { CONFIG } from "./config.js";
-
 // ---------------------------------------------------------------------------
 // Contacto — envío a Netlify Forms sin recargar la página.
 // ---------------------------------------------------------------------------
@@ -30,17 +28,10 @@ if (contactForm) {
     } catch (err) {
       submitBtn.disabled = false;
       if (formStatus) {
-        formStatus.textContent = `No se pudo enviar. Escribinos directo a ${CONFIG.contactEmail}.`;
+        formStatus.textContent = `No se pudo enviar. Escribinos directo a contacto@eidonsmart.com.`;
       }
     }
   });
-}
-
-const priceStat = document.getElementById("stat-price");
-if (priceStat && CONFIG.priceFromUSD) {
-  priceStat.querySelector(".stat-num").textContent = `USD ${CONFIG.priceFromUSD}`;
-  priceStat.querySelector(".stat-label").textContent = "precio desde, por flujo simple";
-  priceStat.hidden = false;
 }
 
 // ---------------------------------------------------------------------------
@@ -91,9 +82,9 @@ const RATES = {
   // conectar a una API de cotización más adelante.
   // El rango de la tarifa por hora también se reescala por moneda: un "20"
   // tiene sentido en USD, pero en ARS o COP la tarifa real está en miles.
-  USD: { symbol: "US$", factor: 1, rateMin: 1, rateMax: 100, rateStep: 1 },
-  ARS: { symbol: "AR$", factor: 1000, rateMin: 1000, rateMax: 100000, rateStep: 1000 },
-  COP: { symbol: "COP$", factor: 4000, rateMin: 4000, rateMax: 400000, rateStep: 4000 },
+  USD: { symbol: "US$", factor: 1 },
+  ARS: { symbol: "AR$", factor: 1000 },
+  COP: { symbol: "COP$", factor: 4000 },
 };
 
 let currentCurrency = "USD";
@@ -148,16 +139,15 @@ document.querySelectorAll(".currency-toggle button").forEach((btn) => {
 
     const oldFactor = RATES[currentCurrency].factor;
     const newCurrency = btn.dataset.currency;
-    const newRates = RATES[newCurrency];
+    const { factor } = RATES[newCurrency];
 
     // Reescalar la tarifa actual a la nueva moneda antes de tocar el min/max,
     // para no perder la proporción que el usuario ya había puesto.
-    const scaledRate = Math.round((Number(rateInput.value) / oldFactor) * newRates.factor);
+    const scaledRate = Math.round((Number(rateInput.value) / oldFactor) * factor);
 
-    rateInput.min = newRates.rateMin;
-    rateInput.max = newRates.rateMax;
-    rateInput.step = newRates.rateStep;
-    rateInput.value = Math.min(Math.max(scaledRate, newRates.rateMin), newRates.rateMax);
+    rateInput.min = rateInput.step = factor;
+    rateInput.max = factor * 100;
+    rateInput.value = Math.min(Math.max(scaledRate, factor), factor * 100);
 
     currentCurrency = newCurrency;
     updateCalc();
