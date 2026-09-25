@@ -1071,3 +1071,10 @@ footer nav a {
 .tramite-ok:target {
   display: block;
 }
+
+.plan-annual {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--flow);
+  margin-top: 0.15rem;
+}
