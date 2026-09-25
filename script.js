@@ -1,23 +1,6 @@
-import { CONFIG } from "./config.js";
-
 // ---------------------------------------------------------------------------
-// Contacto — todo sale de config.js, así que no hay que buscar el email
-// a mano por el código cuando cambie el dominio.
+// Contacto — envío a Netlify Forms sin recargar la página.
 // ---------------------------------------------------------------------------
-const emailLink = document.getElementById("contact-email-link");
-if (emailLink) {
-  emailLink.href = `mailto:${CONFIG.contactEmail}`;
-  emailLink.textContent = `${CONFIG.contactEmail} ↗`;
-}
-
-const socialRow = document.getElementById("social-links");
-if (socialRow) {
-  socialRow.innerHTML = `
-    <a href="${CONFIG.social.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="${CONFIG.social.instagram}" target="_blank" rel="noopener">Instagram</a>
-  `;
-}
-
 const contactForm = document.getElementById("contact-form");
 const formStatus = document.getElementById("form-status");
 if (contactForm) {
@@ -37,25 +20,15 @@ if (contactForm) {
       });
       if (!response.ok) throw new Error(`Netlify Forms respondió ${response.status}`);
 
-      contactForm.reset();
-      contactForm.hidden = true;
-      if (formStatus) {
-        formStatus.textContent = "Listo — recibimos tu consulta. Te respondemos en menos de 24 horas.";
-      }
+      // página propia: Cloudflare Analytics cuenta cada visita a /gracias como conversión
+      location.href = "/gracias.html";
     } catch (err) {
       submitBtn.disabled = false;
       if (formStatus) {
-        formStatus.textContent = `No se pudo enviar. Escribinos directo a ${CONFIG.contactEmail}.`;
+        formStatus.textContent = `No se pudo enviar. Escribinos directo a contacto@eidonsmart.com.`;
       }
     }
   });
-}
-
-const priceStat = document.getElementById("stat-price");
-if (priceStat && CONFIG.priceFromUSD) {
-  priceStat.querySelector(".stat-num").textContent = `USD ${CONFIG.priceFromUSD}`;
-  priceStat.querySelector(".stat-label").textContent = "precio desde, por flujo simple";
-  priceStat.hidden = false;
 }
 
 // ---------------------------------------------------------------------------
@@ -106,9 +79,9 @@ const RATES = {
   // conectar a una API de cotización más adelante.
   // El rango de la tarifa por hora también se reescala por moneda: un "20"
   // tiene sentido en USD, pero en ARS o COP la tarifa real está en miles.
-  USD: { symbol: "US$", factor: 1, rateMin: 1, rateMax: 100, rateStep: 1 },
-  ARS: { symbol: "AR$", factor: 1000, rateMin: 1000, rateMax: 100000, rateStep: 1000 },
-  COP: { symbol: "COP$", factor: 4000, rateMin: 4000, rateMax: 400000, rateStep: 4000 },
+  USD: { symbol: "US$", factor: 1 },
+  ARS: { symbol: "AR$", factor: 1000 },
+  COP: { symbol: "COP$", factor: 4000 },
 };
 
 let currentCurrency = "USD";
@@ -163,16 +136,15 @@ document.querySelectorAll(".currency-toggle button").forEach((btn) => {
 
     const oldFactor = RATES[currentCurrency].factor;
     const newCurrency = btn.dataset.currency;
-    const newRates = RATES[newCurrency];
+    const { factor } = RATES[newCurrency];
 
     // Reescalar la tarifa actual a la nueva moneda antes de tocar el min/max,
     // para no perder la proporción que el usuario ya había puesto.
-    const scaledRate = Math.round((Number(rateInput.value) / oldFactor) * newRates.factor);
+    const scaledRate = Math.round((Number(rateInput.value) / oldFactor) * factor);
 
-    rateInput.min = newRates.rateMin;
-    rateInput.max = newRates.rateMax;
-    rateInput.step = newRates.rateStep;
-    rateInput.value = Math.min(Math.max(scaledRate, newRates.rateMin), newRates.rateMax);
+    rateInput.min = rateInput.step = factor;
+    rateInput.max = factor * 100;
+    rateInput.value = Math.min(Math.max(scaledRate, factor), factor * 100);
 
     currentCurrency = newCurrency;
     updateCalc();
@@ -181,20 +153,11 @@ document.querySelectorAll(".currency-toggle button").forEach((btn) => {
 
 updateCalc();
 
-// ---------------------------------------------------------------------------
-// FAQ — acordeón simple, accesible por teclado (son <button>).
-// ---------------------------------------------------------------------------
-document.querySelectorAll(".faq-item").forEach((item) => {
-  const question = item.querySelector(".faq-q");
-  question.addEventListener("click", () => {
-    const isOpen = item.classList.contains("is-open");
-    document.querySelectorAll(".faq-item").forEach((other) => {
-      other.classList.remove("is-open");
-      other.querySelector(".faq-q").setAttribute("aria-expanded", "false");
-    });
-    if (!isOpen) {
-      item.classList.add("is-open");
-      question.setAttribute("aria-expanded", "true");
-    }
-  });
+// El botón del resultado lleva la estimación al formulario, para que no arranque en blanco.
+document.getElementById("calc-cta")?.addEventListener("click", () => {
+  const processField = document.getElementById("process");
+  if (processField.value.trim()) return;
+  processField.value =
+    `Somos ${peopleInput.value} personas con unas ${hoursInput.value} h/semana de tareas manuales cada una. ` +
+    `La calculadora estima ${calcMoney.textContent}/año (${calcHoursYear.textContent} h) recuperables. El proceso es: `;
 });

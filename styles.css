@@ -71,7 +71,8 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  font-size: clamp(2rem, 4.6vw, 3.2rem);
+  max-width: 22ch;
 }
 
 h2 {
@@ -619,6 +620,11 @@ button {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  list-style: none;
+}
+
+.faq-q::-webkit-details-marker {
+  display: none;
 }
 
 .faq-q .plus {
@@ -627,16 +633,11 @@ button {
   font-size: 1.2rem;
   flex: none;
   margin-left: 1rem;
+  transition: transform 0.2s;
 }
 
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.25s ease;
-}
-
-.faq-item.is-open .faq-a {
-  max-height: 320px;
+.faq-item[open] .plus {
+  transform: rotate(45deg);
 }
 
 .faq-a p {
@@ -760,6 +761,7 @@ footer nav a {
 /* ----------------------------- float cta -------------------------------- */
 
 .float-cta {
+  display: none;
   position: fixed;
   right: 1.25rem;
   bottom: 1.25rem;
@@ -770,10 +772,16 @@ footer nav a {
   padding: 0.75rem 1.1rem;
   border-radius: 999px;
   font-size: 0.85rem;
-  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   box-shadow: 0 6px 18px rgba(20, 24, 31, 0.18);
+}
+
+/* en mobile el header sticky ya tiene el CTA; el flotante tapaba contenido */
+@media (min-width: 860px) {
+  .float-cta {
+    display: inline-flex;
+  }
 }
 
 .float-cta .dot {
@@ -839,4 +847,60 @@ footer nav a {
 
 .consent-label a {
   color: var(--accent);
+}
+
+/* --------------------------------- 404 ---------------------------------- */
+
+.error-wrap {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.error-code {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+/* ------------------------------ conversión ------------------------------ */
+
+.cta-note {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  margin: -1.75rem 0 2.5rem;
+}
+
+#contact-form .cta-note {
+  margin: 0.75rem 0 0;
+}
+
+.calc-cta {
+  align-self: flex-start;
+  margin-top: 1.25rem;
+}
+
+.field .optional {
+  font-weight: 400;
+  color: var(--ink-faint);
+}
+
+.case-quote {
+  margin: 1.25rem 0 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+}
+
+.case-quote footer {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+  margin-top: 0.4rem;
 }

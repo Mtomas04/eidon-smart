@@ -12,19 +12,17 @@ npx serve .
 python3 -m http.server 8000
 ```
 
-Abrí `index.html` desde ese servidor (no funciona bien con `file://` directo por el `import` de `config.js` como módulo).
+Abrí `index.html` desde ese servidor (Netlify Forms y los headers solo funcionan en producción).
 
 ## Estructura
 
 ```
 index.html               página principal
 portafolio.html          casos de estudio
-calculadora-tarifa.html  calculadora de tarifa por hora (usa calc.js)
+calculadora-tarifa.html  calculadora de tarifa por hora (tarifa.css + tarifa.js)
 privacidad.html, terminos.html, 404.html
 styles.css               todos los estilos
-script.js                flujo animado del hero, calculadora, FAQ, contacto
-config.js                email, redes y precio de referencia (priceFromUSD)
-calc.js                  lógica pura de la calculadora de tarifa
+script.js                flujo animado del hero, calculadora de ahorro, contacto (solo home)
 ```
 
 ## Deploy a Netlify
@@ -33,7 +31,7 @@ Es un sitio 100% estático — arrastrar la carpeta a Netlify o conectar el repo
 
 ## Números del sitio
 
-Todas las cifras de la home salen de casos reales del portafolio (3 flujos en producción, <60 s del formulario a la alerta, 1–3 semanas de entrega, <24 h de respuesta). El precio de referencia se publica solo cuando `priceFromUSD` en `config.js` deja de ser `null`. Si cambia un número, actualizarlo en `index.html` y `portafolio.html`.
+Todas las cifras de la home salen de casos reales del portafolio (3 flujos en producción, <60 s del formulario a la alerta, 1–3 semanas de entrega, <24 h de respuesta). El precio de referencia está en la franja de números de `index.html`, oculto con `hidden`: poné la cifra real y sacá el atributo para publicarlo. Si cambia un número, actualizarlo en `index.html` y `portafolio.html`.
 
 ## Pendiente (a propósito, no lo inventé)
 

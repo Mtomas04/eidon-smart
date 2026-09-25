@@ -52,7 +52,7 @@
         <a href="portafolio.html">Portafolio</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a href="#contacto" class="btn-primary">Hablar con nosotros →</a>
+      <a href="#contacto" class="btn-primary">Diagnóstico gratis →</a>
     </div>
   </header>
 
@@ -70,15 +70,16 @@
           — sin que nadie de tu equipo tenga que hacerlo a mano.
         </p>
         <div class="cta-row">
-          <a href="#contacto" class="btn-primary">Contanos tu proceso →</a>
+          <a href="#contacto" class="btn-primary">Pedí tu diagnóstico gratis de 20 min →</a>
           <a href="#flujo-real" class="btn-ghost">Ver el flujo en vivo</a>
         </div>
+        <p class="cta-note">Diagnóstico sin costo · Si algo falla después de la entrega, lo arreglamos.</p>
         <div class="stats-row">
           <div class="stat"><span class="stat-num">3</span><span class="stat-label">flujos corriendo en producción</span></div>
           <div class="stat"><span class="stat-num">&lt;60 s</span><span class="stat-label">del formulario a la alerta del equipo</span></div>
           <div class="stat"><span class="stat-num">1–3</span><span class="stat-label">semanas de la idea a producción</span></div>
           <div class="stat"><span class="stat-num">&lt;24 h</span><span class="stat-label">para responderte con un diagnóstico</span></div>
-          <div class="stat" id="stat-price" hidden><span class="stat-num"></span><span class="stat-label">precio de referencia por flujo simple</span></div>
+          <div class="stat"><span class="stat-num">US$ 200</span><span class="stat-label">precio desde, por flujo simple</span></div>
         </div>
       </div>
 
@@ -231,6 +232,7 @@
             <span class="eyebrow">Recuperación potencial anual</span>
             <div class="result-figure" id="calc-money">$0</div>
             <div class="result-sub"><strong id="calc-hours-year">0</strong> horas/año que tu equipo podría dedicar a otra cosa.</div>
+            <a href="#contacto" class="btn-primary calc-cta" id="calc-cta">Quiero recuperar ese tiempo →</a>
             <p class="calc-note">Ajustá el % automatizable si tu caso es distinto — no todas las tareas manuales se prestan igual para automatizarse.</p>
           </div>
         </div>
@@ -253,6 +255,11 @@
           <h3>Clasificación y routing de leads con IA</h3>
           <p>El mismo flujo del diagrama de arriba: un formulario dispara un análisis con Gemini Flash, un filtro decide si el lead es de calidad, y el resultado llega solo a la planilla del equipo, por email y por Telegram — en menos de 60 segundos desde que se completa el formulario.</p>
           <div class="case-stack">Stack: n8n · Gemini Flash · Google Sheets · Gmail · Telegram</div>
+          <!-- Testimonio: pegá la frase real del cliente y su firma, y sacá "hidden". -->
+          <blockquote class="case-quote" hidden>
+            <p>“FRASE DEL CLIENTE”</p>
+            <footer>— Nombre, cargo · Empresa</footer>
+          </blockquote>
         </div>
         <p class="calc-note spaced">
           Estamos documentando más casos con números concretos.
@@ -269,42 +276,22 @@
         <h2>Lo que nos preguntan.</h2>
 
         <div class="faq-list">
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              ¿Cuánto cuesta una automatización?
-              <span class="plus">+</span>
-            </button>
-            <div class="faq-a">
-              <p>Depende de la complejidad. Un flujo sencillo (ej: formulario → email → Google Sheets) está en el rango de 2 a 5 horas de trabajo. Algo con IA, múltiples sistemas y lógica condicional puede tomar entre 15 y 30 horas. Siempre hacemos el diagnóstico antes de darte un número, y lo hacemos sin costo.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              ¿Necesito saber de tecnología para trabajar con ustedes?
-              <span class="plus">+</span>
-            </button>
-            <div class="faq-a">
-              <p>No. Solo necesitás saber qué problema querés resolver. Nosotros elegimos las herramientas, las configuramos y te explicamos el resultado en términos simples. Si algo falla después de la entrega, lo arreglamos.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              ¿Trabajan con empresas de cualquier tamaño?
-              <span class="plus">+</span>
-            </button>
-            <div class="faq-a">
-              <p>Sí, pero donde más impacto generamos es en pymes y emprendimientos en crecimiento — son los que más sienten el costo del trabajo manual y los que más se benefician de liberar horas del equipo.</p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-q" aria-expanded="false">
-              ¿Son seguros los datos de mi empresa?
-              <span class="plus">+</span>
-            </button>
-            <div class="faq-a">
-              <p>Las automatizaciones corren en tu propia infraestructura o en la que vos elijas. Tus datos no pasan por nuestros servidores. Usamos conexiones cifradas y seguimos buenas prácticas de seguridad en cada integración.</p>
-            </div>
-          </div>
+          <details class="faq-item" name="faq">
+            <summary class="faq-q">¿Cuánto cuesta una automatización?<span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-a"><p>Desde US$ 200 un flujo simple; el precio final depende de la complejidad. Un flujo sencillo (ej: formulario → email → Google Sheets) está en el rango de 2 a 5 horas de trabajo. Algo con IA, múltiples sistemas y lógica condicional puede tomar entre 15 y 30 horas. Siempre hacemos el diagnóstico antes de darte un número, y lo hacemos sin costo.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-q">¿Necesito saber de tecnología para trabajar con ustedes?<span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-a"><p>No. Solo necesitás saber qué problema querés resolver. Nosotros elegimos las herramientas, las configuramos y te explicamos el resultado en términos simples. Si algo falla después de la entrega, lo arreglamos.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-q">¿Trabajan con empresas de cualquier tamaño?<span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-a"><p>Sí, pero donde más impacto generamos es en pymes y emprendimientos en crecimiento — son los que más sienten el costo del trabajo manual y los que más se benefician de liberar horas del equipo.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-q">¿Son seguros los datos de mi empresa?<span class="plus" aria-hidden="true">+</span></summary>
+            <div class="faq-a"><p>Las automatizaciones corren en tu propia infraestructura o en la que vos elijas. Tus datos no pasan por nuestros servidores. Usamos conexiones cifradas y seguimos buenas prácticas de seguridad en cada integración.</p></div>
+          </details>
         </div>
       </div>
     </section>
@@ -314,42 +301,50 @@
       <span class="node-dot" aria-hidden="true"></span>
       <div class="node-content wide">
         <span class="eyebrow">07 · DEPLOY</span>
-        <h2>Contanos tu proceso.</h2>
-        <p class="lede">Describí el proceso que te gustaría automatizar. Te respondemos en menos de 24 horas con un diagnóstico honesto.</p>
+        <h2>Pedí tu diagnóstico gratis.</h2>
+        <p class="lede">Describí el proceso que te gustaría automatizar. En menos de 24 horas te respondemos para coordinar una llamada de 20 minutos, sin costo, con un diagnóstico honesto.</p>
 
         <div class="contact-grid">
-          <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <form id="contact-form" name="contact" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="contact" />
             <p hidden>
               <label>No completar si sos humano: <input name="bot-field" /></label>
             </p>
             <div class="field">
               <label for="name">Nombre</label>
-              <input type="text" id="name" name="name" required />
+              <input type="text" id="name" name="name" autocomplete="name" required />
             </div>
             <div class="field">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" required />
+              <input type="email" id="email" name="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="whatsapp">WhatsApp <span class="optional">(opcional, para responderte más rápido)</span></label>
+              <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" placeholder="+54 9 11 1234-5678" />
             </div>
             <div class="field">
               <label for="process">¿Qué proceso querés automatizar?</label>
-              <textarea id="process" name="process" required></textarea>
+              <textarea id="process" name="process" placeholder="Ej: cargamos a mano en un Excel los pedidos que llegan por WhatsApp, y después avisamos a depósito por mail." required></textarea>
             </div>
             <div class="field consent-field">
               <label class="consent-label">
                 <input type="checkbox" id="consent" name="consent" required />
-                Acepto la <a href="privacidad.html" target="_blank">Política de Privacidad</a> y el uso de mis datos para responder esta consulta.
+                Acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a> y el uso de mis datos para responder esta consulta.
               </label>
             </div>
-            <button type="submit" class="btn-primary">Enviar consulta →</button>
+            <button type="submit" class="btn-primary">Pedir diagnóstico gratis →</button>
+            <p class="cta-note">Diagnóstico sin costo · Si algo falla después de la entrega, lo arreglamos.</p>
             <p id="form-status" class="calc-note" aria-live="polite"></p>
           </form>
 
           <div class="direct-contact">
             <span class="eyebrow">O directo</span>
             <p>Si preferís saltear el formulario, escribinos directamente.</p>
-            <a class="email-link" id="contact-email-link" href="#">cargando…</a>
-            <div class="social-row" id="social-links"></div>
+            <a class="email-link" href="mailto:contacto@eidonsmart.com">contacto@eidonsmart.com ↗</a>
+            <div class="social-row">
+              <a href="https://www.linkedin.com/company/111421948" target="_blank" rel="noopener">LinkedIn</a>
+              <a href="https://www.instagram.com/eidon.smart" target="_blank" rel="noopener">Instagram</a>
+            </div>
           </div>
         </div>
       </div>
@@ -377,7 +372,7 @@
     </div>
   </footer>
 
-  <a href="#contacto" class="float-cta"><span class="dot"></span> ¿Tenés un proceso manual en mente?</a>
+  <a href="#contacto" class="float-cta"><span class="dot"></span> Diagnóstico gratis de 20 min</a>
 
   <script type="module" src="script.js"></script>
 </body>
