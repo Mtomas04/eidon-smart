@@ -904,3 +904,69 @@ footer nav a {
   color: var(--ink-faint);
   margin-top: 0.4rem;
 }
+
+/* -------------------------------- planes -------------------------------- */
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.plan.is-featured {
+  border: 2px solid var(--accent);
+}
+
+.plan-tag {
+  position: absolute;
+  top: -0.7rem;
+  left: 1.5rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.plan-price {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.plan-price small {
+  display: block;
+}
+
+.plan-price small,
+.plan-monthly {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+/* el botón queda abajo aunque las tarjetas tengan distinto texto */
+.plan .btn-primary,
+.plan .btn-ghost {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.plan ul {
+  margin-bottom: 1.5rem;
+}
+
+.field select {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background: var(--surface);
+  color: var(--ink);
+}
