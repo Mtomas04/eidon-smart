@@ -63,7 +63,7 @@
       <span class="node-dot is-live" aria-hidden="true"></span>
       <div class="node-content">
         <span class="eyebrow">01 · TRIGGER</span>
-        <h1>Tu negocio ya manda señales todo el día.</h1>
+        <h1>Tu equipo pasa horas copiando datos de un lado a otro. Un flujo lo hace en menos de 60 segundos.</h1>
         <p class="lede">
           Un formulario que se llena. Un mensaje de WhatsApp. Una factura que
           entra por mail. Construimos lo que conecta esa señal con la acción
@@ -73,6 +73,13 @@
           <a href="#contacto" class="btn-primary">Contanos tu proceso →</a>
           <a href="#flujo-real" class="btn-ghost">Ver el flujo en vivo</a>
         </div>
+        <div class="stats-row">
+          <div class="stat"><span class="stat-num">3</span><span class="stat-label">flujos corriendo en producción</span></div>
+          <div class="stat"><span class="stat-num">&lt;60 s</span><span class="stat-label">del formulario a la alerta del equipo</span></div>
+          <div class="stat"><span class="stat-num">1–3</span><span class="stat-label">semanas de la idea a producción</span></div>
+          <div class="stat"><span class="stat-num">&lt;24 h</span><span class="stat-label">para responderte con un diagnóstico</span></div>
+          <div class="stat" id="stat-price" hidden><span class="stat-num"></span><span class="stat-label">precio de referencia por flujo simple</span></div>
+        </div>
       </div>
 
       <div class="node-content wide" id="flujo-real">
@@ -81,39 +88,42 @@
             <title id="flow-title">Flujo de clasificación de leads con IA</title>
             <desc id="flow-desc">Un formulario dispara un análisis con Gemini Flash, un filtro clasifica el lead como alta, dudosa o nula, y el resultado se envía a Google Sheets, Gmail y Telegram.</desc>
 
-            <!-- conectores -->
-            <path class="flow-path animated" d="M150,130 H230" />
-            <path class="flow-path animated" d="M400,130 H480" />
-            <path class="flow-path" d="M600,130 C640,130 640,50 680,50" />
-            <path class="flow-path animated" d="M600,130 H680" />
-            <path class="flow-path" d="M600,130 C640,130 640,210 680,210" />
+            <!-- conectores: data-step = paso en el que se activan -->
+            <path class="flow-path" data-step="1" d="M150,130 H230" />
+            <path class="flow-path" data-step="2" d="M400,130 H480" />
+            <path class="flow-path" data-step="3" d="M600,130 C640,130 640,50 680,50" />
+            <path class="flow-path" data-step="3" d="M600,130 H680" />
+            <path class="flow-path" data-step="3" d="M600,130 C640,130 640,210 680,210" />
 
-            <!-- nodo: formulario -->
-            <rect class="flow-node-rect accent" x="20" y="105" width="130" height="50" rx="6" />
-            <text class="flow-label" x="35" y="134">Formulario web</text>
-
-            <!-- nodo: gemini -->
-            <rect class="flow-node-rect" x="230" y="100" width="170" height="60" rx="6" />
-            <text class="flow-label" x="245" y="126">Gemini Flash</text>
-            <text class="flow-label soft" x="245" y="144">analiza el mensaje</text>
-
-            <!-- nodo: filtro -->
-            <rect class="flow-node-rect" x="480" y="100" width="120" height="60" rx="6" />
-            <text class="flow-label" x="493" y="126">Smart Filter</text>
-            <text class="flow-label soft" x="493" y="144">alta / dudosa / nula</text>
-
-            <!-- salidas -->
-            <rect class="flow-node-rect" x="680" y="25" width="150" height="50" rx="6" />
-            <text class="flow-label" x="695" y="54">Google Sheets</text>
-
-            <rect class="flow-node-rect" x="680" y="105" width="150" height="50" rx="6" />
-            <text class="flow-label" x="695" y="134">Gmail automático</text>
-
-            <rect class="flow-node-rect" x="680" y="185" width="150" height="50" rx="6" />
-            <text class="flow-label" x="695" y="214">Alerta en Telegram</text>
+            <g class="flow-node" data-step="0">
+              <rect class="flow-node-rect accent" x="20" y="105" width="130" height="50" rx="6" />
+              <text class="flow-label" x="35" y="134">Formulario web</text>
+            </g>
+            <g class="flow-node" data-step="1">
+              <rect class="flow-node-rect" x="230" y="100" width="170" height="60" rx="6" />
+              <text class="flow-label" x="245" y="126">Gemini Flash</text>
+              <text class="flow-label soft" x="245" y="144">analiza el mensaje</text>
+            </g>
+            <g class="flow-node" data-step="2">
+              <rect class="flow-node-rect" x="480" y="100" width="120" height="60" rx="6" />
+              <text class="flow-label" x="493" y="126">Smart Filter</text>
+              <text class="flow-label soft" x="493" y="144">puntúa el lead</text>
+            </g>
+            <g class="flow-node" data-step="3">
+              <rect class="flow-node-rect" x="680" y="25" width="150" height="50" rx="6" />
+              <text class="flow-label" x="695" y="54">Google Sheets</text>
+              <rect class="flow-node-rect" x="680" y="105" width="150" height="50" rx="6" />
+              <text class="flow-label" x="695" y="134">Gmail automático</text>
+              <rect class="flow-node-rect" x="680" y="185" width="150" height="50" rx="6" />
+              <text class="flow-label" x="695" y="214">Alerta en Telegram</text>
+            </g>
           </svg>
+          <div class="flow-log" aria-hidden="true">
+            <span id="flow-status">▶ esperando formulario…</span>
+            <span>leads en esta demo: <strong id="flow-count">0</strong></span>
+          </div>
           <p class="flow-caption">
-            Flujo real en producción — así clasificamos y ruteamos los leads de un cliente, hoy corriendo sin intervención manual.
+            Reproducción del flujo real en producción: así clasificamos y ruteamos los leads de un cliente. En vivo, cada lead llega al equipo en menos de 60 segundos, sin intervención manual.
           </p>
         </div>
       </div>
@@ -218,14 +228,14 @@
           </div>
 
           <div class="calc-result">
-            <span class="eyebrow" style="margin-bottom:0.25rem">Recuperación potencial anual</span>
+            <span class="eyebrow">Recuperación potencial anual</span>
             <div class="result-figure" id="calc-money">$0</div>
             <div class="result-sub"><strong id="calc-hours-year">0</strong> horas/año que tu equipo podría dedicar a otra cosa.</div>
             <p class="calc-note">Ajustá el % automatizable si tu caso es distinto — no todas las tareas manuales se prestan igual para automatizarse.</p>
           </div>
         </div>
 
-        <p class="calc-note" style="margin-top:1.5rem">
+        <p class="calc-note spaced">
           ¿Sos freelancer o agencia y necesitás definir tu propia tarifa? Probá también la
           <a href="calculadora-tarifa.html">calculadora de tarifa por hora →</a>
         </p>
@@ -237,14 +247,14 @@
       <span class="node-dot" aria-hidden="true"></span>
       <div class="node-content wide">
         <span class="eyebrow">05 · OUTPUT</span>
-        <h2>Un flujo que ya está en producción.</h2>
+        <h2>Tres flujos ya están en producción.</h2>
         <div class="case-card">
           <span class="case-tag">Caso real</span>
           <h3>Clasificación y routing de leads con IA</h3>
-          <p>El mismo flujo del diagrama de arriba: un formulario dispara un análisis con Gemini Flash, un filtro decide si el lead es de calidad, y el resultado llega solo a la planilla del equipo, por email y por Telegram.</p>
+          <p>El mismo flujo del diagrama de arriba: un formulario dispara un análisis con Gemini Flash, un filtro decide si el lead es de calidad, y el resultado llega solo a la planilla del equipo, por email y por Telegram — en menos de 60 segundos desde que se completa el formulario.</p>
           <div class="case-stack">Stack: n8n · Gemini Flash · Google Sheets · Gmail · Telegram</div>
         </div>
-        <p class="calc-note" style="margin-top:1.5rem">
+        <p class="calc-note spaced">
           Estamos documentando más casos con números concretos.
           <a href="portafolio.html">Ver el portafolio completo →</a>
         </p>
@@ -310,7 +320,7 @@
         <div class="contact-grid">
           <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="contact" />
-            <p style="display:none">
+            <p hidden>
               <label>No completar si sos humano: <input name="bot-field" /></label>
             </p>
             <div class="field">
@@ -332,7 +342,7 @@
               </label>
             </div>
             <button type="submit" class="btn-primary">Enviar consulta →</button>
-            <p id="form-status" class="calc-note" style="margin-top:0.75rem" aria-live="polite"></p>
+            <p id="form-status" class="calc-note" aria-live="polite"></p>
           </form>
 
           <div class="direct-contact">
