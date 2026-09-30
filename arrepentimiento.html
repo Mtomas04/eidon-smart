@@ -8,6 +8,8 @@
   <link rel="canonical" href="https://eidonsmart.com/arrepentimiento.html" />
   <link rel="icon" type="image/png" href="/assets/isotipo.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <meta name="theme-color" content="#131110" />
+  <link rel="stylesheet" href="/vendor/phosphor/style.css" />
   <link rel="stylesheet" href="styles.css" />
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "717e8ad203414ce296f9a0fb4ed58e16"}'></script>
@@ -15,29 +17,30 @@
 </head>
 <body>
 
+  <div id="progress" aria-hidden="true"></div>
+
   <div class="legal-strip">
     <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
     <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
   </div>
 
   <header class="site-header">
-    <div class="container">
-      <a href="index.html" class="logo"><img src="/assets/isotipo.png" alt="" class="logo-mark" />EIDON SMART</a>
-      <nav class="nav-links">
+    <nav class="wrap nav">
+      <a href="index.html" class="brand"><img src="/assets/isotipo.png" alt="" width="28" height="26" /><span>EIDON SMART</span></a>
+      <div class="nav-links">
+        <a href="index.html#demo">Demo</a>
         <a href="index.html#servicios">Servicios</a>
-        <a href="index.html#proceso">Proceso</a>
         <a href="index.html#calculadora">Calculadora</a>
+        <a href="index.html#planes">Planes</a>
         <a href="portafolio.html">Portafolio</a>
         <a href="index.html#faq">FAQ</a>
-      </nav>
-      <a href="index.html#contacto" class="btn-primary">Diagnóstico gratis →</a>
-    </div>
+      </div>
+      <a href="index.html#contacto" class="btn btn-primary btn-sm glow">Diagnóstico gratis <i class="ph ph-arrow-right"></i></a>
+    </nav>
   </header>
 
-  <main class="pipeline">
-    <section class="node">
-      <span class="node-dot" aria-hidden="true"></span>
-      <div class="node-content wide legal-content">
+  <main>
+    <article class="wrap prose">
         <span class="eyebrow">LEGAL</span>
         <h1>Botón de arrepentimiento y botón de baja</h1>
         <p class="lede">Sin registrarte y sin dar explicaciones. Al enviar el formulario te mostramos un código de trámite, y te lo confirmamos por email dentro de las 24 horas.</p>
@@ -59,22 +62,22 @@
           </fieldset>
           <div class="field">
             <label for="t-nombre">Nombre y apellido o razón social</label>
-            <input type="text" id="t-nombre" name="nombre" autocomplete="name" required />
+            <input class="input" type="text" id="t-nombre" name="nombre" autocomplete="name" required />
           </div>
           <div class="field">
             <label for="t-email">Email con el que contrataste</label>
-            <input type="email" id="t-email" name="email" autocomplete="email" required />
+            <input class="input" type="email" id="t-email" name="email" autocomplete="email" required />
           </div>
           <div class="field">
             <label for="t-servicio">¿Qué servicio contrataste?</label>
-            <input type="text" id="t-servicio" name="servicio" placeholder="Ej: Flujo con IA para leads, agosto 2026" required />
+            <input class="input" type="text" id="t-servicio" name="servicio" placeholder="Ej: Flujo con IA para leads, agosto 2026" required />
           </div>
           <div class="field">
-            <label for="t-comentario">Comentario <span class="optional">(opcional)</span></label>
-            <textarea id="t-comentario" name="comentario"></textarea>
+            <label for="t-comentario">Comentario <span class="opt">(opcional)</span></label>
+            <textarea class="input" id="t-comentario" name="comentario"></textarea>
           </div>
-          <button type="submit" class="btn-primary">Enviar solicitud</button>
-          <p id="tramite-status" class="calc-note" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary glow">Enviar solicitud</button>
+          <p id="tramite-status" class="fine" aria-live="polite"></p>
         </form>
 
         <div id="recibido" class="tramite-ok">
@@ -82,34 +85,34 @@
           <p>Tu código de trámite: <strong id="tramite-codigo-ok">te lo enviamos por email dentro de las 24 horas</strong>.</p>
           <p>Guardalo: es el comprobante de que hiciste el pedido.</p>
         </div>
-      </div>
-    </section>
+    </article>
   </main>
 
-  <footer>
-    <div class="container">
+  <footer class="wrap footer">
+    <div class="foot-top">
       <div class="foot-brand">
-        EIDON SMART<br />
-        Automatización con n8n e IA para empresas que quieren operar mejor.
+        <span class="brand"><img src="/assets/isotipo.png" alt="" width="24" height="22" /><span>EIDON SMART</span></span>
+        <p>Automatización con n8n e IA para empresas que quieren operar mejor.</p>
       </div>
-      <nav>
+      <nav class="foot-nav">
         <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#calculadora">Calculadora</a>
+        <a href="calculadora-tarifa.html">Calculadora de tarifa</a>
         <a href="portafolio.html">Portafolio</a>
         <a href="index.html#faq">FAQ</a>
         <a href="index.html#contacto">Contacto</a>
       </nav>
-      <div class="foot-legal">
-        <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
-        <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
-        <a href="/privacidad.html">Privacidad</a>
-        <a href="/privacidad.html#cookies">Cookies</a>
-        <a href="/terminos.html">Términos y devoluciones</a>
-      </div>
+    </div>
+    <div class="foot-legal">
+      <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
+      <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
+      <a href="/privacidad.html">Privacidad</a>
+      <a href="/privacidad.html#cookies">Cookies</a>
+      <a href="/terminos.html">Términos y devoluciones</a>
     </div>
   </footer>
 
   <script src="tramite.js"></script>
-
-  
+  <script type="module" src="site.js"></script>
 </body>
 </html>

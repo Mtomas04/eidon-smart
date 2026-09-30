@@ -1,0 +1,130 @@
+/* Phosphor Icons (MIT), recortado a los íconos que usa el sitio: la fuente trae solo esos glifos.
+   Para sumar uno: agregar su regla .ph.ph-NOMBRE:before desde
+   https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css y volver a recortar
+   Phosphor.woff2 con pyftsubset (ver README). */
+@font-face {
+  font-family: "Phosphor";
+  src: url("./Phosphor.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.ph {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "Phosphor" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ph.ph-arrow-counter-clockwise:before {
+  content: "\e038";
+}
+.ph.ph-arrow-down:before {
+  content: "\e03e";
+}
+.ph.ph-arrow-right:before {
+  content: "\e06c";
+}
+.ph.ph-bell-ringing:before {
+  content: "\e5e8";
+}
+.ph.ph-buildings:before {
+  content: "\e102";
+}
+.ph.ph-caret-down:before {
+  content: "\e136";
+}
+.ph.ph-check:before {
+  content: "\e182";
+}
+.ph.ph-clock:before {
+  content: "\e19a";
+}
+.ph.ph-envelope-simple:before {
+  content: "\e218";
+}
+.ph.ph-flow-arrow:before {
+  content: "\e6ec";
+}
+.ph.ph-funnel:before {
+  content: "\e266";
+}
+.ph.ph-graduation-cap:before {
+  content: "\e62c";
+}
+.ph.ph-instagram-logo:before {
+  content: "\e2d0";
+}
+.ph.ph-lightning:before {
+  content: "\e2de";
+}
+.ph.ph-linkedin-logo:before {
+  content: "\e2ee";
+}
+.ph.ph-lock-simple:before {
+  content: "\e308";
+}
+.ph.ph-map-pin:before {
+  content: "\e316";
+}
+.ph.ph-package:before {
+  content: "\e390";
+}
+.ph.ph-paper-plane-right:before {
+  content: "\e396";
+}
+.ph.ph-paper-plane-tilt:before {
+  content: "\e398";
+}
+.ph.ph-play:before {
+  content: "\e3d0";
+}
+.ph.ph-plugs-connected:before {
+  content: "\eb5a";
+}
+.ph.ph-plus:before {
+  content: "\e3d4";
+}
+.ph.ph-shield-check:before {
+  content: "\e40c";
+}
+.ph.ph-shopping-cart:before {
+  content: "\e41e";
+}
+.ph.ph-sliders-horizontal:before {
+  content: "\e434";
+}
+.ph.ph-sparkle:before {
+  content: "\e6a2";
+}
+.ph.ph-table:before {
+  content: "\e476";
+}
+.ph.ph-telegram-logo:before {
+  content: "\e5bc";
+}
+.ph.ph-textbox:before {
+  content: "\eb0a";
+}
+.ph.ph-video-camera:before {
+  content: "\e4da";
+}

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eidon Smart | Automatización con n8n e IA para tu empresa</title>
   <meta name="description" content="Construimos automatizaciones con n8n e inteligencia artificial que conectan tus herramientas y eliminan el trabajo manual. Diagnóstico, construcción y entrega en semanas." />
+  <meta name="theme-color" content="#131110" />
   <link rel="canonical" href="https://eidonsmart.com/" />
   <link rel="icon" type="image/png" href="/assets/isotipo.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -17,6 +18,7 @@
   <meta name="twitter:title" content="Eidon Smart | Automatización con n8n e IA" />
   <meta name="twitter:description" content="Construimos flujos de trabajo que eliminan tareas manuales y conectan tus herramientas." />
   <meta name="twitter:image" content="https://eidonsmart.com/assets/imagotipo.png" />
+  <link rel="stylesheet" href="/vendor/phosphor/style.css" />
   <link rel="stylesheet" href="styles.css" />
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "717e8ad203414ce296f9a0fb4ed58e16"}'></script>
@@ -39,412 +41,412 @@
 </head>
 <body>
 
+  <div id="progress" aria-hidden="true"></div>
+
   <div class="legal-strip">
     <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
     <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
   </div>
 
   <header class="site-header">
-    <div class="container">
-      <a href="#top" class="logo"><img src="/assets/isotipo.png" alt="" class="logo-mark" />EIDON SMART</a>
-      <nav class="nav-links">
+    <nav class="wrap nav">
+      <a href="#top" class="brand"><img src="/assets/isotipo.png" alt="" width="28" height="26" /><span>EIDON SMART</span></a>
+      <div class="nav-links">
+        <a href="#demo">Demo</a>
         <a href="#servicios">Servicios</a>
         <a href="#proceso">Proceso</a>
         <a href="#calculadora">Calculadora</a>
-        <a href="portafolio.html">Portafolio</a>
         <a href="#planes">Planes</a>
+        <a href="portafolio.html">Portafolio</a>
         <a href="#faq">FAQ</a>
-      </nav>
-      <a href="#contacto" class="btn-primary">Diagnóstico gratis →</a>
-    </div>
+      </div>
+      <a href="#contacto" class="btn btn-primary btn-sm glow">Diagnóstico gratis <i class="ph ph-arrow-right"></i></a>
+    </nav>
   </header>
 
-  <main class="pipeline" id="top">
+  <main id="top">
 
-    <!-- 01 · TRIGGER — hero -->
-    <section class="node" id="hero">
-      <span class="node-dot is-live" aria-hidden="true"></span>
-      <div class="node-content">
-        <span class="eyebrow">01 · TRIGGER</span>
-        <h1>Tu equipo pasa horas copiando datos de un lado a otro. Un flujo lo hace en menos de 60 segundos.</h1>
-        <p class="lede">
-          Un formulario que se llena. Un mensaje de WhatsApp. Una factura que
-          entra por mail. Construimos lo que conecta esa señal con la acción
-          — sin que nadie de tu equipo tenga que hacerlo a mano.
-        </p>
-        <div class="cta-row">
-          <a href="#contacto" class="btn-primary">Pedí tu diagnóstico gratis de 20 min →</a>
-          <a href="#flujo-real" class="btn-ghost">Ver el flujo en vivo</a>
-        </div>
-        <p class="cta-note">Diagnóstico sin costo · Si algo falla después de la entrega, lo arreglamos.</p>
-        <div class="stats-row">
-          <div class="stat"><span class="stat-num">3</span><span class="stat-label">flujos corriendo en producción</span></div>
-          <div class="stat"><span class="stat-num">&lt;60 s</span><span class="stat-label">del formulario a la alerta del equipo</span></div>
-          <div class="stat"><span class="stat-num">1–3</span><span class="stat-label">semanas de la idea a producción</span></div>
-          <div class="stat"><span class="stat-num">&lt;24 h</span><span class="stat-label">para responderte con un diagnóstico</span></div>
-          <div class="stat"><span class="stat-num">US$ 200</span><span class="stat-label">precio desde, por flujo simple</span></div>
-        </div>
-      </div>
-
-      <div class="node-content wide" id="flujo-real">
-        <div class="flow-diagram-wrap">
-          <svg viewBox="0 0 860 260" role="img" aria-labelledby="flow-title flow-desc">
-            <title id="flow-title">Flujo de clasificación de leads con IA</title>
-            <desc id="flow-desc">Un formulario dispara un análisis con Gemini Flash, un filtro clasifica el lead como alta, dudosa o nula, y el resultado se envía a Google Sheets, Gmail y Telegram.</desc>
-
-            <!-- conectores: data-step = paso en el que se activan -->
-            <path class="flow-path" data-step="1" d="M150,130 H230" />
-            <path class="flow-path" data-step="2" d="M400,130 H480" />
-            <path class="flow-path" data-step="3" d="M600,130 C640,130 640,50 680,50" />
-            <path class="flow-path" data-step="3" d="M600,130 H680" />
-            <path class="flow-path" data-step="3" d="M600,130 C640,130 640,210 680,210" />
-
-            <g class="flow-node" data-step="0">
-              <rect class="flow-node-rect accent" x="20" y="105" width="130" height="50" rx="6" />
-              <text class="flow-label" x="35" y="134">Formulario web</text>
-            </g>
-            <g class="flow-node" data-step="1">
-              <rect class="flow-node-rect" x="230" y="100" width="170" height="60" rx="6" />
-              <text class="flow-label" x="245" y="126">Gemini Flash</text>
-              <text class="flow-label soft" x="245" y="144">analiza el mensaje</text>
-            </g>
-            <g class="flow-node" data-step="2">
-              <rect class="flow-node-rect" x="480" y="100" width="120" height="60" rx="6" />
-              <text class="flow-label" x="493" y="126">Smart Filter</text>
-              <text class="flow-label soft" x="493" y="144">puntúa el lead</text>
-            </g>
-            <g class="flow-node" data-step="3">
-              <rect class="flow-node-rect" x="680" y="25" width="150" height="50" rx="6" />
-              <text class="flow-label" x="695" y="54">Google Sheets</text>
-              <rect class="flow-node-rect" x="680" y="105" width="150" height="50" rx="6" />
-              <text class="flow-label" x="695" y="134">Gmail automático</text>
-              <rect class="flow-node-rect" x="680" y="185" width="150" height="50" rx="6" />
-              <text class="flow-label" x="695" y="214">Alerta en Telegram</text>
-            </g>
-          </svg>
-          <div class="flow-log" aria-hidden="true">
-            <span id="flow-status">▶ esperando formulario…</span>
-            <span>leads en esta demo: <strong id="flow-count">0</strong></span>
+    <!-- HERO — el flujo real en 3D sobre una red de fondo por la que corren datos -->
+    <section class="hero">
+      <canvas id="hero-3d" aria-hidden="true"></canvas>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker"><span class="dot"></span>01 · TRIGGER — AUTOMATIZACIÓN CON N8N E IA</p>
+          <h1>Tu equipo pasa horas copiando datos. <span>Un flujo lo hace en menos de 60&nbsp;segundos.</span></h1>
+          <p class="lede">Un formulario que se llena. Un WhatsApp. Una factura que entra por mail. Construimos lo que conecta esa señal con la acción, sin que nadie de tu equipo lo haga a mano.</p>
+          <div class="cta-row">
+            <a href="#contacto" class="btn btn-primary btn-lg glow">Pedí tu diagnóstico gratis de 20 min <i class="ph ph-arrow-right"></i></a>
+            <a href="#demo" class="btn btn-secondary btn-lg"><i class="ph ph-play"></i> Ver la demo (1 min)</a>
           </div>
-          <p class="flow-caption">
-            Reproducción del flujo real en producción: así clasificamos y ruteamos los leads de un cliente. En vivo, cada lead llega al equipo en menos de 60 segundos, sin intervención manual.
-          </p>
+          <ul class="checks">
+            <li><i class="ph ph-check"></i>Diagnóstico sin costo</li>
+            <li><i class="ph ph-check"></i>Si algo falla, lo arreglamos</li>
+            <li><i class="ph ph-check"></i>10 días para arrepentirte</li>
+          </ul>
+        </div>
+        <div class="hero-stage" id="hero-stage">
+          <div class="stage-badge"><span class="dot"></span><span>Reproducción del flujo en producción · leads en esta animación: <strong id="hero-count">0</strong></span></div>
         </div>
       </div>
     </section>
 
-    <!-- 02 · ACTION — servicios -->
-    <section class="node" id="servicios">
-      <span class="node-dot" aria-hidden="true"></span>
-      <div class="node-content wide">
+    <!-- NÚMEROS -->
+    <section class="stat-band">
+      <div class="wrap stats">
+        <div class="stat" data-reveal><b>3</b><span>flujos corriendo en producción</span></div>
+        <div class="stat" data-reveal><b>&lt;60 s</b><span>del formulario a la alerta del equipo</span></div>
+        <div class="stat" data-reveal><b>1–3 sem</b><span>de la idea a producción</span></div>
+        <div class="stat" data-reveal><b>&lt;24 h</b><span>para responderte con un diagnóstico</span></div>
+        <div class="stat" data-reveal><b>US$ 200</b><span>desde, por flujo simple</span></div>
+      </div>
+    </section>
+
+    <!-- DEMO 1 · pedidos, stock y precios por chat (video real, datos inventados) -->
+    <section class="section wrap" id="demo">
+      <header class="head" data-reveal>
+        <span class="eyebrow">DEMO · PEDIDOS Y STOCK POR CHAT</span>
+        <h2>El vendedor escribe como le escribe a un compañero. El resto pasa solo.</h2>
+        <p>El flujo carga el pedido, descuenta el stock y devuelve el remito en PDF, en segundos. Sin sistemas nuevos: un chat y tu hoja de cálculo.</p>
+      </header>
+      <div class="demo-grid">
+        <figure class="video-card" data-reveal>
+          <div class="win-bar"><span></span><span></span><span></span><em>demo-pedidos-y-stock.mp4 · 1 min</em></div>
+          <video controls preload="metadata" playsinline poster="/assets/demo/poster.jpg">
+            <source src="/assets/demo/demo-pedidos-y-stock.mp4" type="video/mp4" />
+          </video>
+          <figcaption>Demo con datos inventados. Todo lo que se ve lo devolvió el bot de verdad.</figcaption>
+        </figure>
+        <ol class="chat-steps" data-reveal>
+          <li>
+            <span class="step-tag">1 · el vendedor escribe</span>
+            <p class="bubble me">doña artura pidió 30 harinas y 2 cajas de aceite</p>
+          </li>
+          <li>
+            <span class="step-tag">2 · en segundos</span>
+            <p class="bubble bot"><b>✅ Pedido cargado · Doña Artura</b><br />• 30 paquetes Harina 000 1 kg: $ 27.000<br />• 2 cajas Aceite de girasol 900 ml: $ 60.000<br />Total: $ 87.000 · <u>Remito en PDF</u></p>
+          </li>
+          <li>
+            <span class="step-tag">3 · si algo no está claro, pregunta</span>
+            <p class="bubble bot">Leche larga vida 1 L se vende por caja de 12: ¿cuántas cajas?</p>
+          </li>
+          <li>
+            <span class="step-tag">4 · y avisa antes de quedarte sin stock</span>
+            <p class="bubble bot warn"><b>⚠️ Stock bajo: reponer</b><br />Aceite de girasol 900 ml: quedan 20 cajas</p>
+          </li>
+          <li>
+            <span class="step-tag">5 · tablero y precio sugerido</span>
+            <p>Ventas, compras y ganancia de un vistazo, y el precio sugerido con tus costos, impuestos y margen.</p>
+          </li>
+        </ol>
+      </div>
+      <div class="cta-row">
+        <a href="#contacto" class="btn btn-primary glow" data-plan="Flujo con IA">Quiero esto para mi negocio <i class="ph ph-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <!-- PROBALO · simulación interactiva del flujo real de leads -->
+    <section class="section wrap" id="probalo">
+      <header class="head" data-reveal>
+        <span class="eyebrow">PROBALO VOS · FLUJO DE LEADS</span>
+        <h2>Mandá un lead de prueba y mirá cómo se clasifica solo.</h2>
+        <p>Es una simulación del flujo real que corre para un cliente: Gemini lee el mensaje, un filtro lo puntúa y el resultado llega a la planilla, al mail y a Telegram. Los leads de prueba son inventados.</p>
+      </header>
+      <div class="lab-grid">
+        <div class="board-wrap">
+          <div class="board" id="board">
+            <div class="stages">
+              <div class="stage-node" data-stage="0"><i class="ph ph-textbox"></i><span>Formulario</span></div>
+              <div class="stage-node" data-stage="1"><i class="ph ph-sparkle"></i><span>Gemini Flash</span></div>
+              <div class="stage-node" data-stage="2"><i class="ph ph-funnel"></i><span>Smart Filter</span></div>
+              <div class="stage-node" data-stage="3"><i class="ph ph-paper-plane-right"></i><span>Destinos</span></div>
+            </div>
+            <div class="outputs">
+              <div class="out" data-out="sheets"><i class="ph ph-table"></i>Sheets</div>
+              <div class="out" data-out="gmail"><i class="ph ph-envelope-simple"></i>Gmail</div>
+              <div class="out" data-out="telegram"><i class="ph ph-telegram-logo"></i>Telegram</div>
+            </div>
+          </div>
+        </div>
+        <div class="lab-panel">
+          <div class="lab-top"><span class="mono-label">LEAD ENTRANTE</span><span class="muted-sm">procesados: <b id="demo-count">0</b></span></div>
+          <div class="lead-card"><strong id="lead-name">Martina · Estudio contable</strong><span id="lead-msg">“Necesitamos cargar 300 facturas por mes al sistema sin hacerlo a mano.”</span></div>
+          <div class="log" id="log" aria-live="polite"><span class="log-empty">▶ esperando formulario…</span></div>
+          <div class="result" id="result" hidden><span class="tag" id="result-tag"></span><span class="muted-sm" id="result-note"></span></div>
+          <div class="cta-row tight">
+            <button type="button" class="btn btn-primary" id="run-demo"><i class="ph ph-paper-plane-tilt"></i> <span>Mandar un lead de prueba</span></button>
+            <a href="#contacto" class="btn btn-ghost">Quiero esto para mi empresa <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="section wrap" id="servicios">
+      <header class="head" data-reveal>
         <span class="eyebrow">02 · ACTION</span>
         <h2>Construimos tres tipos de soluciones.</h2>
-        <div class="card-grid">
-          <div class="card">
-            <h3>Flujos de trabajo con n8n</h3>
-            <p>Conectamos las herramientas que ya usás — WhatsApp, Gmail, Sheets, tu CRM — para que los procesos repetitivos pasen solos, sin código y sin errores de tipeo.</p>
-            <ul>
-              <li>Clasificación y routing de leads</li>
-              <li>Notificaciones y alertas automáticas</li>
-              <li>Sincronización entre plataformas</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Agentes e IA aplicada</h3>
-            <p>Gemini, Groq y modelos open-source para tareas que requieren entender texto o documentos: clasificar mensajes, leer facturas, responder con contexto de tu empresa.</p>
-            <ul>
-              <li>Análisis de facturas y documentos</li>
-              <li>Asistentes por WhatsApp o web</li>
-              <li>Prospección automatizada con IA</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Integraciones a medida</h3>
-            <p>Si tu software tiene API, la conectamos. Si no la tiene, evaluamos alternativas y te decimos la verdad antes de empezar a cobrarte.</p>
-            <ul>
-              <li>ERPs y sistemas propietarios</li>
-              <li>Portales gubernamentales</li>
-              <li>Plataformas e-commerce</li>
-            </ul>
-          </div>
-        </div>
+      </header>
+      <div class="grid-3 persp">
+        <article class="card svc tilt" data-reveal>
+          <div class="icon-box"><i class="ph ph-flow-arrow"></i></div>
+          <h3>Flujos de trabajo con n8n</h3>
+          <p>Conectamos las herramientas que ya usás (WhatsApp, Gmail, Sheets, tu CRM) para que los procesos repetitivos pasen solos, sin errores de tipeo.</p>
+          <ul class="ticks">
+            <li><i class="ph ph-check"></i>Clasificación y routing de leads</li>
+            <li><i class="ph ph-check"></i>Notificaciones y alertas automáticas</li>
+            <li><i class="ph ph-check"></i>Sincronización entre plataformas</li>
+          </ul>
+        </article>
+        <article class="card svc tilt" data-reveal>
+          <div class="icon-box"><i class="ph ph-sparkle"></i></div>
+          <h3>Agentes e IA aplicada</h3>
+          <p>Gemini, Groq y modelos open-source para tareas que requieren entender texto o documentos, con el contexto de tu empresa.</p>
+          <ul class="ticks">
+            <li><i class="ph ph-check"></i>Análisis de facturas y documentos</li>
+            <li><i class="ph ph-check"></i>Asistentes por WhatsApp o web</li>
+            <li><i class="ph ph-check"></i>Prospección automatizada con IA</li>
+          </ul>
+        </article>
+        <article class="card svc tilt" data-reveal>
+          <div class="icon-box"><i class="ph ph-plugs-connected"></i></div>
+          <h3>Integraciones a medida</h3>
+          <p>Si tu software tiene API, la conectamos. Si no la tiene, evaluamos alternativas y te decimos la verdad antes de cobrarte.</p>
+          <ul class="ticks">
+            <li><i class="ph ph-check"></i>ERPs y sistemas propietarios</li>
+            <li><i class="ph ph-check"></i>Portales gubernamentales</li>
+            <li><i class="ph ph-check"></i>Plataformas e-commerce</li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <!-- 03 · LOGIC — proceso -->
-    <section class="node" id="proceso">
-      <span class="node-dot" aria-hidden="true"></span>
-      <div class="node-content wide">
+    <!-- PROCESO — la línea de arriba se carga con el scroll -->
+    <section class="section wrap" id="proceso">
+      <header class="head" data-reveal>
         <span class="eyebrow">03 · LOGIC</span>
-        <h2>Cómo pensamos cada flujo.</h2>
-        <div class="steps">
-          <div class="step">
-            <span class="step-tag">→ diagnóstico</span>
-            <h3>Entendemos tu operación</h3>
-            <p>Identificamos qué vale la pena automatizar y estimamos tiempo y costo antes de arrancar. Sin cargo.</p>
+        <h2>De la idea a producción, en tres pasos.</h2>
+      </header>
+      <ol class="steps" id="steps">
+        <li data-reveal><div class="step-n"><b>01</b><span>DIAGNÓSTICO</span></div><h3>Entendemos tu operación</h3><p>Identificamos qué vale la pena automatizar y estimamos tiempo y costo antes de arrancar. Sin cargo.</p></li>
+        <li data-reveal><div class="step-n"><b>02</b><span>CONSTRUCCIÓN</span></div><h3>Armamos y testeamos</h3><p>Construimos el flujo, lo probamos con datos reales y lo ajustamos hasta que funcione sin intervención. Entre 1 y 3 semanas.</p></li>
+        <li data-reveal><div class="step-n"><b>03</b><span>ENTREGA</span></div><h3>Lo dejamos andando</h3><p>Lo implementamos, te mostramos cómo monitorearlo y quedamos disponibles para ajustes.</p></li>
+      </ol>
+    </section>
+
+    <!-- CALCULADORA -->
+    <section class="calc-section" id="calculadora">
+      <div class="wrap calc-grid">
+        <div class="calc-inputs">
+          <header class="head" data-reveal>
+            <span class="eyebrow">04 · FILTER</span>
+            <h2>¿Cuánta plata se te escapa en tareas manuales?</h2>
+            <p>Una estimación simple, no un estudio. Mové los números hasta que se parezcan a tu operación.</p>
+          </header>
+          <div class="seg" role="group" aria-label="Moneda">
+            <button type="button" data-currency="USD" aria-pressed="true">USD</button>
+            <button type="button" data-currency="ARS" aria-pressed="false">ARS</button>
+            <button type="button" data-currency="COP" aria-pressed="false">COP</button>
           </div>
-          <div class="step">
-            <span class="step-tag">→ construcción</span>
-            <h3>Armamos y testeamos</h3>
-            <p>Construimos el flujo, lo probamos con datos reales y lo ajustamos hasta que funcione sin intervención manual. Generalmente entre 1 y 3 semanas.</p>
-          </div>
-          <div class="step">
-            <span class="step-tag">→ entrega</span>
-            <h3>Lo dejamos andando</h3>
-            <p>Lo implementamos en tu entorno, te mostramos cómo monitorearlo y quedamos disponibles para ajustes post-entrega.</p>
-          </div>
+          <label class="slider"><span><span>Personas en tareas manuales</span><strong id="out-people"></strong></span><input type="range" id="calc-people" min="1" max="50" step="1" value="3" /></label>
+          <label class="slider"><span><span>Horas manuales por semana, por persona</span><strong id="out-hours"></strong></span><input type="range" id="calc-hours" min="1" max="40" step="1" value="15" /></label>
+          <label class="slider"><span><span>Tarifa por hora (<span id="rate-cur">USD</span>)</span><strong id="out-rate"></strong></span><input type="range" id="calc-rate" min="5" max="100" step="1" value="20" /></label>
+          <label class="slider"><span><span>% automatizable</span><strong id="out-pct"></strong></span><input type="range" id="calc-pct" min="10" max="100" step="5" value="70" /></label>
         </div>
+        <div class="calc-card tilt" data-reveal>
+          <span class="mono-label">RECUPERACIÓN POTENCIAL ANUAL</span>
+          <span class="calc-money" id="calc-money">—</span>
+          <div class="calc-mini">
+            <div><strong id="calc-hours-year">—</strong><span>horas/año liberadas</span></div>
+            <div><strong id="calc-fte">—</strong><span>personas a tiempo completo</span></div>
+          </div>
+          <p class="payback" id="payback"><i class="ph ph-lightning"></i><span></span></p>
+          <a href="#contacto" class="btn btn-primary btn-lg glow" id="calc-cta">Quiero recuperar ese tiempo <i class="ph ph-arrow-right"></i></a>
+          <span class="fine">No todas las tareas manuales se automatizan igual: ajustá el % a tu caso.</span>
+        </div>
+      </div>
+      <p class="wrap fine spaced">¿Sos freelancer o agencia y necesitás definir tu propia tarifa? Probá la <a href="calculadora-tarifa.html">calculadora de tarifa por hora →</a></p>
+    </section>
+
+    <!-- CASO -->
+    <section class="section wrap">
+      <div class="case" data-reveal>
+        <div class="case-copy">
+          <span class="eyebrow">05 · OUTPUT — CASO REAL</span>
+          <h2 class="h2-sm">Clasificación y routing de leads con IA</h2>
+          <p>Un formulario dispara un análisis con Gemini Flash, un filtro decide si el lead es de calidad y el resultado llega solo a la planilla del equipo, por email y por Telegram.</p>
+          <div class="tags"><span class="tag neutral">n8n</span><span class="tag neutral">Gemini Flash</span><span class="tag neutral">Google Sheets</span><span class="tag neutral">Gmail</span><span class="tag neutral">Telegram</span></div>
+          <a href="portafolio.html" class="btn btn-ghost">Ver el portafolio completo <i class="ph ph-arrow-right"></i></a>
+        </div>
+        <div class="case-fig"><b>&lt;60 s</b><span>desde que se completa el formulario hasta que el lead llega al equipo. Cero intervención manual.</span></div>
       </div>
     </section>
 
-    <!-- 04 · FILTER — calculadora -->
-    <section class="node" id="calculadora">
-      <span class="node-dot" aria-hidden="true"></span>
-      <div class="node-content wide">
-        <span class="eyebrow">04 · FILTER</span>
-        <h2>¿Cuánto tiempo se te escapa?</h2>
-        <p class="lede">Una estimación simple, no un estudio — movés los números para que se parezcan a tu operación real.</p>
-
-        <div class="calc-box">
-          <div>
-            <div class="currency-toggle" role="group" aria-label="Moneda">
-              <button type="button" data-currency="USD" aria-pressed="true">USD</button>
-              <button type="button" data-currency="ARS" aria-pressed="false">ARS</button>
-              <button type="button" data-currency="COP" aria-pressed="false">COP</button>
-            </div>
-
-            <div class="calc-field">
-              <label for="calc-people">Personas en tareas manuales <output id="out-people">3</output></label>
-              <input type="range" id="calc-people" min="1" max="20" value="3" />
-            </div>
-            <div class="calc-field">
-              <label for="calc-hours">Horas manuales / semana / persona <output id="out-hours">15</output></label>
-              <input type="range" id="calc-hours" min="1" max="40" value="15" />
-            </div>
-            <div class="calc-field">
-              <label for="calc-rate">Tarifa por hora <output id="out-rate">20</output></label>
-              <input type="range" id="calc-rate" min="1" max="100" value="20" />
-            </div>
-            <div class="calc-field">
-              <label for="calc-recovery">% de esas tareas que asumimos automatizable <output id="out-recovery">70</output></label>
-              <input type="range" id="calc-recovery" min="10" max="95" value="70" />
-            </div>
-          </div>
-
-          <div class="calc-result">
-            <span class="eyebrow">Recuperación potencial anual</span>
-            <div class="result-figure" id="calc-money">$0</div>
-            <div class="result-sub"><strong id="calc-hours-year">0</strong> horas/año que tu equipo podría dedicar a otra cosa.</div>
-            <a href="#contacto" class="btn-primary calc-cta" id="calc-cta">Quiero recuperar ese tiempo →</a>
-            <p class="calc-note">Ajustá el % automatizable si tu caso es distinto — no todas las tareas manuales se prestan igual para automatizarse.</p>
-          </div>
+    <!-- PLANES -->
+    <section class="section wrap" id="planes">
+      <div class="plans-head">
+        <header class="head" data-reveal>
+          <span class="eyebrow">06 · EXECUTE</span>
+          <h2>Planes claros, sin letra chica.</h2>
+          <p>Pagás una vez la construcción y un abono de operación y mantenimiento: corre en nuestra infraestructura, lo monitoreamos, lo arreglamos y cubrimos el consumo de IA.</p>
+        </header>
+        <div class="pill-toggle" role="group" aria-label="Forma de pago del abono">
+          <button type="button" data-billing="m" aria-pressed="true">Mensual</button>
+          <button type="button" data-billing="a" aria-pressed="false">Anual · 2 meses gratis</button>
         </div>
-
-        <p class="calc-note spaced">
-          ¿Sos freelancer o agencia y necesitás definir tu propia tarifa? Probá también la
-          <a href="calculadora-tarifa.html">calculadora de tarifa por hora →</a>
-        </p>
       </div>
+      <div class="grid-3 persp plans">
+        <article class="card plan tilt" data-reveal>
+          <h3>Flujo simple</h3>
+          <p class="plan-desc">Conecta 2 o 3 herramientas, sin IA. Notificaciones, registros automáticos, sincronización de datos.</p>
+          <div class="price"><span>desde</span><b>US$ 200</b></div>
+          <span class="fine">construcción · pago único</span>
+          <span class="fee" data-m="+ US$ 20/mes de abono" data-a="+ US$ 200/año de abono · ahorrás US$ 40">+ US$ 20/mes de abono</span>
+          <ul class="ticks">
+            <li><i class="ph ph-check"></i>Monitoreo 24/7 y arreglos incluidos</li>
+            <li><i class="ph ph-check"></i>1 ajuste chico por mes</li>
+            <li><i class="ph ph-check"></i>Listo en ~1 semana</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary btn-block" data-plan="Flujo simple">Quiero este plan <i class="ph ph-arrow-right"></i></a>
+        </article>
+        <article class="card plan featured tilt" data-reveal>
+          <span class="tag outline plan-flag">Recomendado</span>
+          <h3>Flujo con IA</h3>
+          <p class="plan-desc">Entiende texto o documentos y decide solo: clasificar leads, leer facturas, responder mensajes.</p>
+          <div class="price"><span>desde</span><b>US$ 500</b></div>
+          <span class="fine">construcción · pago único</span>
+          <span class="fee" data-m="+ US$ 35/mes de abono" data-a="+ US$ 350/año de abono · ahorrás US$ 70">+ US$ 35/mes de abono</span>
+          <ul class="ticks">
+            <li><i class="ph ph-check"></i>Hasta US$ 5/mes de IA incluidos</li>
+            <li><i class="ph ph-check"></i>Monitoreo 24/7 y arreglos incluidos</li>
+            <li><i class="ph ph-check"></i>3 ajustes chicos por mes</li>
+            <li><i class="ph ph-check"></i>Listo en 1–3 semanas</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary btn-block glow" data-plan="Flujo con IA">Quiero este plan <i class="ph ph-arrow-right"></i></a>
+        </article>
+        <article class="card plan tilt" data-reveal>
+          <h3>Operación</h3>
+          <p class="plan-desc">Tres flujos o más, con IA donde haga falta, conectados para automatizar un área completa.</p>
+          <div class="price"><span>desde</span><b>US$ 1.200</b></div>
+          <span class="fine">construcción · pago único</span>
+          <span class="fee" data-m="+ US$ 90/mes de abono" data-a="+ US$ 900/año de abono · ahorrás US$ 180">+ US$ 90/mes de abono</span>
+          <ul class="ticks">
+            <li><i class="ph ph-check"></i>Hasta US$ 15/mes de IA incluidos</li>
+            <li><i class="ph ph-check"></i>Monitoreo 24/7, arreglos y 5 ajustes chicos por mes</li>
+            <li><i class="ph ph-check"></i>Arrancamos por el flujo que más horas ahorra</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary btn-block" data-plan="Operación">Quiero este plan <i class="ph ph-arrow-right"></i></a>
+        </article>
+      </div>
+      <p class="fine spaced">Precios desde, en dólares; se pueden pagar en pesos al dólar oficial del Banco Nación. Tenés 10 días para arrepentirte con devolución total (<a href="terminos.html#devoluciones">política de devoluciones</a>). Pago anual: 12 meses al precio de 10. Ajuste chico = cambiar un destinatario, un campo o un mensaje; un flujo nuevo se cotiza aparte. Incluye la licencia de uso del flujo mientras el abono esté activo (<a href="terminos.html#licencia">cómo funciona</a>). El precio final se confirma en el diagnóstico gratis, antes de arrancar.</p>
     </section>
 
-    <!-- 05 · OUTPUT — portafolio teaser -->
-    <section class="node" id="portafolio-teaser">
-      <span class="node-dot" aria-hidden="true"></span>
-      <div class="node-content wide">
-        <span class="eyebrow">05 · OUTPUT</span>
-        <h2>Tres flujos ya están en producción.</h2>
-        <div class="case-card">
-          <span class="case-tag">Caso real</span>
-          <h3>Clasificación y routing de leads con IA</h3>
-          <p>El mismo flujo del diagrama de arriba: un formulario dispara un análisis con Gemini Flash, un filtro decide si el lead es de calidad, y el resultado llega solo a la planilla del equipo, por email y por Telegram — en menos de 60 segundos desde que se completa el formulario.</p>
-          <div class="case-stack">Stack: n8n · Gemini Flash · Google Sheets · Gmail · Telegram</div>
-          <!-- Testimonio: pegá la frase real del cliente y su firma, y sacá "hidden". -->
-          <blockquote class="case-quote" hidden>
-            <p>“FRASE DEL CLIENTE”</p>
-            <footer>— Nombre, cargo · Empresa</footer>
-          </blockquote>
-        </div>
-        <p class="calc-note spaced">
-          Estamos documentando más casos con números concretos.
-          <a href="portafolio.html">Ver el portafolio completo →</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- 06 · EXECUTE — planes -->
-    <section class="node" id="planes">
-      <span class="node-dot" aria-hidden="true"></span>
-      <div class="node-content wide">
-        <span class="eyebrow">06 · EXECUTE</span>
-        <h2>Planes claros, sin letra chica.</h2>
-        <p class="lede">Pagás una vez la construcción y un abono mensual de operación y mantenimiento: el flujo corre en nuestra infraestructura, lo monitoreamos, lo arreglamos y cubrimos el consumo de IA.</p>
-        <div class="card-grid">
-          <div class="card plan">
-            <h3>Flujo simple</h3>
-            <p>Un flujo que conecta 2 o 3 herramientas, sin IA. Notificaciones, registros automáticos, sincronización de datos.</p>
-            <div class="plan-price">US$ 200 <small>desde · construcción, pago único</small></div>
-            <div class="plan-monthly">+ US$ 20/mes de abono</div>
-            <div class="plan-annual">o US$ 200/año · 2 meses gratis</div>
-            <ul>
-              <li>Monitoreo 24/7 y arreglos incluidos</li>
-              <li>1 ajuste chico por mes</li>
-              <li>Listo en ~1 semana</li>
-            </ul>
-            <a href="#contacto" class="btn-ghost" data-plan="Flujo simple">Quiero este plan →</a>
-          </div>
-          <div class="card plan is-featured">
-            <span class="plan-tag">Recomendado</span>
-            <h3>Flujo con IA</h3>
-            <p>Un flujo que entiende texto o documentos y decide solo: clasificar leads, leer facturas, responder mensajes.</p>
-            <div class="plan-price">US$ 500 <small>desde · construcción, pago único</small></div>
-            <div class="plan-monthly">+ US$ 35/mes de abono</div>
-            <div class="plan-annual">o US$ 350/año · 2 meses gratis</div>
-            <ul>
-              <li>Hasta US$ 5/mes de IA incluidos</li>
-              <li>Monitoreo 24/7 y arreglos incluidos</li>
-              <li>3 ajustes chicos por mes</li>
-              <li>Listo en 1–3 semanas</li>
-            </ul>
-            <a href="#contacto" class="btn-primary" data-plan="Flujo con IA">Quiero este plan →</a>
-          </div>
-          <div class="card plan">
-            <h3>Operación</h3>
-            <p>Tres flujos o más, con IA donde haga falta, conectados entre sí para automatizar un área completa.</p>
-            <div class="plan-price">US$ 1.200 <small>desde · construcción, pago único</small></div>
-            <div class="plan-monthly">+ US$ 90/mes de abono</div>
-            <div class="plan-annual">o US$ 900/año · 2 meses gratis</div>
-            <ul>
-              <li>Hasta US$ 15/mes de IA incluidos</li>
-              <li>Monitoreo 24/7, arreglos y 5 ajustes chicos por mes</li>
-              <li>Arrancamos por el flujo que más horas ahorra</li>
-            </ul>
-            <a href="#contacto" class="btn-ghost" data-plan="Operación">Quiero este plan →</a>
-          </div>
-        </div>
-        <p class="calc-note spaced">Precios desde, en dólares; se pueden pagar en pesos al dólar oficial del Banco Nación. Tenés 10 días para arrepentirte con devolución total (<a href="terminos.html#devoluciones">política de devoluciones</a>). Pago anual: 12 meses al precio de 10. Ajuste chico = cambiar un destinatario, un campo o un mensaje; un flujo nuevo se cotiza aparte. Incluye la licencia de uso del flujo mientras el abono esté activo (<a href="terminos.html#licencia">cómo funciona</a>). El precio final se confirma en el diagnóstico gratis, antes de arrancar.</p>
-      </div>
-    </section>
-
-    <!-- 07 · DEBUG — faq -->
-    <section class="node" id="faq">
-      <span class="node-dot" aria-hidden="true"></span>
-      <div class="node-content wide">
+    <!-- FAQ -->
+    <section class="section wrap faq" id="faq">
+      <header class="head" data-reveal>
         <span class="eyebrow">07 · DEBUG</span>
         <h2>Lo que nos preguntan.</h2>
-
-        <div class="faq-list">
-          <details class="faq-item" name="faq">
-            <summary class="faq-q">¿Cuánto cuesta una automatización?<span class="plus" aria-hidden="true">+</span></summary>
-            <div class="faq-a"><p>Hay dos partes. La construcción se paga una vez: desde US$ 200 un flujo simple (ej: formulario → email → Google Sheets) y desde US$ 500 uno con IA. El abono mensual cubre que siga funcionando (operación, monitoreo, arreglos y consumo de IA): US$ 20/mes un flujo simple, US$ 35/mes uno con IA. Si necesitás varios flujos, el plan Operación arranca en US$ 1.200 + US$ 90/mes. Pagando el año por adelantado, son 12 meses al precio de 10. Siempre hacemos el diagnóstico antes de darte un número final, y lo hacemos sin costo.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-q">¿Necesito saber de tecnología para trabajar con ustedes?<span class="plus" aria-hidden="true">+</span></summary>
-            <div class="faq-a"><p>No. Solo necesitás saber qué problema querés resolver. Nosotros elegimos las herramientas, las configuramos y te explicamos el resultado en términos simples. Si algo falla después de la entrega, lo arreglamos.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-q">¿Trabajan con empresas de cualquier tamaño?<span class="plus" aria-hidden="true">+</span></summary>
-            <div class="faq-a"><p>Sí, pero donde más impacto generamos es en pymes y emprendimientos en crecimiento — son los que más sienten el costo del trabajo manual y los que más se benefician de liberar horas del equipo.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-q">¿Son seguros los datos de mi empresa?<span class="plus" aria-hidden="true">+</span></summary>
-            <div class="faq-a"><p>Tus flujos corren en infraestructura que administramos nosotros (o en la tuya, si comprás la licencia perpetua). Procesamos solo los datos que el flujo necesita, no los usamos para nada más, la IA que usamos no entrena con ellos, y al terminar el servicio los borramos. Detalle en la <a href="privacidad.html">Política de Privacidad</a> y los <a href="terminos.html#datos">Términos</a>.</p></div>
-          </details>
-        </div>
+        <p>¿Otra duda? Escribinos a <a href="mailto:contacto@eidonsmart.com">contacto@eidonsmart.com</a>.</p>
+      </header>
+      <div class="faq-list">
+        <details name="faq">
+          <summary>¿Cuánto cuesta una automatización?<i class="ph ph-caret-down"></i></summary>
+          <p>Hay dos partes. La construcción se paga una vez: desde US$ 200 un flujo simple (ej: formulario → email → Google Sheets) y desde US$ 500 uno con IA. El abono mensual cubre que siga funcionando (operación, monitoreo, arreglos y consumo de IA): US$ 20/mes un flujo simple, US$ 35/mes uno con IA. Si necesitás varios flujos, el plan Operación arranca en US$ 1.200 + US$ 90/mes. Pagando el año por adelantado, son 12 meses al precio de 10. Siempre hacemos el diagnóstico antes de darte un número final, y lo hacemos sin costo.</p>
+        </details>
+        <details name="faq">
+          <summary>¿Necesito saber de tecnología para trabajar con ustedes?<i class="ph ph-caret-down"></i></summary>
+          <p>No. Solo necesitás saber qué problema querés resolver. Nosotros elegimos las herramientas, las configuramos y te explicamos el resultado en términos simples. Si algo falla después de la entrega, lo arreglamos.</p>
+        </details>
+        <details name="faq">
+          <summary>¿Trabajan con empresas de cualquier tamaño?<i class="ph ph-caret-down"></i></summary>
+          <p>Sí, pero donde más impacto generamos es en pymes y emprendimientos en crecimiento: son los que más sienten el costo del trabajo manual y los que más se benefician de liberar horas del equipo.</p>
+        </details>
+        <details name="faq">
+          <summary>¿Son seguros los datos de mi empresa?<i class="ph ph-caret-down"></i></summary>
+          <p>Tus flujos corren en infraestructura que administramos nosotros (o en la tuya, si comprás la licencia perpetua). Procesamos solo los datos que el flujo necesita, no los usamos para nada más, la IA que usamos no entrena con ellos, y al terminar el servicio los borramos. Detalle en la <a href="privacidad.html">Política de Privacidad</a> y los <a href="terminos.html#datos">Términos</a>.</p>
+        </details>
+        <details name="faq">
+          <summary>¿Y si me arrepiento?<i class="ph ph-caret-down"></i></summary>
+          <p>Tenés 10 días para arrepentirte con devolución total, según nuestra <a href="terminos.html#devoluciones">política de devoluciones</a>, y podés darte de baja sin penalidad desde el <a href="/arrepentimiento.html#baja">botón de baja</a>. El precio final se confirma en el diagnóstico gratis, antes de arrancar.</p>
+        </details>
       </div>
     </section>
 
-    <!-- 08 · DEPLOY — contacto -->
-    <section class="node" id="contacto">
-      <span class="node-dot" aria-hidden="true"></span>
-      <div class="node-content wide">
-        <span class="eyebrow">08 · DEPLOY</span>
-        <h2>Pedí tu diagnóstico gratis.</h2>
-        <p class="lede">Describí el proceso que te gustaría automatizar. En menos de 24 horas te respondemos para coordinar una llamada de 20 minutos, sin costo, con un diagnóstico honesto.</p>
-
-        <div class="contact-grid">
-          <form id="contact-form" name="contact" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="contact" />
-            <p hidden>
-              <label>No completar si sos humano: <input name="bot-field" /></label>
-            </p>
-            <div class="field">
-              <label for="name">Nombre</label>
-              <input type="text" id="name" name="name" autocomplete="name" required />
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" autocomplete="email" required />
-            </div>
-            <div class="field">
-              <label for="whatsapp">WhatsApp <span class="optional">(opcional, para responderte más rápido)</span></label>
-              <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" placeholder="+54 9 11 1234-5678" />
-            </div>
-            <div class="field">
-              <label for="plan">¿Qué plan te interesa?</label>
-              <select id="plan" name="plan">
-                <option>Todavía no sé</option>
-                <option>Flujo simple</option>
-                <option>Flujo con IA</option>
-                <option>Operación</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="process">¿Qué proceso querés automatizar?</label>
-              <textarea id="process" name="process" placeholder="Ej: cargamos a mano en un Excel los pedidos que llegan por WhatsApp, y después avisamos a depósito por mail." required></textarea>
-            </div>
-            <div class="field consent-field">
-              <label class="consent-label">
-                <input type="checkbox" id="consent" name="consent" required />
-                <span>Acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>, incluido el análisis de mi consulta con IA de proveedores con servidores fuera de Argentina. Mi nombre, email y teléfono no se envían a la IA.</span>
-              </label>
-            </div>
-            <button type="submit" class="btn-primary">Pedir diagnóstico gratis →</button>
-            <p class="cta-note">Diagnóstico sin costo · Si algo falla después de la entrega, lo arreglamos.</p>
-            <p id="form-status" class="calc-note" aria-live="polite"></p>
-          </form>
-
-          <div class="direct-contact">
-            <span class="eyebrow">O directo</span>
-            <p>Si preferís saltear el formulario, escribinos directamente.</p>
-            <a class="email-link" href="mailto:contacto@eidonsmart.com">contacto@eidonsmart.com ↗</a>
-            <div class="social-row">
-              <a href="https://www.linkedin.com/company/111421948" target="_blank" rel="noopener">LinkedIn</a>
-              <a href="https://www.instagram.com/eidon.smart" target="_blank" rel="noopener">Instagram</a>
-            </div>
+    <!-- CONTACTO -->
+    <section class="contact" id="contacto">
+      <div class="wrap contact-grid">
+        <div class="contact-copy" data-reveal>
+          <span class="eyebrow light">08 · DEPLOY</span>
+          <h2 class="h2-lg">Pedí tu diagnóstico gratis.</h2>
+          <p>Contanos qué proceso te gustaría automatizar. En menos de 24 horas te respondemos para coordinar una llamada de 20 minutos, sin costo, con un diagnóstico honesto.</p>
+          <ul class="promises">
+            <li><span><i class="ph ph-clock"></i></span>Respuesta en menos de 24 horas</li>
+            <li><span><i class="ph ph-video-camera"></i></span>Llamada de 20 minutos, sin costo</li>
+            <li><span><i class="ph ph-shield-check"></i></span>Si algo falla después de la entrega, lo arreglamos</li>
+          </ul>
+          <div class="socials">
+            <a href="mailto:contacto@eidonsmart.com"><i class="ph ph-envelope-simple"></i>contacto@eidonsmart.com</a>
+            <a href="https://www.linkedin.com/company/111421948" target="_blank" rel="noopener"><i class="ph ph-linkedin-logo"></i>LinkedIn</a>
+            <a href="https://www.instagram.com/eidon.smart" target="_blank" rel="noopener"><i class="ph ph-instagram-logo"></i>Instagram</a>
           </div>
         </div>
+        <form class="form-card" id="contact-form" name="contact" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden><label>No completar si sos humano: <input name="bot-field" /></label></p>
+          <div class="row-2">
+            <div class="field"><label for="name">Nombre</label><input class="input" id="name" name="name" autocomplete="name" placeholder="Tu nombre" required /></div>
+            <div class="field"><label for="email">Email</label><input class="input" type="email" id="email" name="email" autocomplete="email" placeholder="vos@empresa.com" required /></div>
+          </div>
+          <div class="field"><label for="whatsapp">WhatsApp <span class="opt">(opcional, para responderte más rápido)</span></label><input class="input" type="tel" id="whatsapp" name="whatsapp" autocomplete="tel" placeholder="+54 9 11 1234-5678" /></div>
+          <fieldset class="field">
+            <legend>¿Qué plan te interesa?</legend>
+            <div class="pills">
+              <label><input type="radio" name="plan" value="Todavía no sé" checked /><span>Todavía no sé</span></label>
+              <label><input type="radio" name="plan" value="Flujo simple" /><span>Flujo simple</span></label>
+              <label><input type="radio" name="plan" value="Flujo con IA" /><span>Flujo con IA</span></label>
+              <label><input type="radio" name="plan" value="Operación" /><span>Operación</span></label>
+            </div>
+          </fieldset>
+          <div class="field"><label for="process">¿Qué proceso querés automatizar?</label><textarea class="input" id="process" name="process" rows="4" placeholder="Ej: los pedidos que entran por WhatsApp los cargamos a mano en una planilla…" required></textarea></div>
+          <label class="consent"><input type="checkbox" id="consent" name="consent" required /><span>Acepto la <a href="privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>, incluido el análisis de mi consulta con IA de proveedores con servidores fuera de Argentina. Mi nombre, email y teléfono no se envían a la IA.</span></label>
+          <p class="form-error" id="form-error" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary btn-block btn-lg glow">Pedir diagnóstico gratis <i class="ph ph-arrow-right"></i></button>
+          <span class="fine"><i class="ph ph-lock-simple"></i> Sin costo · Sin compromiso · Respuesta en menos de 24 h</span>
+        </form>
       </div>
     </section>
-
   </main>
 
-  <footer>
-    <div class="container">
+  <footer class="wrap footer">
+    <div class="foot-top">
       <div class="foot-brand">
-        EIDON SMART<br />
-        Automatización con n8n e IA para empresas que quieren operar mejor.
+        <span class="brand"><img src="/assets/isotipo.png" alt="" width="24" height="22" /><span>EIDON SMART</span></span>
+        <p>Automatización con n8n e IA para empresas que quieren operar mejor.</p>
       </div>
-      <nav>
+      <nav class="foot-nav">
         <a href="#servicios">Servicios</a>
-        <a href="#proceso">Proceso</a>
         <a href="#calculadora">Calculadora</a>
         <a href="calculadora-tarifa.html">Calculadora de tarifa</a>
         <a href="portafolio.html">Portafolio</a>
         <a href="#faq">FAQ</a>
         <a href="#contacto">Contacto</a>
       </nav>
-      <div class="foot-legal">
-        <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
-        <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
-        <a href="/privacidad.html">Privacidad</a>
-        <a href="/privacidad.html#cookies">Cookies</a>
-        <a href="/terminos.html">Términos y devoluciones</a>
-      </div>
+    </div>
+    <div class="foot-legal">
+      <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
+      <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
+      <a href="/privacidad.html">Privacidad</a>
+      <a href="/privacidad.html#cookies">Cookies</a>
+      <a href="/terminos.html">Términos y devoluciones</a>
     </div>
   </footer>
 
-  <a href="#contacto" class="float-cta"><span class="dot"></span> Diagnóstico gratis de 20 min</a>
+  <div class="sticky-cta" id="sticky-cta">
+    <span>¿Cuántas horas te ahorraría?</span>
+    <a href="#contacto" class="btn btn-primary btn-sm">Diagnóstico gratis <i class="ph ph-arrow-right"></i></a>
+  </div>
 
-  <script type="module" src="script.js"></script>
+  <script type="module" src="site.js"></script>
+  <script type="module" src="app.js"></script>
+  <script type="module" src="hero3d.js"></script>
 </body>
 </html>

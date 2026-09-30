@@ -8,6 +8,8 @@
   <link rel="canonical" href="https://eidonsmart.com/terminos.html" />
   <link rel="icon" type="image/png" href="/assets/isotipo.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <meta name="theme-color" content="#131110" />
+  <link rel="stylesheet" href="/vendor/phosphor/style.css" />
   <link rel="stylesheet" href="styles.css" />
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "717e8ad203414ce296f9a0fb4ed58e16"}'></script>
@@ -15,29 +17,30 @@
 </head>
 <body>
 
+  <div id="progress" aria-hidden="true"></div>
+
   <div class="legal-strip">
     <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
     <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
   </div>
 
   <header class="site-header">
-    <div class="container">
-      <a href="index.html" class="logo"><img src="/assets/isotipo.png" alt="" class="logo-mark" />EIDON SMART</a>
-      <nav class="nav-links">
+    <nav class="wrap nav">
+      <a href="index.html" class="brand"><img src="/assets/isotipo.png" alt="" width="28" height="26" /><span>EIDON SMART</span></a>
+      <div class="nav-links">
+        <a href="index.html#demo">Demo</a>
         <a href="index.html#servicios">Servicios</a>
-        <a href="index.html#proceso">Proceso</a>
         <a href="index.html#calculadora">Calculadora</a>
+        <a href="index.html#planes">Planes</a>
         <a href="portafolio.html">Portafolio</a>
         <a href="index.html#faq">FAQ</a>
-      </nav>
-      <a href="index.html#contacto" class="btn-primary">Diagnóstico gratis →</a>
-    </div>
+      </div>
+      <a href="index.html#contacto" class="btn btn-primary btn-sm glow">Diagnóstico gratis <i class="ph ph-arrow-right"></i></a>
+    </nav>
   </header>
 
-  <main class="pipeline">
-    <section class="node">
-      <span class="node-dot" aria-hidden="true"></span>
-      <div class="node-content wide legal-content">
+  <main>
+    <article class="wrap prose">
         <span class="eyebrow">LEGAL</span>
         <h1>Términos y Condiciones</h1>
         <p class="lede">Última actualización: 25 de septiembre de 2026.</p>
@@ -121,36 +124,36 @@
         <h2>13. Cambios</h2>
         <p>Si cambiamos estos términos, actualizamos la fecha de arriba. Los cambios no afectan servicios ya contratados sin tu acuerdo.</p>
 
-        <p class="calc-note spaced">
+        <p class="fine spaced">
           Este documento se redactó con criterio general y referencia a la normativa vigente, pero no reemplaza el asesoramiento de un abogado.
         </p>
-      </div>
-    </section>
+    </article>
   </main>
 
-  <footer>
-    <div class="container">
+  <footer class="wrap footer">
+    <div class="foot-top">
       <div class="foot-brand">
-        EIDON SMART<br />
-        Automatización con n8n e IA para empresas que quieren operar mejor.
+        <span class="brand"><img src="/assets/isotipo.png" alt="" width="24" height="22" /><span>EIDON SMART</span></span>
+        <p>Automatización con n8n e IA para empresas que quieren operar mejor.</p>
       </div>
-      <nav>
+      <nav class="foot-nav">
         <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#calculadora">Calculadora</a>
+        <a href="calculadora-tarifa.html">Calculadora de tarifa</a>
         <a href="portafolio.html">Portafolio</a>
         <a href="index.html#faq">FAQ</a>
         <a href="index.html#contacto">Contacto</a>
       </nav>
-      <div class="foot-legal">
-        <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
-        <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
-        <a href="/privacidad.html">Privacidad</a>
-        <a href="/privacidad.html#cookies">Cookies</a>
-        <a href="/terminos.html">Términos y devoluciones</a>
-      </div>
+    </div>
+    <div class="foot-legal">
+      <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
+      <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
+      <a href="/privacidad.html">Privacidad</a>
+      <a href="/privacidad.html#cookies">Cookies</a>
+      <a href="/terminos.html">Términos y devoluciones</a>
     </div>
   </footer>
 
-  <a href="index.html#contacto" class="float-cta"><span class="dot"></span> Diagnóstico gratis de 20 min</a>
-
+  <script type="module" src="site.js"></script>
 </body>
 </html>
