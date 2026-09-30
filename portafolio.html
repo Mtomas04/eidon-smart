@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio | Eidon Smart — Casos reales de automatización con n8n e IA</title>
   <meta name="description" content="Tres automatizaciones reales construidas por Eidon Smart: prospección con IA, clasificación de leads y monitoreo de operación. Stack técnico y precios." />
+  <meta name="theme-color" content="#131110" />
   <link rel="canonical" href="https://eidonsmart.com/portafolio.html" />
   <link rel="icon" type="image/png" href="/assets/isotipo.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/vendor/phosphor/style.css" />
   <link rel="stylesheet" href="styles.css" />
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "717e8ad203414ce296f9a0fb4ed58e16"}'></script>
@@ -28,143 +27,193 @@
 </head>
 <body>
 
+  <div id="progress" aria-hidden="true"></div>
+
+  <div class="legal-strip">
+    <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
+    <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
+  </div>
+
   <header class="site-header">
-    <div class="container">
-      <a href="index.html" class="logo"><img src="/assets/isotipo.png" alt="" class="logo-mark" />EIDON SMART</a>
-      <nav class="nav-links">
+    <nav class="wrap nav">
+      <a href="index.html" class="brand"><img src="/assets/isotipo.png" alt="" width="28" height="26" /><span>EIDON SMART</span></a>
+      <div class="nav-links">
+        <a href="index.html#demo">Demo</a>
         <a href="index.html#servicios">Servicios</a>
-        <a href="index.html#proceso">Proceso</a>
         <a href="index.html#calculadora">Calculadora</a>
-        <a href="portafolio.html">Portafolio</a>
+        <a href="index.html#planes">Planes</a>
+        <a href="portafolio.html" aria-current="page">Portafolio</a>
         <a href="index.html#faq">FAQ</a>
-      </nav>
-      <a href="index.html#contacto" class="btn-primary">Diagnóstico gratis →</a>
-    </div>
+      </div>
+      <a href="index.html#contacto" class="btn btn-primary btn-sm glow">Diagnóstico gratis <i class="ph ph-arrow-right"></i></a>
+    </nav>
   </header>
 
-  <main class="pipeline">
-    <section class="node">
-      <span class="node-dot is-live" aria-hidden="true"></span>
-      <div class="node-content wide">
-        <span class="eyebrow">05 · OUTPUT</span>
+  <main>
+    <section class="page-hero">
+      <div class="wrap page-hero-inner">
+        <p class="kicker"><span class="dot"></span>05 · OUTPUT — PORTAFOLIO</p>
         <h1>Flujos que ya construimos.</h1>
         <p class="lede">Tres automatizaciones reales, con el stack técnico completo. Vamos a sumar más a medida que cerramos y documentamos cada proyecto nuevo.</p>
+        <div class="cta-row">
+          <a href="#casos" class="btn btn-primary btn-lg glow">Ver los casos <i class="ph ph-arrow-down"></i></a>
+          <a href="index.html#demo" class="btn btn-secondary btn-lg"><i class="ph ph-play"></i> Ver la demo (1 min)</a>
+        </div>
+      </div>
+    </section>
 
-        <!-- quiénes somos -->
-        <h2 class="spaced-lg">Hablás directo con quien construye tu flujo.</h2>
-        <div class="card">
+    <!-- por qué elegirnos -->
+    <section class="stat-band">
+      <div class="wrap stats">
+        <div class="stat" data-reveal><b>1–3 sem</b><span>de entrega (flujos simples a medianos)</span></div>
+        <div class="stat" data-reveal><b>$0</b><span>diagnóstico inicial</span></div>
+        <div class="stat" data-reveal><b>300+</b><span>integraciones posibles vía n8n</span></div>
+        <div class="stat" data-reveal><b>24 h</b><span>respuesta máxima post-lanzamiento</span></div>
+      </div>
+    </section>
+
+    <!-- casos reales -->
+    <section class="section wrap" id="casos">
+      <header class="head" data-reveal>
+        <span class="eyebrow">CASOS REALES</span>
+        <h2>Tres flujos corriendo en producción.</h2>
+      </header>
+
+      <!--
+        Para cada caso nuevo, copiá un bloque .case-row y completá con datos
+        reales: rubro del cliente (o nombre si dan permiso), problema puntual,
+        stack usado y un resultado medible. No inventes números.
+      -->
+      <div class="case-list">
+        <article class="case-row card tilt" data-reveal>
+          <div class="case-num"><b>01</b><div class="icon-box"><i class="ph ph-map-pin"></i></div></div>
+          <div class="case-body">
+            <span class="tag">Caso 1 · real</span>
+            <h3>Prospección de clientes con IA y Google Maps</h3>
+            <p>Ingresás un rubro (por ejemplo "restaurantes" o "ferreterías") y el sistema busca negocios, los analiza con IA y genera una propuesta de venta personalizada con un gancho de contacto listo para usar. Todo llega a Telegram en segundos: nombre y ubicación del negocio, si tiene web o no, la propuesta técnica y las preguntas de calificación del cliente.</p>
+            <div class="tags"><span class="tag neutral">n8n</span><span class="tag neutral">Google Maps</span><span class="tag neutral">IA</span><span class="tag neutral">Telegram</span></div>
+          </div>
+        </article>
+
+        <article class="case-row card tilt" data-reveal>
+          <div class="case-num"><b>02</b><div class="icon-box"><i class="ph ph-funnel"></i></div></div>
+          <div class="case-body">
+            <span class="tag">Caso 2 · real</span>
+            <h3>Clasificación y routing de leads con IA</h3>
+            <p>Un formulario web dispara un flujo en n8n que envía el mensaje a Gemini para clasificarlo como caliente, tibio o frío y extraer los datos clave. El lead se registra en Google Sheets y el equipo de ventas recibe la alerta por Gmail y Telegram con un resumen listo para actuar, en menos de 60 segundos desde que se completa el formulario.</p>
+            <div class="tags"><span class="tag neutral">n8n</span><span class="tag neutral">Gemini</span><span class="tag neutral">Google Sheets</span><span class="tag neutral">Gmail</span><span class="tag neutral">Telegram</span></div>
+            <a href="index.html#probalo" class="btn btn-ghost">Probá la simulación de este flujo <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="case-row card tilt" data-reveal>
+          <div class="case-num"><b>03</b><div class="icon-box"><i class="ph ph-bell-ringing"></i></div></div>
+          <div class="case-body">
+            <span class="tag">Caso 3 · real</span>
+            <h3>Monitoreo de operación y registro de facturas</h3>
+            <p>Dos flujos de operación interna: si algo falla, el equipo recibe una alerta instantánea por WhatsApp o Telegram con qué pasó y cómo solucionarlo. Y cada factura que entra o sale queda registrada y ordenada sola, sin carga manual.</p>
+            <div class="tags"><span class="tag neutral">n8n</span><span class="tag neutral">WhatsApp</span><span class="tag neutral">Telegram</span></div>
+          </div>
+        </article>
+
+        <!-- la demo va aparte y rotulada como demo: no es un cliente -->
+        <a class="case-row card demo-row tilt" href="index.html#demo" data-reveal>
+          <div class="case-num"><b><i class="ph ph-play"></i></b><div class="icon-box"><i class="ph ph-package"></i></div></div>
+          <div class="case-body">
+            <span class="tag outline">Demo · datos inventados</span>
+            <h3>Pedidos, stock y precios por chat</h3>
+            <p>El vendedor escribe el pedido como le escribe a un compañero; el flujo lo carga, descuenta el stock, devuelve el remito en PDF y avisa cuando hay que reponer. Mirá el video de 1 minuto.</p>
+            <div class="tags"><span class="tag neutral">n8n</span><span class="tag neutral">IA</span><span class="tag neutral">Telegram</span><span class="tag neutral">Google Sheets</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- quién construye -->
+    <section class="section wrap">
+      <div class="case" data-reveal>
+        <div class="case-copy">
+          <span class="eyebrow">QUIÉN CONSTRUYE</span>
+          <h2 class="h2-sm">Hablás directo con quien construye tu flujo.</h2>
+          <p>Construimos automatizaciones con n8n e IA que eliminan el trabajo repetitivo de las empresas, para que operen mejor con los mismos recursos, sin consultoras lentas ni costos de agencia. Trabajamos con pymes y emprendedores en Argentina y Colombia.</p>
+        </div>
+        <div class="founder card">
+          <div class="icon-box"><i class="ph ph-graduation-cap"></i></div>
           <h3>Fundador</h3>
           <p>Ingeniería en Inteligencia Artificial (UDESA). Python, C, matemáticas, n8n, automatización. Sin intermediarios: el diagnóstico, la construcción y el soporte los hace la misma persona.</p>
         </div>
-        <p class="spaced">
-          Construimos automatizaciones con n8n e IA que eliminan el trabajo repetitivo de las empresas,
-          para que operen mejor con los mismos recursos — sin consultoras lentas ni costos de agencia.
-          Trabajamos con pymes y emprendedores en Argentina y Colombia.
-        </p>
+      </div>
+    </section>
 
-        <!-- stack técnico -->
-        <h2 class="spaced-lg">Lo que usamos.</h2>
-        <div class="card-grid">
-          <div class="card">
-            <h3>n8n</h3>
-            <p>El motor: conecta más de 300 aplicaciones entre sí. Si ya usás WhatsApp, Gmail, Excel o cualquier otra herramienta, la integramos.</p>
-          </div>
-          <div class="card">
-            <h3>IA aplicada</h3>
-            <p>Lee, clasifica y decide: responde mensajes, detecta oportunidades o genera reportes sin intervención manual.</p>
-          </div>
-          <div class="card">
-            <h3>Notificaciones y datos</h3>
-            <p>Avisos por WhatsApp, email o Telegram al canal que ya usás. Todo lo que genera la automatización queda guardado y ordenado.</p>
-          </div>
+    <!-- stack -->
+    <section class="section wrap">
+      <header class="head" data-reveal>
+        <span class="eyebrow">STACK</span>
+        <h2>Lo que usamos.</h2>
+      </header>
+      <div class="grid-3 persp">
+        <article class="card svc tilt" data-reveal>
+          <div class="icon-box"><i class="ph ph-flow-arrow"></i></div>
+          <h3>n8n</h3>
+          <p>El motor: conecta más de 300 aplicaciones entre sí. Si ya usás WhatsApp, Gmail, Excel o cualquier otra herramienta, la integramos.</p>
+        </article>
+        <article class="card svc tilt" data-reveal>
+          <div class="icon-box"><i class="ph ph-sparkle"></i></div>
+          <h3>IA aplicada</h3>
+          <p>Lee, clasifica y decide: responde mensajes, detecta oportunidades o genera reportes sin intervención manual.</p>
+        </article>
+        <article class="card svc tilt" data-reveal>
+          <div class="icon-box"><i class="ph ph-bell-ringing"></i></div>
+          <h3>Notificaciones y datos</h3>
+          <p>Avisos por WhatsApp, email o Telegram al canal que ya usás. Todo lo que genera la automatización queda guardado y ordenado.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- cierre -->
+    <section class="section wrap">
+      <div class="cta-band" data-reveal>
+        <div>
+          <h2 class="h2-sm">¿Tenés un proceso parecido?</h2>
+          <p>Tres planes, desde US$ 200 de construcción + US$ 20/mes de abono. El precio final se confirma en el diagnóstico gratis.</p>
         </div>
-
-        <!-- propuesta de valor -->
-        <h2 class="spaced-lg">Por qué elegirnos.</h2>
-        <div class="stats-row">
-          <div class="stat"><span class="stat-num">1–3</span><span class="stat-label">semanas de entrega (simples a medianas)</span></div>
-          <div class="stat"><span class="stat-num">$0</span><span class="stat-label">diagnóstico inicial</span></div>
-          <div class="stat"><span class="stat-num">300+</span><span class="stat-label">integraciones posibles vía n8n</span></div>
-          <div class="stat"><span class="stat-num">24h</span><span class="stat-label">respuesta máxima post-lanzamiento</span></div>
+        <div class="cta-row">
+          <a href="index.html#contacto" class="btn btn-primary btn-lg glow">Contanos y lo vemos juntos <i class="ph ph-arrow-right"></i></a>
+          <a href="index.html#planes" class="btn btn-secondary btn-lg">Ver los planes</a>
         </div>
-
-        <!-- casos reales -->
-        <h2 class="spaced-lg">Casos reales.</h2>
-
-        <!--
-          TODO (Tomás): para cada caso nuevo, copiá este bloque .case-card
-          y completá con datos reales — rubro del cliente (o nombre si te
-          dan permiso), problema puntual, stack usado, y un resultado
-          medible. No inventes números.
-        -->
-
-        <div class="case-card">
-          <span class="case-tag">Caso 1 — real</span>
-          <h3>Prospección de clientes con IA y Google Maps</h3>
-          <p>
-            Ingresás un rubro (por ejemplo "restaurantes" o "ferreterías") y el sistema busca
-            negocios, los analiza con IA y genera una propuesta de venta personalizada con un
-            gancho de contacto listo para usar — todo enviado a Telegram en segundos: nombre y
-            ubicación del negocio, si tiene web o no, la propuesta técnica y las preguntas de
-            calificación del cliente.
-          </p>
-          <div class="case-stack">Stack: n8n · Google Maps · IA · Telegram</div>
-        </div>
-
-        <div class="case-card">
-          <span class="case-tag">Caso 2 — real</span>
-          <h3>Clasificación y routing de leads con IA</h3>
-          <p>
-            Un formulario web dispara un flujo en n8n que envía el mensaje a Gemini para
-            clasificarlo como caliente, tibio o frío y extraer los datos clave. El lead se
-            registra en Google Sheets y el equipo de ventas recibe la alerta por Gmail y
-            Telegram con un resumen listo para actuar — todo en menos de 60 segundos desde que
-            se completa el formulario.
-          </p>
-          <div class="case-stack">Stack: n8n · Gemini · Google Sheets · Gmail · Telegram</div>
-        </div>
-
-        <div class="case-card">
-          <span class="case-tag">Caso 3 — real</span>
-          <h3>Monitoreo de operación y registro de facturas</h3>
-          <p>
-            Dos flujos de operación interna: si algo falla, el equipo recibe una alerta
-            instantánea por WhatsApp o Telegram con qué pasó y cómo solucionarlo. Y cada factura
-            que entra o sale queda registrada y ordenada sola, sin carga manual.
-          </p>
-          <div class="case-stack">Stack: n8n · WhatsApp · Telegram</div>
-        </div>
-
-        <!-- servicios y precios -->
-        <h2 class="spaced-lg">Servicios y precios.</h2>
-        <p>Tres planes, desde US$ 200 de construcción + US$ 40/mes de abono. <a href="/#planes">Ver los planes →</a></p>
-
-        <p class="calc-note spaced">
-          ¿Tenés un proceso parecido? <a href="index.html#contacto">Contanos y lo vemos juntos →</a>
-        </p>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
+  <footer class="wrap footer">
+    <div class="foot-top">
       <div class="foot-brand">
-        EIDON SMART<br />
-        Automatización con n8n e IA para empresas que quieren operar mejor.
+        <span class="brand"><img src="/assets/isotipo.png" alt="" width="24" height="22" /><span>EIDON SMART</span></span>
+        <p>Automatización con n8n e IA para empresas que quieren operar mejor.</p>
       </div>
-      <nav>
+      <nav class="foot-nav">
         <a href="index.html#servicios">Servicios</a>
-        <a href="index.html#proceso">Proceso</a>
+        <a href="index.html#calculadora">Calculadora</a>
+        <a href="calculadora-tarifa.html">Calculadora de tarifa</a>
         <a href="portafolio.html">Portafolio</a>
         <a href="index.html#faq">FAQ</a>
-        <a href="privacidad.html">Privacidad</a>
-        <a href="terminos.html">Términos</a>
         <a href="index.html#contacto">Contacto</a>
       </nav>
     </div>
+    <div class="foot-legal">
+      <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
+      <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
+      <a href="/privacidad.html">Privacidad</a>
+      <a href="/privacidad.html#cookies">Cookies</a>
+      <a href="/terminos.html">Términos y devoluciones</a>
+    </div>
   </footer>
 
-  <a href="index.html#contacto" class="float-cta"><span class="dot"></span> Diagnóstico gratis de 20 min</a>
+  <div class="sticky-cta" id="sticky-cta">
+    <span>¿Tenés un proceso parecido?</span>
+    <a href="index.html#contacto" class="btn btn-primary btn-sm">Diagnóstico gratis <i class="ph ph-arrow-right"></i></a>
+  </div>
 
+  <script type="module" src="site.js"></script>
 </body>
 </html>

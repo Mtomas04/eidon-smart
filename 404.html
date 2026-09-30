@@ -7,9 +7,8 @@
   <meta name="robots" content="noindex" />
   <link rel="icon" type="image/png" href="/assets/isotipo.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <meta name="theme-color" content="#131110" />
+  <link rel="stylesheet" href="/vendor/phosphor/style.css" />
   <link rel="stylesheet" href="styles.css" />
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "717e8ad203414ce296f9a0fb4ed58e16"}'></script>
@@ -17,30 +16,64 @@
 </head>
 <body>
 
+  <div id="progress" aria-hidden="true"></div>
+
+  <div class="legal-strip">
+    <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
+    <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
+  </div>
+
   <header class="site-header">
-    <div class="container">
-      <a href="/" class="logo"><img src="/assets/isotipo.png" alt="" class="logo-mark" />EIDON SMART</a>
-    </div>
+    <nav class="wrap nav">
+      <a href="index.html" class="brand"><img src="/assets/isotipo.png" alt="" width="28" height="26" /><span>EIDON SMART</span></a>
+      <div class="nav-links">
+        <a href="index.html#demo">Demo</a>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#calculadora">Calculadora</a>
+        <a href="index.html#planes">Planes</a>
+        <a href="portafolio.html">Portafolio</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <a href="index.html#contacto" class="btn btn-primary btn-sm glow">Diagnóstico gratis <i class="ph ph-arrow-right"></i></a>
+    </nav>
   </header>
 
-  <main class="error-wrap">
+  <main>
+    <section class="wrap error-page">
     <div class="error-code">ERROR · 404</div>
     <h1>Esta página no existe.</h1>
     <p class="lede">El link que seguiste está roto, o la página se movió. Nada grave — desde acá podés volver a donde sí hay algo.</p>
     <div class="cta-row">
-      <a href="/" class="btn-primary">Volver al inicio →</a>
-      <a href="/portafolio.html" class="btn-ghost">Ver el portafolio</a>
+      <a href="/" class="btn btn-primary btn-lg glow">Volver al inicio →</a>
+      <a href="/portafolio.html" class="btn btn-secondary btn-lg">Ver el portafolio</a>
     </div>
+    </section>
   </main>
 
-  <footer>
-    <div class="container">
+  <footer class="wrap footer">
+    <div class="foot-top">
       <div class="foot-brand">
-        EIDON SMART<br />
-        Automatización con n8n e IA para empresas que quieren operar mejor.
+        <span class="brand"><img src="/assets/isotipo.png" alt="" width="24" height="22" /><span>EIDON SMART</span></span>
+        <p>Automatización con n8n e IA para empresas que quieren operar mejor.</p>
       </div>
+      <nav class="foot-nav">
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#calculadora">Calculadora</a>
+        <a href="calculadora-tarifa.html">Calculadora de tarifa</a>
+        <a href="portafolio.html">Portafolio</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="foot-legal">
+      <a href="/arrepentimiento.html#arrepentimiento">Botón de arrepentimiento</a>
+      <a href="/arrepentimiento.html#baja">Botón de baja de servicio</a>
+      <a href="/privacidad.html">Privacidad</a>
+      <a href="/privacidad.html#cookies">Cookies</a>
+      <a href="/terminos.html">Términos y devoluciones</a>
     </div>
   </footer>
 
+  <script type="module" src="site.js"></script>
 </body>
 </html>
