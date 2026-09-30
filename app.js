@@ -20,12 +20,12 @@ function onScroll() {
 addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
-// ---------------------------------------------------------------- probalo: simulación del flujo de leads
+// ---------------------------------------------------------------- pruébalo: simulación del flujo de leads
 // Leads inventados; los pasos y destinos son los del flujo real del caso.
 const LEADS = [
   { name: "Martina · Estudio contable", msg: "Necesitamos cargar 300 facturas por mes al sistema sin hacerlo a mano.", res: "alta", score: 92 },
   { name: "Julián", msg: "Hola, ¿cuánto sale?", res: "dudosa", score: 48 },
-  { name: "promo-bot", msg: "Ganá dinero rápido con cripto, hacé clic acá.", res: "nula", score: 3 },
+  { name: "promo-bot", msg: "Gana dinero rápido con cripto, haz clic aquí.", res: "nula", score: 3 },
   { name: "Carla · E-commerce de indumentaria", msg: "Queremos que los pedidos de WhatsApp entren solos a la planilla y avisen a depósito.", res: "alta", score: 88 },
 ];
 const RESULT = {
@@ -87,7 +87,7 @@ runBtn.addEventListener("click", () => {
     $("#result-note").textContent = r.note;
     $("#result").hidden = false;
     runBtn.disabled = false;
-    $("span", runBtn).textContent = "Mandar otro lead";
+    $("span", runBtn).textContent = "Enviar otro lead";
   });
 });
 
@@ -169,7 +169,7 @@ $("#contact-form").addEventListener("submit", async (e) => {
   const f = e.currentTarget;
   const err = $("#form-error");
   if (!f.name.value.trim() || !/^\S+@\S+\.\S+$/.test(f.email.value) || !f.process.value.trim()) {
-    err.textContent = "Completá nombre, un email válido y el proceso que querés automatizar.";
+    err.textContent = "Completa nombre, un email válido y el proceso que quieres automatizar.";
     return;
   }
   if (!f.consent.checked) {
@@ -189,7 +189,7 @@ $("#contact-form").addEventListener("submit", async (e) => {
     location.href = "/gracias.html"; // página propia: Cloudflare Analytics la cuenta como conversión
   } catch {
     btn.disabled = false;
-    err.textContent = "No se pudo enviar. Escribinos directo a contacto@eidonsmart.com.";
+    err.textContent = "No se pudo enviar. Escríbenos directo a contacto@eidonsmart.com.";
   }
 });
 
