@@ -192,3 +192,12 @@ $("#contact-form").addEventListener("submit", async (e) => {
     err.textContent = "No se pudo enviar. Escribinos directo a contacto@eidonsmart.com.";
   }
 });
+
+// ---------------------------------------------------------------- hero 3D
+// Se carga con la primera interacción (mover el mouse, scrollear, tocar o una tecla), así el texto y los
+// botones responden primero; aparece con un fundido. Con poca memoria (≤ 2 GB) no se carga y queda el fondo de puntos.
+if (!(navigator.deviceMemory <= 2)) {
+  const evs = ["pointermove", "scroll", "touchstart", "pointerdown", "keydown"];
+  const go = () => { evs.forEach((ev) => removeEventListener(ev, go)); import("./hero3d.js"); };
+  evs.forEach((ev) => addEventListener(ev, go, { once: true, passive: true }));
+}

@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" href="/assets/isotipo.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <meta name="theme-color" content="#131110" />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/vendor/phosphor/style.css" />
   <link rel="stylesheet" href="styles.css" />
   <!-- Cloudflare Web Analytics -->
@@ -16,12 +17,13 @@
   <!-- End Cloudflare Web Analytics -->
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
   <div id="progress" aria-hidden="true"></div>
 
   <header class="site-header">
     <nav class="wrap nav">
-      <a href="index.html" class="brand"><img src="/assets/isotipo.png" alt="" width="28" height="26" /><span>EIDON SMART</span></a>
+      <a href="index.html" class="brand"><img src="/assets/isotipo-56.webp" alt="" width="28" height="26" /><span>EIDON SMART</span></a>
       <div class="nav-links" id="nav-links">
         <a href="index.html#demo">Demo</a>
         <a href="index.html#servicios">Servicios</a>
@@ -35,18 +37,18 @@
     </nav>
   </header>
 
-  <main>
+  <main id="contenido">
     <article class="wrap prose">
         <span class="eyebrow">LEGAL</span>
         <h1>Política de Privacidad y Cookies</h1>
-        <p class="lede">Última actualización: 25 de septiembre de 2026.</p>
+        <p class="lede">Última actualización: 30 de septiembre de 2026.</p>
 
         <h2>1. Responsable</h2>
         <p><strong>Eidon Smart</strong> es responsable de los datos personales que recolecta este sitio. Contacto: <a href="mailto:contacto@eidonsmart.com">contacto@eidonsmart.com</a>.</p>
 
         <h2>2. Qué datos recolectamos</h2>
         <ul>
-          <li><strong>Formulario de contacto:</strong> nombre, email, WhatsApp (opcional), el plan que te interesa y la descripción de tu proceso.</li>
+          <li><strong>Formulario de contacto:</strong> nombre, email, WhatsApp (opcional), el plan que te interesa, la descripción de tu proceso y de dónde llegaste a la web (por ejemplo, desde un link de LinkedIn o de un mail nuestro), para saber qué canales funcionan.</li>
           <li><strong>Botón de arrepentimiento / baja:</strong> nombre, email y qué servicio contrataste.</li>
           <li><strong>Estadísticas de visitas:</strong> usamos Cloudflare Web Analytics, que cuenta visitas de forma agregada sin cookies y sin identificarte.</li>
           <li><strong>Registros técnicos:</strong> nuestro proveedor de hosting (Netlify) registra datos técnicos de cada visita, como la dirección IP, por seguridad.</li>
@@ -90,6 +92,7 @@
         <p><strong>Este sitio no usa cookies</strong>, ni propias ni de terceros, y por eso no te mostramos un aviso para aceptarlas. En concreto:</p>
         <ul>
           <li>Las estadísticas de Cloudflare funcionan sin cookies y sin seguirte entre sitios.</li>
+          <li>Para saber de dónde llegaste, guardamos en el almacenamiento de sesión de tu navegador (<code>sessionStorage</code>) el sitio de origen o la campaña del link. Se borra solo al cerrar la pestaña y solo se envía si mandás el formulario de contacto.</li>
           <li>Las fuentes tipográficas están alojadas en este mismo sitio: tu navegador no se conecta a Google para mostrarlas.</li>
           <li>La <a href="calculadora-tarifa.html">calculadora de tarifa</a> guarda los números que cargás en el almacenamiento local de <strong>tu</strong> navegador (<code>localStorage</code>) para que no los pierdas al volver. Esos datos nunca salen de tu dispositivo; el botón "Restablecer" los borra.</li>
         </ul>
@@ -132,7 +135,7 @@
   <footer class="wrap footer">
     <div class="foot-top">
       <div class="foot-brand">
-        <span class="brand"><img src="/assets/isotipo.png" alt="" width="24" height="22" /><span>EIDON SMART</span></span>
+        <span class="brand"><img src="/assets/isotipo-56.webp" alt="" width="24" height="22" /><span>EIDON SMART</span></span>
         <p>Automatización con n8n e IA para empresas que quieren operar mejor.</p>
       </div>
       <nav class="foot-nav">

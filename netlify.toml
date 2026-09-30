@@ -13,3 +13,14 @@
     Cross-Origin-Opener-Policy = "same-origin"
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
+
+# three.js, íconos y fuentes no cambian: 30 días de caché. Si se actualiza alguno, cambiarle el nombre al archivo.
+[[headers]]
+  for = "/vendor/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"

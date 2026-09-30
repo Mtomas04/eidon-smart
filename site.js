@@ -50,3 +50,16 @@ function setNav(open) {
 toggle?.addEventListener("click", () => setNav(!header.classList.contains("nav-open")));
 header?.querySelectorAll(".nav-links a").forEach((a) => a.addEventListener("click", () => setNav(false)));
 addEventListener("keydown", (e) => e.key === "Escape" && toggle && setNav(false));
+
+// origen de la visita (UTM o sitio de donde vino), guardado solo en esta pestaña; el formulario
+// de contacto lo manda en un campo oculto para saber qué canal trae consultas
+const q = new URLSearchParams(location.search);
+const utm = ["utm_source", "utm_medium", "utm_campaign"].map((k) => q.get(k)).filter(Boolean).join(" / ");
+let ref = "";
+try { ref = document.referrer && new URL(document.referrer).hostname; } catch {}
+if (ref === location.hostname) ref = "";
+try {
+  if ((utm || ref) && !sessionStorage.getItem("origen")) sessionStorage.setItem("origen", utm || ref);
+  const campo = document.getElementById("origen");
+  if (campo) campo.value = sessionStorage.getItem("origen") || "directo";
+} catch {}

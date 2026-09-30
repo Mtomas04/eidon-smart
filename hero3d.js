@@ -12,7 +12,7 @@ const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 let renderer;
 try {
-  renderer = new T.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "low-power" });
+  renderer = new T.WebGLRenderer({ canvas, antialias: innerWidth >= 900, alpha: true, powerPreference: "low-power" });
 } catch {
   canvas.remove(); // sin WebGL queda el fondo con puntos y degradés, que también funciona
 }
@@ -167,7 +167,7 @@ if (renderer) {
   function place() {
     w = hero.clientWidth;
     h = hero.clientHeight;
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(devicePixelRatio, w < 900 ? 1.5 : 2)); // en celular, menos píxeles para la GPU
     renderer.setSize(w, h, false);
     cam.aspect = w / h;
     cam.updateProjectionMatrix();
@@ -187,6 +187,7 @@ if (renderer) {
   new ResizeObserver(place).observe(hero);
   addEventListener("resize", place);
   place();
+  requestAnimationFrame(() => hero.classList.add("is-3d")); // fundido de entrada (styles.css)
 
   let visible = true;
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !calm) start(); }).observe(hero);

@@ -13,11 +13,16 @@
   <meta property="og:description" content="Construimos flujos de trabajo que eliminan tareas manuales y conectan tus herramientas." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://eidonsmart.com/" />
-  <meta property="og:image" content="https://eidonsmart.com/assets/imagotipo.png" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://eidonsmart.com/assets/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="Eidon Smart" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Eidon Smart | Automatización con n8n e IA" />
   <meta name="twitter:description" content="Construimos flujos de trabajo que eliminan tareas manuales y conectan tus herramientas." />
-  <meta name="twitter:image" content="https://eidonsmart.com/assets/imagotipo.png" />
+  <meta name="twitter:image" content="https://eidonsmart.com/assets/og.jpg" />
+  <link rel="preload" href="/assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/vendor/phosphor/style.css" />
   <link rel="stylesheet" href="styles.css" />
   <!-- Cloudflare Web Analytics -->
@@ -38,14 +43,64 @@
     ]
   }
   </script>
+  <!-- FAQPage: copia de las preguntas frecuentes de abajo; si cambia una, cambiarla acá también -->
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta una automatización?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hay dos partes. La construcción se paga una vez: desde US$ 200 un flujo simple (ej: formulario → email → Google Sheets) y desde US$ 500 uno con IA. El abono mensual cubre que siga funcionando (operación, monitoreo, arreglos y consumo de IA): US$ 20/mes un flujo simple, US$ 35/mes uno con IA. Si necesitás varios flujos, el plan Operación arranca en US$ 1.200 + US$ 90/mes. Pagando el año por adelantado, son 12 meses al precio de 10. Siempre hacemos el diagnóstico antes de darte un número final, y lo hacemos sin costo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito saber de tecnología para trabajar con ustedes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Solo necesitás saber qué problema querés resolver. Nosotros elegimos las herramientas, las configuramos y te explicamos el resultado en términos simples. Si algo falla después de la entrega, lo arreglamos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Trabajan con empresas de cualquier tamaño?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, pero donde más impacto generamos es en pymes y emprendimientos en crecimiento: son los que más sienten el costo del trabajo manual y los que más se benefician de liberar horas del equipo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Son seguros los datos de mi empresa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tus flujos corren en infraestructura que administramos nosotros (o en la tuya, si comprás la licencia perpetua). Procesamos solo los datos que el flujo necesita, no los usamos para nada más, la IA que usamos no entrena con ellos, y al terminar el servicio los borramos. Detalle en la Política de Privacidad y los Términos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Y si me arrepiento?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tenés 10 días para arrepentirte con devolución total, según nuestra política de devoluciones, y podés darte de baja sin penalidad desde el botón de baja. El precio final se confirma en el diagnóstico gratis, antes de arrancar."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#top">Saltar al contenido</a>
 
   <div id="progress" aria-hidden="true"></div>
 
   <header class="site-header">
     <nav class="wrap nav">
-      <a href="#top" class="brand"><img src="/assets/isotipo.png" alt="" width="28" height="26" /><span>EIDON SMART</span></a>
+      <a href="#top" class="brand"><img src="/assets/isotipo-56.webp" alt="" width="28" height="26" /><span>EIDON SMART</span></a>
       <div class="nav-links" id="nav-links">
         <a href="#demo">Demo</a>
         <a href="#servicios">Servicios</a>
@@ -67,8 +122,8 @@
       <canvas id="hero-3d" aria-hidden="true"></canvas>
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="kicker"><span class="dot"></span>01 · TRIGGER — AUTOMATIZACIÓN CON N8N E IA</p>
-          <h1>Tu equipo pasa horas copiando datos. <span>Un flujo lo hace en menos de 60&nbsp;segundos.</span></h1>
+          <p class="kicker"><span class="dot"></span>01 · AUTOMATIZACIÓN CON N8N E IA</p>
+          <h1>Automatizá con IA lo que tu equipo copia a mano. <span>Un flujo lo hace en menos de 60&nbsp;segundos.</span></h1>
           <p class="lede">Un formulario que se llena. Un WhatsApp. Una factura que entra por mail. Construimos lo que conecta esa señal con la acción, sin que nadie de tu equipo lo haga a mano.</p>
           <div class="cta-row">
             <a href="#contacto" class="btn btn-primary btn-lg glow">Pedí tu diagnóstico gratis de 20 min <i class="ph ph-arrow-right"></i></a>
@@ -107,8 +162,9 @@
       <div class="demo-grid">
         <figure class="video-card" data-reveal>
           <div class="win-bar"><span></span><span></span><span></span><em>demo-pedidos-y-stock.mp4 · 1 min</em></div>
-          <video controls preload="metadata" playsinline poster="/assets/demo/poster.jpg">
+          <video controls preload="metadata" playsinline poster="/assets/demo/poster.webp">
             <source src="/assets/demo/demo-pedidos-y-stock.mp4" type="video/mp4" />
+            <track kind="captions" src="/assets/demo/demo-pedidos-y-stock.es.vtt" srclang="es" label="Español" />
           </video>
           <figcaption>Demo con datos inventados. Todo lo que se ve lo devolvió el bot de verdad.</figcaption>
         </figure>
@@ -179,7 +235,7 @@
     <!-- SERVICIOS -->
     <section class="section wrap" id="servicios">
       <header class="head" data-reveal>
-        <span class="eyebrow">02 · ACTION</span>
+        <span class="eyebrow">02 · SERVICIOS</span>
         <h2>Construimos tres tipos de soluciones.</h2>
       </header>
       <div class="grid-3 persp">
@@ -219,7 +275,7 @@
     <!-- PROCESO — la línea de arriba se carga con el scroll -->
     <section class="section wrap" id="proceso">
       <header class="head" data-reveal>
-        <span class="eyebrow">03 · LOGIC</span>
+        <span class="eyebrow">03 · CÓMO TRABAJAMOS</span>
         <h2>De la idea a producción, en tres pasos.</h2>
       </header>
       <ol class="steps" id="steps">
@@ -234,7 +290,7 @@
       <div class="wrap calc-grid">
         <div class="calc-inputs">
           <header class="head" data-reveal>
-            <span class="eyebrow">04 · FILTER</span>
+            <span class="eyebrow">04 · CUÁNTO PERDÉS</span>
             <h2>¿Cuánta plata se te escapa en tareas manuales?</h2>
             <p>Una estimación simple, no un estudio. Mové los números hasta que se parezcan a tu operación.</p>
           </header>
@@ -267,7 +323,7 @@
     <section class="section wrap">
       <div class="case" data-reveal>
         <div class="case-copy">
-          <span class="eyebrow">05 · OUTPUT — CASO REAL</span>
+          <span class="eyebrow">05 · CASO REAL</span>
           <h2 class="h2-sm">Clasificación y routing de leads con IA</h2>
           <p>Un formulario dispara un análisis con Gemini Flash, un filtro decide si el lead es de calidad y el resultado llega solo a la planilla del equipo, por email y por Telegram.</p>
           <div class="tags"><span class="tag neutral">n8n</span><span class="tag neutral">Gemini Flash</span><span class="tag neutral">Google Sheets</span><span class="tag neutral">Gmail</span><span class="tag neutral">Telegram</span></div>
@@ -281,7 +337,7 @@
     <section class="section wrap" id="planes">
       <div class="plans-head">
         <header class="head" data-reveal>
-          <span class="eyebrow">06 · EXECUTE</span>
+          <span class="eyebrow">06 · PLANES</span>
           <h2>Planes claros, sin letra chica.</h2>
           <p>Pagás una vez la construcción y un abono de operación y mantenimiento: corre en nuestra infraestructura, lo monitoreamos, lo arreglamos y cubrimos el consumo de IA.</p>
         </header>
@@ -339,7 +395,7 @@
     <!-- FAQ -->
     <section class="section wrap faq" id="faq">
       <header class="head" data-reveal>
-        <span class="eyebrow">07 · DEBUG</span>
+        <span class="eyebrow">07 · PREGUNTAS FRECUENTES</span>
         <h2>Lo que nos preguntan.</h2>
         <p>¿Otra duda? Escribinos a <a href="mailto:contacto@eidonsmart.com">contacto@eidonsmart.com</a>.</p>
       </header>
@@ -371,7 +427,7 @@
     <section class="contact" id="contacto">
       <div class="wrap contact-grid">
         <div class="contact-copy" data-reveal>
-          <span class="eyebrow light">08 · DEPLOY</span>
+          <span class="eyebrow light">08 · CONTACTO</span>
           <h2 class="h2-lg">Pedí tu diagnóstico gratis.</h2>
           <p>Contanos qué proceso te gustaría automatizar. En menos de 24 horas te respondemos para coordinar una llamada de 20 minutos, sin costo, con un diagnóstico honesto.</p>
           <ul class="promises">
@@ -387,6 +443,7 @@
         </div>
         <form class="form-card" id="contact-form" name="contact" method="POST" action="/gracias.html" data-netlify="true" netlify-honeypot="bot-field" novalidate>
           <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="origen" id="origen" value="" />
           <p hidden><label>No completar si sos humano: <input name="bot-field" /></label></p>
           <div class="row-2">
             <div class="field"><label for="name">Nombre</label><input class="input" id="name" name="name" autocomplete="name" placeholder="Tu nombre" required /></div>
@@ -415,7 +472,7 @@
   <footer class="wrap footer">
     <div class="foot-top">
       <div class="foot-brand">
-        <span class="brand"><img src="/assets/isotipo.png" alt="" width="24" height="22" /><span>EIDON SMART</span></span>
+        <span class="brand"><img src="/assets/isotipo-56.webp" alt="" width="24" height="22" /><span>EIDON SMART</span></span>
         <p>Automatización con n8n e IA para empresas que quieren operar mejor.</p>
       </div>
       <nav class="foot-nav">
@@ -443,6 +500,5 @@
 
   <script type="module" src="site.js"></script>
   <script type="module" src="app.js"></script>
-  <script type="module" src="hero3d.js"></script>
 </body>
 </html>
