@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Botón de arrepentimiento y baja | Eidon Smart</title>
-  <meta name="description" content="Cancelá una contratación dentro de los 10 días (Botón de arrepentimiento) o da de baja tu abono (Botón de baja de servicio), sin registrarte." />
+  <meta name="description" content="Cancela una contratación dentro de los 10 días (Botón de arrepentimiento) o da de baja tu abono (Botón de baja de servicio), sin registrarte." />
   <link rel="canonical" href="https://eidonsmart.com/arrepentimiento.html" />
   <link rel="icon" type="image/png" href="/assets/isotipo.png" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -44,7 +44,7 @@
         <p class="lede">Sin registrarte y sin dar explicaciones. Al enviar el formulario te mostramos un código de trámite, y te lo confirmamos por email dentro de las 24 horas.</p>
 
         <ul>
-          <li id="arrepentimiento"><strong>Arrepentimiento:</strong> cancelás una contratación hecha a distancia dentro de los 10 días corridos desde que la aceptaste. Te devolvemos el 100% de lo pagado.</li>
+          <li id="arrepentimiento"><strong>Arrepentimiento:</strong> cancelas una contratación hecha a distancia dentro de los 10 días corridos desde que la aceptaste. Te devolvemos el 100% de lo pagado.</li>
           <li id="baja"><strong>Baja de servicio:</strong> das de baja tu abono mensual, sin penalidad. Es efectiva al terminar el mes ya pagado.</li>
         </ul>
         <p>Condiciones completas en los <a href="terminos.html#devoluciones">Términos y Condiciones</a>.</p>
@@ -52,9 +52,9 @@
         <form id="tramite-form" name="tramite" method="POST" action="/arrepentimiento.html#recibido" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="tramite" />
           <input type="hidden" name="codigo" id="tramite-codigo" />
-          <p hidden><label>No completar si sos humano: <input name="bot-field" /></label></p>
+          <p hidden><label>No completar si eres humano: <input name="bot-field" /></label></p>
           <fieldset class="field">
-            <legend>¿Qué querés hacer?</legend>
+            <legend>¿Qué quieres hacer?</legend>
             <label class="radio"><input type="radio" name="tipo" value="Arrepentimiento" id="tipo-arrepentimiento" required /> Arrepentirme de una contratación</label>
             <label class="radio"><input type="radio" name="tipo" value="Baja de servicio" id="tipo-baja" /> Dar de baja mi abono</label>
           </fieldset>
@@ -81,7 +81,7 @@
         <div id="recibido" class="tramite-ok">
           <h2>Recibimos tu solicitud.</h2>
           <p>Tu código de trámite: <strong id="tramite-codigo-ok">te lo enviamos por email dentro de las 24 horas</strong>.</p>
-          <p>Guardalo: es el comprobante de que hiciste el pedido.</p>
+          <p>Guárdalo: es el comprobante de que hiciste el pedido.</p>
         </div>
     </article>
   </main>
