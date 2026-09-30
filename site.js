@@ -38,3 +38,15 @@ function onScroll() {
 }
 addEventListener("scroll", onScroll, { passive: true });
 onScroll();
+
+// menú desplegable en celular
+const header = document.querySelector(".site-header");
+const toggle = header?.querySelector(".nav-toggle");
+function setNav(open) {
+  header.classList.toggle("nav-open", open);
+  toggle.setAttribute("aria-expanded", open);
+  toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+}
+toggle?.addEventListener("click", () => setNav(!header.classList.contains("nav-open")));
+header?.querySelectorAll(".nav-links a").forEach((a) => a.addEventListener("click", () => setNav(false)));
+addEventListener("keydown", (e) => e.key === "Escape" && toggle && setNav(false));
