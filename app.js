@@ -194,11 +194,12 @@ $("#contact-form").addEventListener("submit", async (e) => {
 });
 
 // ---------------------------------------------------------------- hero 3D
-// En celular se carga cuando la página ya terminó y el navegador está libre: el texto y los botones
-// responden primero. Con poca memoria (≤ 2 GB) no se carga y queda el fondo de puntos.
+// En celular el 3D queda debajo de los botones: se carga recién con el primer scroll o toque, así el
+// texto y los botones responden primero. Con poca memoria (≤ 2 GB) no se carga y queda el fondo de puntos.
 const loadHero = () => import("./hero3d.js");
 if (innerWidth >= 900) loadHero();
 else if (!(navigator.deviceMemory <= 2)) {
-  const idle = () => (window.requestIdleCallback ? requestIdleCallback(loadHero, { timeout: 3000 }) : setTimeout(loadHero, 1500));
-  document.readyState === "complete" ? idle() : addEventListener("load", idle, { once: true });
+  const evs = ["scroll", "touchstart", "pointerdown", "keydown"];
+  const go = () => { evs.forEach((ev) => removeEventListener(ev, go)); loadHero(); };
+  evs.forEach((ev) => addEventListener(ev, go, { once: true, passive: true }));
 }
