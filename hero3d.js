@@ -175,9 +175,14 @@ if (renderer) {
     const halfH = Math.tan(T.MathUtils.degToRad(cam.fov / 2)) * cam.position.z;
     const halfW = halfH * cam.aspect;
     const cx = ((sr.left + sr.width / 2 - hr.left) / w) * 2 - 1;
-    const cy = 1 - ((sr.top + sr.height / 2 - hr.top) / h) * 2;
+    // en celular el badge va abajo del stage: el flujo va en el padding de arriba, un poco
+    // más alto que el centro porque las etiquetas cuelgan debajo de cada nodo
+    const pad = parseFloat(getComputedStyle(stage).paddingTop);
+    const midY = pad ? sr.top + pad * 0.4 : sr.top + sr.height / 2;
+    const cy = 1 - ((midY - hr.top) / h) * 2;
     flow.position.set(cx * halfW, cy * halfH + 0.2, 0);
-    flow.scale.setScalar(Math.min(1, ((sr.width / w) * 2 * halfW) / 9.8));
+    // en celular se deja margen extra para que las etiquetas (más anchas que los nodos) no se corten
+    flow.scale.setScalar(Math.min(1, ((sr.width / w) * 2 * halfW) / (w < 700 ? 11.5 : 9.8)));
   }
   new ResizeObserver(place).observe(hero);
   addEventListener("resize", place);
