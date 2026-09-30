@@ -446,7 +446,7 @@ textarea.input { resize: vertical; }
 
 @media (max-width: 520px) {
   .expense-row input[type="number"] { width: 92px; }
-  .kicker { letter-spacing: 0.06em; font-size: 11px; }
+  .kicker { letter-spacing: 0.06em; }
 }
 
 /* celular: controles nativos oscuros y menos aire vacío */
@@ -459,4 +459,15 @@ textarea.input { resize: vertical; }
   .sticky-cta { font-size: 13px; padding-left: 14px; gap: 8px; }
   .sticky-cta span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .sticky-cta .btn { flex: none; }
+}
+
+/* accesibilidad: link para saltar el menú con teclado, visible solo al enfocarlo */
+.skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; border-radius: var(--r-md); background: var(--surface); color: var(--text); box-shadow: 0 0 0 2px var(--a); transition: top 0.2s; }
+.skip-link:focus { top: 12px; }
+
+/* celular: texto chico legible al sol */
+@media (max-width: 600px) {
+  .eyebrow, .kicker { font-size: 13px; }
+  .fine { font-size: 14px; }
+  .form-card .fine { font-size: 13px; }
 }

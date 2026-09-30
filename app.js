@@ -192,3 +192,13 @@ $("#contact-form").addEventListener("submit", async (e) => {
     err.textContent = "No se pudo enviar. Escribinos directo a contacto@eidonsmart.com.";
   }
 });
+
+// ---------------------------------------------------------------- hero 3D
+// En celular se carga cuando la página ya terminó y el navegador está libre: el texto y los botones
+// responden primero. Con poca memoria (≤ 2 GB) no se carga y queda el fondo de puntos.
+const loadHero = () => import("./hero3d.js");
+if (innerWidth >= 900) loadHero();
+else if (!(navigator.deviceMemory <= 2)) {
+  const idle = () => (window.requestIdleCallback ? requestIdleCallback(loadHero, { timeout: 3000 }) : setTimeout(loadHero, 1500));
+  document.readyState === "complete" ? idle() : addEventListener("load", idle, { once: true });
+}
