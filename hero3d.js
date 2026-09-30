@@ -187,6 +187,7 @@ if (renderer) {
   new ResizeObserver(place).observe(hero);
   addEventListener("resize", place);
   place();
+  requestAnimationFrame(() => hero.classList.add("is-3d")); // fundido de entrada (styles.css)
 
   let visible = true;
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !calm) start(); }).observe(hero);
