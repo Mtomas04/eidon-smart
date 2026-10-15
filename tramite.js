@@ -29,6 +29,6 @@ form.addEventListener("submit", async (event) => {
     location.hash = "recibido";
   } catch {
     button.disabled = false;
-    status.textContent = "No se pudo enviar. Escribinos a contacto@eidonsmart.com con el asunto “Arrepentimiento” o “Baja” y te respondemos con el código en menos de 24 horas.";
+    status.textContent = "No se pudo enviar. Escríbenos a contacto@eidonsmart.com con el asunto “Arrepentimiento” o “Baja” y te respondemos con el código en menos de 24 horas.";
   }
 });

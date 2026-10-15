@@ -189,7 +189,7 @@ p { margin: 0; }
 .bubble.bot { background: var(--surface); box-shadow: var(--shadow-sm); border-bottom-left-radius: 4px; }
 .bubble.warn { box-shadow: inset 0 0 0 1px var(--a-700); }
 
-/* ------------------------------- probalo (lab) ------------------------------ */
+/* ------------------------------ pruebalo (lab) ------------------------------ */
 .lab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 28px; align-items: stretch; }
 .board-wrap { perspective: 1100px; min-height: 420px; border-radius: var(--r-lg); background: radial-gradient(600px 300px at 50% 60%, color-mix(in srgb, var(--section-glow) 45%, transparent), transparent 70%); display: flex; align-items: center; justify-content: center; padding: 20px; }
 .board {

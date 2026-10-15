@@ -12,7 +12,7 @@ npx serve .
 python3 -m http.server 8000
 ```
 
-Abrí `index.html` desde ese servidor (Netlify Forms y los headers solo funcionan en producción).
+Abre `index.html` desde ese servidor (Netlify Forms y los headers solo funcionan en producción).
 
 ## Estructura
 
@@ -28,19 +28,19 @@ styles.css               todos los estilos (tokens de color arriba de todo)
 site.js                  común a todas las páginas: aparición al scrollear, tarjetas 3D, barra de progreso, CTA flotante
 app.js                   solo home: demo de leads, calculadora de ahorro, planes, contacto (Netlify Forms)
 hero3d.js                escena 3D del hero (three.js)
-vendor/three.module.min.js   three.js r170, alojado acá para no sumar un CDN a la CSP
+vendor/three.module.min.js   three.js r170, alojado aquí para no sumar un CDN a la CSP
 vendor/phosphor/         íconos Phosphor recortados a los que se usan
 assets/fonts/            fuentes propias (sin Google Fonts: nada de IP a terceros)
 assets/demo/             video y portada de la demo de pedidos y stock (datos inventados)
 ```
 
-Todo se sirve desde el propio dominio: no hay CDNs ni Google Fonts, así la CSP de `netlify.toml` queda en `'self'` y la promesa de privacidad sigue siendo cierta. Si sumás un ícono, recortá la fuente de nuevo:
+Todo se sirve desde el propio dominio: no hay CDNs ni Google Fonts, así la CSP de `netlify.toml` queda en `'self'` y la promesa de privacidad sigue siendo cierta. Si sumas un ícono, recorta la fuente de nuevo:
 
 ```bash
 pyftsubset Phosphor.woff2 --unicodes="U+e03a,..." --flavor=woff2 --output-file=Phosphor.woff2
 ```
 
-(los códigos son los `content: "\e…"` de `vendor/phosphor/style.css`; partí de la fuente completa de unpkg).
+(los códigos son los `content: "\e…"` de `vendor/phosphor/style.css`; parte de la fuente completa de unpkg).
 
 ## Deploy a Netlify
 
@@ -55,7 +55,7 @@ Todas las cifras de la home salen de casos reales del portafolio (3 flujos en pr
 - **`portafolio.html`**: tres casos reales documentados (prospección con IA, clasificación de leads, monitoreo y facturas), más equipo, stack y precios. Sumar casos nuevos a medida que se cierren proyectos — no inventar números.
 - La calculadora de ROI ya no cita estudios genéricos (Zapier 2021 / McKinsey) como si fueran investigación propia — ahora se presenta explícitamente como una estimación editable.
 - Las conversiones de moneda en la calculadora (ARS/COP) son aproximadas, no tipos de cambio en vivo — si hace falta precisión, conectar una API de cotización.
-- El formulario de contacto usa **Netlify Forms** (`data-netlify="true"` + submit por fetch en `app.js`). Se activa solo en el próximo deploy — las respuestas van a aparecer en el dashboard de Netlify, en Forms. Si querés notificación por email de cada envío nuevo, se configura ahí mismo (Site settings → Forms → Form notifications), no es algo que se resuelva desde el código.
+- El formulario de contacto usa **Netlify Forms** (`data-netlify="true"` + submit por fetch en `app.js`). Se activa solo en el próximo deploy — las respuestas van a aparecer en el dashboard de Netlify, en Forms. Si quieres notificación por email de cada envío nuevo, se configura ahí mismo (Site settings → Forms → Form notifications), no es algo que se resuelva desde el código.
 
 ## Legales: qué no romper
 
