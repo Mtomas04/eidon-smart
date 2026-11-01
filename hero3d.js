@@ -1,5 +1,5 @@
-// Hero 3D. Adelante: el flujo real de leads (Formulario → Gemini → Filtro →
-// Sheets/Gmail/Telegram) con sus etiquetas, como lo diseñó Claude Design.
+// Hero 3D. Adelante: el flujo de un lote (Resultados → Lectura con IA → Especificación →
+// Registro/Certificado/Calidad) con sus etiquetas, sobre el diseño de Claude Design.
 // Atrás: una red tenue en capas por la que corren pulsos, como datos moviéndose.
 // three.js va alojado en /vendor para no sumar un CDN a la CSP.
 import * as T from "./vendor/three.module.min.js";
@@ -113,12 +113,12 @@ if (renderer) {
   const flow = new T.Group();
   scene.add(flow);
   const defs = [
-    { label: "Formulario web", p: [-3.6, -0.2, 0.6], geo: new T.BoxGeometry(0.8, 0.8, 0.8) },
-    { label: "Gemini Flash", p: [-1.3, 1.1, -0.6], geo: new T.IcosahedronGeometry(0.6, 0), ai: true },
-    { label: "Smart Filter", p: [0.9, -0.3, 0.4], geo: new T.OctahedronGeometry(0.6, 0) },
-    { label: "Google Sheets", p: [3.3, 1.5, -0.6], geo: new T.BoxGeometry(0.6, 0.6, 0.6) },
-    { label: "Gmail", p: [3.7, -0.1, 0.8], geo: new T.BoxGeometry(0.6, 0.6, 0.6) },
-    { label: "Telegram", p: [3.1, -1.7, -0.2], geo: new T.BoxGeometry(0.6, 0.6, 0.6) },
+    { label: "Resultados del equipo", p: [-3.6, -0.2, 0.6], geo: new T.BoxGeometry(0.8, 0.8, 0.8) },
+    { label: "Lectura con IA", p: [-1.3, 1.1, -0.6], geo: new T.IcosahedronGeometry(0.6, 0), ai: true },
+    { label: "¿Cumple la especificación?", p: [0.9, -0.3, 0.4], geo: new T.OctahedronGeometry(0.6, 0) },
+    { label: "Registro del lote", p: [3.3, 1.5, -0.6], geo: new T.BoxGeometry(0.6, 0.6, 0.6) },
+    { label: "Certificado PDF", p: [3.7, -0.1, 0.8], geo: new T.BoxGeometry(0.6, 0.6, 0.6) },
+    { label: "Aviso a Calidad", p: [3.1, -1.7, -0.2], geo: new T.BoxGeometry(0.6, 0.6, 0.6) },
   ];
   const nodes = defs.map((d) => {
     const n = new T.Group();
@@ -148,11 +148,12 @@ if (renderer) {
     flow.add(new T.Mesh(new T.TubeGeometry(curve, 40, 0.018, 6, false), new T.MeshBasicMaterial({ color: ACC, transparent: true, opacity: 0.4 })));
     return { curve, to: b };
   });
-  // paquetes: un lead entra, Gemini lo lee, el filtro decide a dónde va (alta → 3 destinos, dudosa → planilla, nula → se apaga)
+  // paquetes: entra un lote, la IA lee los resultados y la especificación decide a dónde va
+  // (conforme → registro + certificado; fuera de especificación → registro + aviso a Calidad)
   const packets = [];
-  let leads = 0;
+  let lotes = 0;
   const spawn = (li, cls) => {
-    const s = new T.Sprite(new T.SpriteMaterial({ color: cls === "nula" ? DIM : HI, ...additive }));
+    const s = new T.Sprite(new T.SpriteMaterial({ color: cls === "fuera" ? ACC : HI, ...additive }));
     s.scale.setScalar(0.55);
     flow.add(s);
     packets.push({ s, li, t: 0, cls, sp: 0.55 + Math.random() * 0.2 });
@@ -231,8 +232,7 @@ if (renderer) {
     // --- flujo real
     if ((spawnT -= dt) <= 0) {
       spawnT = 1.1 + Math.random() * 0.6;
-      const r = Math.random();
-      spawn(0, r < 0.5 ? "alta" : r < 0.8 ? "dudosa" : "nula");
+      spawn(0, Math.random() < 0.75 ? "ok" : "fuera");
     }
     for (let i = packets.length - 1; i >= 0; i--) {
       const p = packets[i];
@@ -245,13 +245,12 @@ if (renderer) {
         packets.splice(i, 1);
         if (p.li === 0) spawn(1, p.cls);
         else if (p.li === 1) {
-          if (p.cls === "alta") { spawn(2, p.cls); spawn(3, p.cls); spawn(4, p.cls); }
-          else if (p.cls === "dudosa") spawn(2, p.cls);
-        } else if (p.li === 2) countEl.textContent = ++leads; // cada lead que llega a la planilla
+          spawn(2, p.cls);
+          spawn(p.cls === "ok" ? 3 : 4, p.cls);
+        } else if (p.li === 2) countEl.textContent = ++lotes; // cada lote que llega al registro
         continue;
       }
       L.curve.getPoint(p.t, p.s.position);
-      if (p.cls === "nula" && p.li === 1) p.s.material.opacity = 1 - p.t * 0.7;
     }
     nodes.forEach((o, i) => {
       o.pulse *= 0.93;

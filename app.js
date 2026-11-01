@@ -20,18 +20,17 @@ function onScroll() {
 addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
-// ---------------------------------------------------------------- pruébalo: simulación del flujo de leads
-// Leads inventados; los pasos y destinos son los del flujo real del caso.
-const LEADS = [
-  { name: "Martina · Estudio contable", msg: "Necesitamos cargar 300 facturas por mes al sistema sin hacerlo a mano.", res: "alta", score: 92 },
-  { name: "Julián", msg: "Hola, ¿cuánto sale?", res: "dudosa", score: 48 },
-  { name: "promo-bot", msg: "Gana dinero rápido con cripto, haz clic aquí.", res: "nula", score: 3 },
-  { name: "Carla · E-commerce de indumentaria", msg: "Queremos que los pedidos de WhatsApp entren solos a la planilla y avisen a depósito.", res: "alta", score: 88 },
+// ---------------------------------------------------------------- pruébalo: simulación de la revisión de un lote
+// Lotes y resultados inventados; las etapas son las del flujo que construimos.
+const LOTES = [
+  { name: "Lote L-2611-04 · Desengrasante DG-40", msg: "pH 11,8 · densidad 1,052 g/mL · materia activa 19,3 % · viscosidad 162 mPa·s", res: "fuera", falla: "viscosidad 162 mPa·s (máx. 150)" },
+  { name: "Lote L-2611-05 · Desengrasante DG-40", msg: "pH 12,1 · densidad 1,048 g/mL · materia activa 18,7 % · viscosidad 120 mPa·s", res: "ok" },
+  { name: "Lote P-0412 · Pintura látex interior", msg: "viscosidad 98 KU · sólidos 52 % · densidad 1,38 g/mL", res: "ok" },
+  { name: "Lote A-077 · Adhesivo vinílico", msg: "pH 3,2 · sólidos 41 % · viscosidad 9.800 mPa·s", res: "fuera", falla: "pH 3,2 (mín. 4,0)" },
 ];
 const RESULT = {
-  alta: { label: "de alta calidad", note: "El equipo ya tiene la alerta en Telegram.", dest: "Sheets ✓  Gmail ✓  Telegram ✓", outs: ["sheets", "gmail", "telegram"] },
-  dudosa: { label: "dudoso", note: "Registrado para seguimiento.", dest: "Sheets ✓ · queda para revisar", outs: ["sheets"] },
-  nula: { label: "descartado", note: "Spam filtrado automáticamente.", dest: "Descartado · no molesta al equipo", outs: [] },
+  ok: { label: "conforme", note: "El certificado está listo para firmar.", dest: "Registro ✓  Certificado ✓", outs: ["registro", "certificado"] },
+  fuera: { label: "fuera de especificación", note: "Calidad recibió el aviso; el lote queda retenido.", dest: "Registro ✓  Aviso a Calidad ✓ · sin certificado", outs: ["registro", "calidad"] },
 };
 const runBtn = $("#run-demo");
 const logEl = $("#log");
@@ -58,7 +57,7 @@ function logLine(t0, text) {
 
 runBtn.addEventListener("click", () => {
   timers.forEach(clearTimeout);
-  const lead = LEADS[processed % LEADS.length];
+  const lead = LOTES[processed % LOTES.length];
   const r = RESULT[lead.res];
   const t0 = performance.now();
   const at = (ms, fn) => timers.push(setTimeout(fn, calm ? 0 : ms));
@@ -66,15 +65,15 @@ runBtn.addEventListener("click", () => {
   runBtn.disabled = true;
   $("span", runBtn).textContent = "Procesando…";
   $("#lead-name").textContent = lead.name;
-  $("#lead-msg").textContent = `“${lead.msg}”`;
+  $("#lead-msg").textContent = lead.msg;
   $("#result").hidden = true;
   logEl.replaceChildren();
   outEls.forEach((o) => o.classList.remove("on"));
   setStage(0);
-  logLine(t0, `Formulario recibido · ${lead.name}`);
+  logLine(t0, `Resultados recibidos · ${lead.name}`);
 
-  at(800, () => { setStage(1); logLine(t0, "Gemini Flash analiza la intención del mensaje…"); });
-  at(1800, () => { setStage(2); logLine(t0, `Smart Filter · score ${lead.score}/100 → ${lead.res.toUpperCase()}`); });
+  at(800, () => { setStage(1); logLine(t0, "La IA lee y ordena los resultados del equipo…"); });
+  at(1800, () => { setStage(2); logLine(t0, lead.res === "ok" ? "Especificación · todos los ensayos cumplen" : `Especificación · no cumple: ${lead.falla}`); });
   at(2700, () => {
     setStage(3);
     logLine(t0, r.dest);
@@ -83,11 +82,11 @@ runBtn.addEventListener("click", () => {
   at(3400, () => {
     processed++;
     $("#demo-count").textContent = processed;
-    $("#result-tag").textContent = `Lead ${r.label} · score ${lead.score}/100`;
+    $("#result-tag").textContent = `Lote ${r.label}`;
     $("#result-note").textContent = r.note;
     $("#result").hidden = false;
     runBtn.disabled = false;
-    $("span", runBtn).textContent = "Enviar otro lead";
+    $("span", runBtn).textContent = "Cargar otro lote";
   });
 });
 
@@ -99,7 +98,6 @@ const CUR = {
   COP: { sym: "COL$ ", rate: [10000, 300000, 1000], def: 80000 },
 };
 const HOURS_FTE = 1880; // horas de trabajo de una persona por año
-const AI_PLAN = { build: 500, monthly: 35 }; // plan "Flujo con IA", para el cálculo de repago
 let currency = "USD";
 const inp = { people: $("#calc-people"), hours: $("#calc-hours"), rate: $("#calc-rate"), pct: $("#calc-pct") };
 
@@ -116,14 +114,6 @@ function updateCalc() {
   $("#calc-money").textContent = sym + nf.format(money);
   $("#calc-hours-year").textContent = nf.format(hoursYear);
   $("#calc-fte").textContent = (hoursYear / HOURS_FTE).toFixed(1).replace(".", ",");
-
-  // repago: lo ahorrado por semana, descontando el abono, contra el costo de construcción
-  const weeklyNet = money / 52 - (AI_PLAN.monthly * 12) / 52;
-  const weeks = weeklyNet > 0 ? Math.ceil(AI_PLAN.build / weeklyNet) : 0;
-  const payback = $("#payback");
-  payback.hidden = currency !== "USD" || weeks <= 0;
-  $("span", payback).textContent =
-    `Con esos números, un Flujo con IA (US$ ${AI_PLAN.build} + US$ ${AI_PLAN.monthly}/mes) se pagaría en ~${weeks <= 1 ? "1 semana" : `${weeks} semanas`}.`;
 }
 Object.values(inp).forEach((el) => el.addEventListener("input", updateCalc));
 $$(".seg button").forEach((btn) =>
@@ -143,25 +133,9 @@ updateCalc();
 $("#calc-cta").addEventListener("click", () => {
   const f = $("#process");
   if (f.value.trim()) return;
-  f.value = `Somos ${inp.people.value} personas con unas ${inp.hours.value} h/semana de tareas manuales cada una. ` +
-    `La calculadora estima ${$("#calc-money").textContent}/año (${$("#calc-hours-year").textContent} h) recuperables. El proceso es: `;
+  f.value = `Somos ${inp.people.value} personas con unas ${inp.hours.value} h/semana armando documentos a mano cada una. ` +
+    `La calculadora estima ${$("#calc-money").textContent}/año (${$("#calc-hours-year").textContent} h) recuperables. El documento que más tiempo nos lleva es: `;
 });
-
-// ---------------------------------------------------------------- planes: mensual / anual
-$$(".pill-toggle button").forEach((btn) =>
-  btn.addEventListener("click", () => {
-    $$(".pill-toggle button").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
-    $$(".fee").forEach((f) => (f.textContent = f.dataset[btn.dataset.billing]));
-  })
-);
-
-// cada botón de plan deja ese plan elegido en el formulario
-$$("[data-plan]").forEach((btn) =>
-  btn.addEventListener("click", () => {
-    const radio = $(`.pills input[value="${btn.dataset.plan}"]`);
-    if (radio) radio.checked = true;
-  })
-);
 
 // ---------------------------------------------------------------- contacto → Netlify Forms, sin recargar
 $("#contact-form").addEventListener("submit", async (e) => {
@@ -169,7 +143,7 @@ $("#contact-form").addEventListener("submit", async (e) => {
   const f = e.currentTarget;
   const err = $("#form-error");
   if (!f.name.value.trim() || !/^\S+@\S+\.\S+$/.test(f.email.value) || !f.process.value.trim()) {
-    err.textContent = "Completa nombre, un email válido y el proceso que quieres automatizar.";
+    err.textContent = "Completa nombre, un email válido y qué documento o tarea les lleva más tiempo.";
     return;
   }
   if (!f.consent.checked) {
