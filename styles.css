@@ -474,3 +474,45 @@ textarea.input { resize: vertical; }
   .fine { font-size: 14px; }
   .form-card .fine { font-size: 13px; }
 }
+
+/* -------------------------- certificado de análisis (demo) ------------------------- */
+/* Datos inventados. Al entrar en pantalla (site.js le pone .is-in) los resultados se escriben y el estado se sella, fila por fila. */
+.coa { --ok: #6fd3a8; }
+.coa-body { padding: 20px 22px 6px; }
+.coa-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--n-600); }
+.coa-head b { font-size: 19px; font-weight: 600; letter-spacing: -0.015em; }
+.coa-head span { font-size: 12px; color: var(--n-400); }
+.coa-meta { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; margin: 14px 0 16px; }
+.coa-meta dt { font-size: 12px; color: var(--n-500); }
+.coa-meta dd { margin: 0; font-size: 14px; color: var(--n-200); }
+.coa table { width: 100%; border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.coa th, .coa td { text-align: left; padding: 9px 8px 9px 0; border-bottom: 1px solid var(--divider); vertical-align: top; color: var(--n-300); }
+.coa thead th { font-size: 12px; font-weight: 500; color: var(--n-500); border-bottom-color: var(--n-600); }
+.coa tbody th { font-weight: 500; color: var(--n-200); }
+.coa .res { font-weight: 600; color: var(--text); }
+.coa .st { font-weight: 600; white-space: nowrap; }
+.coa .ok { color: var(--ok); }
+.coa .bad { color: var(--a-300); white-space: normal; }
+.coa tr.fuera { background: color-mix(in srgb, var(--a) 10%, transparent); }
+.coa tr.fuera > th { box-shadow: inset 2px 0 0 var(--a); padding-left: 8px; }
+@media (prefers-reduced-motion: no-preference) {
+  .coa .res { animation: coa-write 0.45s ease-out both; }
+  .coa .st { animation: coa-stamp 0.3s cubic-bezier(.2, 1.6, .4, 1) both; }
+  .coa tr.fuera { animation: coa-flag 0.4s ease-out both 2.75s; }
+  .coa tbody tr:nth-child(1) .res { animation-delay: 0.5s; }  .coa tbody tr:nth-child(1) .st { animation-delay: 0.85s; }
+  .coa tbody tr:nth-child(2) .res { animation-delay: 0.95s; } .coa tbody tr:nth-child(2) .st { animation-delay: 1.3s; }
+  .coa tbody tr:nth-child(3) .res { animation-delay: 1.4s; }  .coa tbody tr:nth-child(3) .st { animation-delay: 1.75s; }
+  .coa tbody tr:nth-child(4) .res { animation-delay: 1.85s; } .coa tbody tr:nth-child(4) .st { animation-delay: 2.2s; }
+  .coa tbody tr:nth-child(5) .res { animation-delay: 2.3s; }  .coa tbody tr:nth-child(5) .st { animation-delay: 2.75s; }
+  .coa:not(.is-in) * { animation-play-state: paused; }
+}
+@keyframes coa-write { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes coa-stamp { from { opacity: 0; transform: scale(1.35); } to { opacity: 1; transform: none; } }
+@keyframes coa-flag { from { background-color: transparent; } }
+@media (max-width: 600px) {
+  .coa-body { padding: 16px 14px 4px; }
+  .coa-meta { grid-template-columns: 1fr 1fr; }
+  .coa-meta div:first-child { grid-column: 1 / -1; }
+  .coa table { font-size: 12px; }
+  .coa th, .coa td { padding-right: 6px; }
+}
